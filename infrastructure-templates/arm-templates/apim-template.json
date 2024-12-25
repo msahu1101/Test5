@@ -1,0 +1,231 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"apimName": {
+			"type": "string"
+		},
+		"apiName": {
+			"type": "string"
+		},
+		"functionAppName": {
+			"type": "string"
+		},
+		"functionSubscriptionId": {
+			"type": "string"
+		},
+		"functionResourceGroup": {
+			"type": "string"
+		},
+		"path": {
+			"type": "string"
+		},
+		"version": {
+			"type": "string",
+			"defaultValue": "1"
+		},
+		"subscriptionRequired": {
+			"type": "bool",
+			"defaultValue": false
+		}
+	},
+	"variables": {
+		"faResourceId": "[concat('https://management.azure.com/subscriptions/', parameters('functionSubscriptionId'), '/resourceGroups/', parameters('functionResourceGroup'), '/providers/Microsoft.Web/sites/', parameters('functionAppName'))]"
+	},
+	"resources": [
+		{
+			"type": "Microsoft.ApiManagement/service/apis",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'))]",
+			"properties": {
+				"displayName": "[parameters('path')]",
+				"apiRevision": "[parameters('version')]",
+				"subscriptionRequired": "[parameters('subscriptionRequired')]",
+				"path": "[parameters('path')]",
+				"protocols": [
+					"https"
+				],
+				"isCurrent": true
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/backends",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'))]",
+			"properties": {
+				"description": "[parameters('functionAppName')]",
+				"url": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api')]",
+				"protocol": "http",
+				"resourceId": "[variables('faResourceId')]"
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-health')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"displayName": "health",
+                "method": "GET",
+                "urlTemplate": "/booking/v1/health",
+                "templateParameters": [],
+                "responses": []
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-bulkfetch')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"displayName": "bulkFetch",
+                "method": "GET",
+                "urlTemplate": "/booking/v1/reservation/room/batch",
+                "templateParameters": [],
+                "responses": []
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-search')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"displayName": "search",
+                "method": "GET",
+                "urlTemplate": "/booking/v1/reservation/room/search",
+                "templateParameters": [],
+                "responses": []
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-search-basic')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"displayName": "searchBasic",
+                "method": "GET",
+                "urlTemplate": "/booking/v1/reservation/room/search/basic",
+                "templateParameters": [],
+                "responses": []
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-search-profiles')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"displayName": "searchProfiles",
+                "method": "GET",
+                "urlTemplate": "/booking/v1/reservation/room/profiles",
+                "templateParameters": [],
+                "responses": []
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-folio')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"displayName": "folio",
+				"method": "GET",
+				"urlTemplate": "/booking/v1/reservation/room/folio",
+				"templateParameters": [],
+				"responses": []
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations/policies",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-health/policy')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimName'), parameters('apiName'), 'get-health')]",
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"value": "[concat('<policies>\r\n  <inbound>\r\n    <set-backend-service id=\"apim-generated-policy\" backend-id=\"', parameters('functionAppName'), '\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"40\"/>\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>')]",
+				"format": "xml"
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations/policies",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-bulkfetch/policy')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimName'), parameters('apiName'), 'get-bulkfetch')]",
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"value": "[concat('<policies>\r\n  <inbound>\r\n    <base /><choose><when condition=\"@(context.Request.Headers.ContainsKey(&quot;Authorization&quot;))\"><set-variable name=\"jwt\" value=\"@(context.Request.Headers.GetValueOrDefault(&quot;Authorization&quot;, string.Empty).AsJwt())\" /><choose><when condition=\"@(!((Jwt)context.Variables[&quot;jwt&quot;]).Claims[&quot;scp&quot;].Contains(&quot;booking.room.resv:batch&quot;) )\"><return-response><set-status code=\"401\" reason=\"Unauthorized\" /></return-response></when></choose></when></choose><set-backend-service id=\"apim-generated-policy\" backend-id=\"', parameters('functionAppName'), '\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"40\"/>\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>')]",
+				"format": "xml"
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations/policies",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-search/policy')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimName'), parameters('apiName'), 'get-search')]",
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"value": "[concat('<policies>\r\n  <inbound>\r\n    <base /><choose><when condition=\"@(context.Request.Headers.ContainsKey(&quot;Authorization&quot;))\"><set-variable name=\"jwt\" value=\"@(context.Request.Headers.GetValueOrDefault(&quot;Authorization&quot;, string.Empty).AsJwt())\" /><choose><when condition=\"@(!((Jwt)context.Variables[&quot;jwt&quot;]).Claims[&quot;scp&quot;].Contains(&quot;booking.room.resv:search&quot;) )\"><return-response><set-status code=\"401\" reason=\"Unauthorized\" /></return-response></when></choose></when></choose><set-backend-service id=\"apim-generated-policy\" backend-id=\"', parameters('functionAppName'), '\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"40\"/>\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>')]",
+				"format": "xml"
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations/policies",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-search-basic/policy')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimName'), parameters('apiName'), 'get-search-basic')]",
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"value": "[concat('<policies>\r\n  <inbound>\r\n    <base />\r\n    <set-backend-service id=\"apim-generated-policy\" backend-id=\"', parameters('functionAppName'), '\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"40\"/>\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>')]",
+				"format": "xml"
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations/policies",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-search-profiles/policy')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimName'), parameters('apiName'), 'get-search-profiles')]",
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"value": "[concat('<policies>\r\n  <inbound>\r\n    <base /><choose><when condition=\"@(context.Request.Headers.ContainsKey(&quot;Authorization&quot;))\"><set-variable name=\"jwt\" value=\"@(context.Request.Headers.GetValueOrDefault(&quot;Authorization&quot;, string.Empty).AsJwt())\" /><choose><when condition=\"@(!((Jwt)context.Variables[&quot;jwt&quot;]).Claims[&quot;scp&quot;].Contains(&quot;booking.room.resv:search&quot;) )\"><return-response><set-status code=\"401\" reason=\"Unauthorized\" /></return-response></when></choose></when></choose><set-backend-service id=\"apim-generated-policy\" backend-id=\"', parameters('functionAppName'), '\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"40\"/>\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>')]",
+				"format": "xml"
+			}
+		},
+		{
+			"type": "Microsoft.ApiManagement/service/apis/operations/policies",
+			"apiVersion": "2019-01-01",
+			"name": "[concat(parameters('apimName'), '/', parameters('apiName'), '/get-folio/policy')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimName'), parameters('apiName'), 'get-folio')]",
+				"[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), parameters('apiName'))]"
+			],
+			"properties": {
+				"value": "[concat('<policies>\r\n  <inbound>\r\n    <base /><choose><when condition=\"@(context.Request.Headers.ContainsKey(&quot;Authorization&quot;) &amp;&amp; context.Request.Headers.GetValueOrDefault(&quot;Authorization&quot;, string.Empty) != &quot;&quot;)\"><set-variable name=\"jwt\" value=\"@(context.Request.Headers.GetValueOrDefault(&quot;Authorization&quot;, string.Empty).AsJwt())\" /><choose><when condition=\"@(!((Jwt)context.Variables[&quot;jwt&quot;]).Claims[&quot;scp&quot;].Contains(&quot;booking.room.resv:folio&quot;) &amp;&amp; !((Jwt)context.Variables[&quot;jwt&quot;]).Claims[&quot;scp&quot;].Contains(&quot;booking.room.resv:search&quot;) )\"><return-response><set-status code=\"401\" reason=\"Unauthorized\" /></return-response></when></choose></when></choose><set-backend-service id=\"apim-generated-policy\" backend-id=\"', parameters('functionAppName'), '\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"40\"/>\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>')]",
+				"format": "xml"
+			}
+		}
+	]
+}

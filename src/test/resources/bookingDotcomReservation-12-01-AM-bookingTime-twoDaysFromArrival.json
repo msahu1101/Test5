@@ -1,0 +1,1214 @@
+{
+    "id": "a1c3fd19-c434-30cb-bce2-edb1a724447c",
+    "hotelReference": {
+        "hotelCode": "290"
+    },
+    "reservationID": "906948308",
+    "resvNameId": "895482528",
+    "roomKeys": {},
+    "mgmProfile": {},
+    "metadata": {
+        "paymentUpdated": false,
+        "etaUpdated": false,
+        "paymentFailed": false,
+        "guestsUpdated": false,
+        "roomUpgraded": false,
+        "additionalGuestsCount": 0,
+        "dailyServiceOptOut": false,
+        "parkingPurchased": false,
+        "stayEnhanced": false,
+        "earlyCheckIn": {
+            "mobilePurchase": false,
+            "externalPurchase": false
+        },
+        "checkinInfo": {}
+    },
+    "reservationOriginatorCode": "AKUNDURU",
+    "originalBookingDate": 1682035260000,
+    "stayDateRange": {
+        "startTime": 1682208000000,
+        "numberOfTimeUnits": 3,
+        "timeUnitType": "DAY"
+    },
+    "guestCounts": {
+        "guestCount": [
+            {
+                "ageQualifyingCode": "ADULT",
+                "mfCount": 2
+            },
+            {
+                "ageQualifyingCode": "CHILD",
+                "mfCount": 0
+            }
+        ]
+    },
+    "resComments": {
+        "resComment": [
+            {
+                "resCommentRPH": 0,
+                "commentOriginatorCode": "OEDS$ADS",
+                "guestViewable": true,
+                "comment": "Non-Smoking ",
+                "mfcommentType": "RESERVATION",
+                "mfcommentDate": 1669616876000,
+                "reservationActionType": "CHANGE"
+            },
+            {
+                "resCommentRPH": 1,
+                "commentOriginatorCode": "OEDS$ADS",
+                "guestViewable": true,
+                "comment": " rate rewrite by Park MGM Black Friday 11/17 - 12/01",
+                "mfcommentType": "RESERVATION",
+                "mfcommentDate": 1669616876000,
+                "reservationActionType": "CHANGE"
+            }
+        ]
+    },
+    "resCreditCards": {
+        "resCreditCard": [
+            {
+                "creditCard": {
+                    "creditCardCode": "DC",
+                    "creditCardHolderName": "Benjamin Ngo",
+                    "creditCardNumber": "0004",
+                    "creditCardExpire": 1777507200000,
+                    "mfPrimaryYN": "Y"
+                },
+                "resCreditCardRPH": 0,
+                "reservationActionType": "CHANGE"
+            }
+        ]
+    },
+    "resGuests": {
+        "resGuest": [
+            {
+                "resGuestRPH": 0,
+                "profileRPHs": "0, 1",
+                "ageQualifyingCode": "ADULT",
+                "inHouseTimeSpan": {
+                    "startTime": 1681948800000,
+                    "numberOfTimeUnits": 3,
+                    "timeUnitType": "DAY"
+                },
+                "arrivalTransport": {},
+                "departureTransport": {},
+                "arrivalTime": 1681948800000,
+                "departureTime": 1682208000000,
+                "reservationID": "906948308",
+                "reservationReferences": {
+                    "reservationReference": [
+                        {
+                            "type": "GDS_RECORD_LOCATOR",
+                            "referenceNumber": "3386718543"
+                        },
+                        {
+                            "type": "CHANNEL",
+                            "referenceNumber": "3386718543",
+                            "legNumber": "0"
+                        },
+                        {
+                            "type": "GUESTID",
+                            "referenceNumber": "906948308",
+                            "legNumber": "1"
+                        },
+                        {
+                            "type": "MGMACRS2",
+                            "referenceNumber": "906948308",
+                            "legNumber": "1"
+                        },
+                        {
+                            "type": "NOR1",
+                            "referenceNumber": "180158822"
+                        },
+                        {
+                            "type": "PMSID",
+                            "referenceNumber": "906948308",
+                            "legNumber": "1"
+                        }
+                    ]
+                },
+                "preRegistered": false,
+                "commissionPaidTo": "N",
+                "nameTaxType": "0",
+                "reservationActionType": "CHANGE"
+            }
+        ]
+    },
+    "resProfiles": {
+        "resProfile": [
+            {
+                "profile": {
+                    "creatorCode": "OEDS$ADS",
+                    "createdDate": 1669616876000,
+                    "lastUpdaterCode": "SSUNDARESA",
+                    "lastUpdated": 1681991502000,
+                    "genericName": "Ngo",
+                    "individualName": {
+                        "nameFirst": "Benjamin",
+                        "nameSur": "Ngo"
+                    },
+                    "primaryLanguageID": "E",
+                    "electronicAddresses": {
+                        "electronicAddress": [
+                            {
+                                "mfPrimaryYN": "Y",
+                                "confirmation": false,
+                                "electronicAddressType": "EMAIL",
+                                "eaddress": "ramsey.ada@hotmail.gov"
+                            }
+                        ]
+                    },
+                    "postalAddresses": {
+                        "postalAddress": [
+                            {
+                                "address1": "401/27 Commercial Road",
+                                "city": "Newstead",
+                                "countryCode": "US",
+                                "mfPrimaryYN": "Y",
+                                "cleansed": false,
+                                "addressType": "BILLING"
+                            }
+                        ]
+                    },
+                    "phoneNumbers": {
+                        "phoneNumber": [
+                            {
+                                "phoneNumber": "702-000-0001",
+                                "mfPrimaryYN": "Y",
+                                "confirmation": false,
+                                "phoneNumberType": "MOBILE"
+                            }
+                        ]
+                    },
+                    "mfResort": "290",
+                    "mfResortProfileID": "902530424",
+                    "mfAllowMail": "YES",
+                    "mfAllowEMail": "NO",
+                    "mfGuestPriv": "NO",
+                    "mfAllowPhone": false,
+                    "mfAllowSMS": false,
+                    "salesExtention": {},
+                    "privacyOption": {
+                        "mfAllowMail": "Y",
+                        "mfAllowEMail": "N",
+                        "mfAllowPhone": false,
+                        "mfAllowSMS": false,
+                        "mfAllowHistory": true,
+                        "mfAllowMarketResearch": true,
+                        "mfAllowThirdParty": true
+                    },
+                    "resortList": [
+                        "290"
+                    ],
+                    "multiResortEntities": {
+                        "multiResortEntity": [
+                            {
+                                "entity": "CREDIT_CARDS",
+                                "included": true
+                            },
+                            {
+                                "entity": "RESORT_ARS",
+                                "included": false
+                            },
+                            {
+                                "entity": "COMMENTS",
+                                "included": true
+                            },
+                            {
+                                "entity": "PREFERENCES",
+                                "included": true
+                            },
+                            {
+                                "entity": "NEGOTIATED_RATES",
+                                "included": true
+                            },
+                            {
+                                "entity": "RESORT_NEG_RATES",
+                                "included": true
+                            },
+                            {
+                                "entity": "RESORT_COMMISSIONS",
+                                "included": true
+                            },
+                            {
+                                "entity": "CHANNEL_ACCESS_CODES",
+                                "included": true
+                            },
+                            {
+                                "entity": "YIELD_ADJUSTMENTS",
+                                "included": true
+                            },
+                            {
+                                "entity": "RELATIONSHIPS",
+                                "included": false
+                            }
+                        ]
+                    },
+                    "profileType": "GUEST",
+                    "gender": "UNKNOWN",
+                    "multiProperty": false,
+                    "miniProfile": false,
+                    "pseudoProfile": false,
+                    "replaceAddress": false
+                },
+                "resProfileRPH": 0
+            },
+            {
+                "profile": {
+                    "creatorCode": "MSTUERMER938",
+                    "createdDate": 1261136962000,
+                    "lastUpdaterCode": "*MGMACRS3*",
+                    "lastUpdated": 1676473235000,
+                    "preferredRatePlanCode": [
+                        "LBKDODN",
+                        "LBKSTDR",
+                        "LBKLTON",
+                        "LBKMEMN",
+                        "LBK3NF",
+                        "LBKMLF",
+                        "LBKE1F"
+                    ],
+                    "genericName": "BOOKING.COM",
+                    "individualName": {
+                        "nameSur": "BOOKING.COM"
+                    },
+                    "primaryLanguageID": "E",
+                    "postalAddresses": {
+                        "postalAddress": [
+                            {
+                                "countryCode": "US",
+                                "mfPrimaryYN": "Y",
+                                "cleansed": false,
+                                "addressType": "BUSINESS"
+                            }
+                        ]
+                    },
+                    "phoneNumbers": {
+                        "phoneNumber": [
+                            {
+                                "phoneNumber": "+118888707835",
+                                "mfPrimaryYN": "Y",
+                                "confirmation": false,
+                                "phoneNumberType": "BUSINESSFAX"
+                            }
+                        ]
+                    },
+                    "mfResort": "290",
+                    "mfResortProfileID": "82492537",
+                    "mfNameCode": "96198815",
+                    "mfAllowMail": "YES",
+                    "mfAllowEMail": "NO",
+                    "mfGuestPriv": "NO",
+                    "mfNegotiatedRates": {
+                        "negotiatedRate": [
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663113600000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            }
+                        ]
+                    },
+                    "mfAllowPhone": false,
+                    "mfAllowSMS": false,
+                    "salesExtention": {},
+                    "privacyOption": {
+                        "mfAllowMail": "Y",
+                        "mfAllowEMail": "N",
+                        "mfAllowPhone": false,
+                        "mfAllowSMS": false,
+                        "mfAllowHistory": true,
+                        "mfAllowMarketResearch": true,
+                        "mfAllowThirdParty": true
+                    },
+                    "resortList": [
+                        "290"
+                    ],
+                    "multiResortEntities": {
+                        "multiResortEntity": [
+                            {
+                                "entity": "CREDIT_CARDS",
+                                "included": true
+                            },
+                            {
+                                "entity": "RESORT_ARS",
+                                "included": false
+                            },
+                            {
+                                "entity": "COMMENTS",
+                                "included": true
+                            },
+                            {
+                                "entity": "PREFERENCES",
+                                "included": true
+                            },
+                            {
+                                "entity": "NEGOTIATED_RATES",
+                                "included": true
+                            },
+                            {
+                                "entity": "RESORT_NEG_RATES",
+                                "included": true
+                            },
+                            {
+                                "entity": "RESORT_COMMISSIONS",
+                                "included": true
+                            },
+                            {
+                                "entity": "CHANNEL_ACCESS_CODES",
+                                "included": true
+                            },
+                            {
+                                "entity": "YIELD_ADJUSTMENTS",
+                                "included": true
+                            },
+                            {
+                                "entity": "RELATIONSHIPS",
+                                "included": false
+                            }
+                        ]
+                    },
+                    "resortNegotiatedRates": {
+                        "negotiatedRate": [
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663286400000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "001",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "BOOKING",
+                                "rateBeginDate": 1263600000000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663286400000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "005",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "016",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "016",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "021",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1711843200000
+                            },
+                            {
+                                "mfResort": "021",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1711843200000
+                            },
+                            {
+                                "mfResort": "021",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1711843200000
+                            },
+                            {
+                                "mfResort": "021",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1711843200000
+                            },
+                            {
+                                "mfResort": "021",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663286400000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "021",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667174400000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "160",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "160",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1632268800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "160",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1632268800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "160",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "160",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "160",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663027200000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "180",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "180",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663286400000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "190",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663113600000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "275",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663027200000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "280",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663113600000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "285",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663113600000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "290",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "304",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "304",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "304",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "306",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "306",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "307",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "307",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "345",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "345",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663200000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "930",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBKDODN",
+                                "rateBeginDate": 1647820800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBKSTDR",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBKLTON",
+                                "rateBeginDate": 1647216000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBKMEMN",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBK3NF",
+                                "rateBeginDate": 1647388800000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBKMLF",
+                                "rateBeginDate": 1663200000000,
+                                "rateEndDate": 1743379200000
+                            },
+                            {
+                                "mfResort": "938",
+                                "rateCode": "LBKE1F",
+                                "rateBeginDate": 1667260800000,
+                                "rateEndDate": 1743379200000
+                            }
+                        ]
+                    },
+                    "profileType": "CORPORATE",
+                    "gender": "UNKNOWN",
+                    "multiProperty": false,
+                    "miniProfile": false,
+                    "pseudoProfile": false,
+                    "replaceAddress": false
+                },
+                "resProfileRPH": 1
+            }
+        ]
+    },
+    "roomStays": {
+        "roomStay": [
+            {
+                "roomInventoryCode": "DPRK",
+                "timeSpan": {
+                    "startTime": 1681948800000,
+                    "numberOfTimeUnits": 3,
+                    "timeUnitType": "DAY"
+                },
+                "guestCounts": {
+                    "guestCount": [
+                        {
+                            "ageQualifyingCode": "ADULT",
+                            "mfCount": 2
+                        },
+                        {
+                            "ageQualifyingCode": "CHILD",
+                            "mfCount": 0
+                        }
+                    ]
+                },
+                "ratePlans": {
+                    "ratePlan": [
+                        {
+                            "ratePlanRPH": 0,
+                            "ratePlanCode": "LBKDODN",
+                            "timeSpan": {
+                                "startTime": 1681948800000,
+                                "numberOfTimeUnits": 3,
+                                "timeUnitType": "DAY"
+                            },
+                            "mfMarketCode": "LIMM",
+                            "rates": {
+                                "rate": [
+                                    {
+                                        "rateRPH": 0,
+                                        "amount": {
+                                            "valueNum": 55.2,
+                                            "currencyCode": "USD"
+                                        },
+                                        "rateBasisUnits": 1,
+                                        "timeSpan": {
+                                            "startTime": 1681948800000,
+                                            "numberOfTimeUnits": 1,
+                                            "timeUnitType": "DAY"
+                                        },
+                                        "mfAdults": 2,
+                                        "mfChildren": 0,
+                                        "mfCribs": 0,
+                                        "mfExtraBeds": 0,
+                                        "mfsourceCode": "LIMBKG",
+                                        "mfMarketCode": "LIMM",
+                                        "reservationActionType": "CHANGE",
+                                        "rateBasisTimeUnitType": "DAY"
+                                    },
+                                    {
+                                        "rateRPH": 1,
+                                        "amount": {
+                                            "valueNum": 236.54,
+                                            "currencyCode": "USD"
+                                        },
+                                        "rateBasisUnits": 1,
+                                        "timeSpan": {
+                                            "startTime": 1682035200000,
+                                            "numberOfTimeUnits": 2,
+                                            "timeUnitType": "DAY"
+                                        },
+                                        "mfAdults": 2,
+                                        "mfChildren": 0,
+                                        "mfCribs": 0,
+                                        "mfExtraBeds": 0,
+                                        "mfsourceCode": "LIMBKG",
+                                        "mfMarketCode": "LIMM",
+                                        "reservationActionType": "CHANGE",
+                                        "rateBasisTimeUnitType": "DAY"
+                                    }
+                                ]
+                            },
+                            "mfsourceCode": "LIMBKG",
+                            "reservationActionType": "CHANGE"
+                        }
+                    ]
+                },
+                "marketSegmentCode": "LIMM",
+                "resGuestRPHs": "0",
+                "resCommentRPHs": "0,1",
+                "guaranteeInfo": {
+                    "mfGuaranteeType": "CC",
+                    "guaranteeDeposit": {
+                        "dueDate": 1681948800000,
+                        "amount": {
+                            "valueNum": 62.59,
+                            "currencyCode": "USD"
+                        },
+                        "cancelIfNotReceived": false
+                    },
+                    "guaranteeType": "NA"
+                },
+                "cancelPenalties": {
+                    "cancelPenalty": [
+                        {
+                            "cancelByDate": 1681948800000,
+                            "amount": {
+                                "valueNum": 62.59,
+                                "currencyCode": "USD"
+                            },
+                            "mfRuleScope": "R",
+                            "mfRuleDescription": "First Night's Deposit",
+                            "activityDeposit": 0,
+                            "roomDeposit": 62.59,
+                            "ruleCode": "1NT",
+                            "mfRuleType": "DEPOSIT",
+                            "manualRule": false
+                        },
+                        {
+                            "cancelByDate": 1681776060000,
+                            "amount": {
+                                "valueNum": 62.59,
+                                "currencyCode": "USD"
+                            },
+                            "mfRuleScope": "R",
+                            "mfPercentage": 100,
+                            "mfCancelPercentDue": 100,
+                            "mfCancelRoomNights": 1,
+                            "mfRuleDescription": "48 Hour Cancellation",
+                            "ruleCode": "48H",
+                            "mfRuleType": "CANCEL",
+                            "manualRule": false
+                        }
+                    ]
+                },
+                "paymentInstructions": {
+                    "paymentInstruction": [
+                        {
+                            "mfPaymentMethod": "DC",
+                            "resCreditCardRPH": 0,
+                            "paymentDue": {
+                                "amount": {
+                                    "currencyCode": "USD"
+                                },
+                                "cancelIfNotReceived": false
+                            },
+                            "paymentMethodType": "CREDITCARD"
+                        }
+                    ]
+                },
+                "mfsourceCode": "LIMBKG",
+                "mfchannelCode": "ADS",
+                "mfconfidentialRate": true,
+                "mfAsbProrated": false,
+                "mfShareAction": "NA",
+                "mfReservationAction": "NA",
+                "reservationActionType": "CHANGE",
+                "reservationStatusType": "RESERVED"
+            }
+        ]
+    },
+    "resCommentRPHs": "0,1",
+    "resProfileRPHs": "0, 1",
+    "mfupdateDate": 1682037408000,
+    "mfcomplementary": false,
+    "mfImage": {
+        "numRooms": 1,
+        "describe": {
+            "resortName": "Park MGM Las Vegas",
+            "insertUser": "OEDS$ADS",
+            "updateUser": "AKUNDURU",
+            "roomCategory": "Park MGM King",
+            "rateCode": "Bookingcom Deal of the Day DerbySoft Connection",
+            "marketCode": "Intl Merch Model",
+            "guarantee": "CC: Credit Card",
+            "company": "MGM Resorts International"
+        },
+        "change": {
+            "bdiscountReason": false,
+            "bmultipleRateYN": true,
+            "bnumNights": false,
+            "bnumChildren": false,
+            "bnumRooms": false,
+            "barrivalDate": false,
+            "bcribs": false,
+            "brateAmount": false,
+            "bsource": false,
+            "brateCode": false,
+            "bnumAdults": false,
+            "broomCategory": false,
+            "bpaymentType": false,
+            "bmarketCode": false,
+            "bguarType": false,
+            "bresvStatus": false
+        }
+    },
+    "udfs": {
+        "udf": [
+            {
+                "udfDefinition": {
+                    "pmsTableName": "RESERVATION_NAME",
+                    "pmsColumnName": "UDFC09",
+                    "module": "RESERVATION"
+                }
+            },
+            {
+                "udfDefinition": {
+                    "pmsTableName": "RESERVATION_NAME",
+                    "pmsColumnName": "UDFC25",
+                    "module": "RESERVATION"
+                }
+            },
+            {
+                "udfDefinition": {
+                    "pmsTableName": "RESERVATION_NAME",
+                    "pmsColumnName": "UDFC26",
+                    "module": "RESERVATION"
+                }
+            },
+            {
+                "udfDefinition": {
+                    "pmsTableName": "RESERVATION_NAME",
+                    "pmsColumnName": "UDFC33",
+                    "module": "RESERVATION"
+                }
+            }
+        ]
+    },
+    "rateServices": {
+        "rateService": [
+            {
+                "service": {
+                    "serviceRPH": 0,
+                    "serviceInventoryCode": "MCRESORTFEE",
+                    "ratePlanCode": "LBKDODN",
+                    "timeSpan": {
+                        "startTime": 1681948800000,
+                        "numberOfTimeUnits": 3,
+                        "timeUnitType": "DAY"
+                    },
+                    "price": {
+                        "valueNum": 39,
+                        "currencyCode": "USD"
+                    },
+                    "quantity": 1,
+                    "servicePrices": {
+                        "servicePrice": [
+                            {
+                                "beginDate": 1681948800000,
+                                "endDate": 1682121600000,
+                                "unitPrice": 39
+                            }
+                        ]
+                    },
+                    "reservationActionType": "CHANGE",
+                    "servicePricingType": "NA",
+                    "reservationStatusType": "NA"
+                }
+            }
+        ]
+    },
+    "mfShareAction": "NA",
+    "mfReservationAction": "EDIT",
+    "bookingNoCorrection": "done",
+    "_rid": "IJtGAPgWDX8-bjYAAAAAAA==",
+    "_self": "dbs/IJtGAA==/colls/IJtGAPgWDX8=/docs/IJtGAPgWDX8-bjYAAAAAAA==/",
+    "_etag": "\"a4000dfc-0000-0700-0000-6442db2f0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1682103087
+}

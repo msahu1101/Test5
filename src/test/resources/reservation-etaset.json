@@ -1,0 +1,430 @@
+{
+	"id": "5c30e1e6-eac9-3025-8b8f-996ff7926786",
+	"hotelReference": {
+		"hotelCode": "001"
+	},
+	"reservationID": "797902183",
+	"resvNameId": "786190933",
+	"reservationOriginatorCode": "*TIBCOBUS*",
+	"originalBookingDate": 1583427814000,
+	"cancellationID": "797902184",
+	"cancelOriginatorCode": "*TIBCOBUS*",
+	"cancellationDate": 1583427839000,
+	"stayDateRange": {
+		"startTime": 1581810228000,
+		"numberOfTimeUnits": 1,
+		"timeUnitType": "DAY"
+	},
+	"guestCounts": {
+		"guestCount": [
+			{
+				"ageQualifyingCode": "ADULT",
+				"mfCount": 2
+			},
+			{
+				"ageQualifyingCode": "CHILD",
+				"mfCount": 0
+			}
+		]
+	},
+	"resGuests": {
+		"resGuest": [
+			{
+				"resGuestRPH": 0,
+				"profileRPHs": "0",
+				"ageQualifyingCode": "ADULT",
+				"inHouseTimeSpan": {
+					"startTime": 1589328000000,
+					"numberOfTimeUnits": 1,
+					"timeUnitType": "DAY"
+				},
+				"arrivalTransport": {
+					
+				},
+				"departureTransport": {
+					
+				},
+				"arrivalTime": 1589328000000,
+				"departureTime": 1589414400000,
+				"reservationID": "797902183",
+				"reservationReferences": {
+					"reservationReference": [
+						{
+							"type": "AURORA",
+							"referenceNumber": "M03CCC231"
+						},
+						{
+							"type": "GUESTID",
+							"referenceNumber": "M03CCC231"
+						},
+						{
+							"type": "PMSID",
+							"referenceNumber": "797902183",
+							"legNumber": "1"
+						},
+						{
+							"type": "TIBCOBUS",
+							"referenceNumber": "M03CCC231"
+						}
+					]
+				},
+				"preRegistered": false,
+				"commissionPaidTo": "N",
+				"nameTaxType": "0",
+				"reservationActionType": "SYNC"
+			}
+		]
+	},
+	"resProfiles": {
+		"resProfile": [
+			{
+				"profile": {
+					"creatorCode": "*TIBCOBUS*",
+					"createdDate": 1578276461000,
+					"lastUpdaterCode": "*TIBCOBUS*",
+					"lastUpdated": 1585581066000,
+					"genericName": "User",
+					"individualName": {
+						"nameFirst": "Mgm",
+						"nameSur": "User"
+					},
+					"electronicAddresses": {
+						"electronicAddress": [
+							{
+								"mfPrimaryYN": "Y",
+								"confirmation": false,
+								"electronicAddressType": "EMAIL",
+								"eaddress": "segmentuser1@yopmail.com"
+							}
+						]
+					},
+					"memberships": {
+						"membership": [
+							{
+								"programCode": "PC",
+								"accountID": "79110950",
+								"nameOnCard": "User Mgm",
+								"displaySequence": 1,
+								"pointIndicator": false,
+								"enrollmentSource": "N",
+								"enrolledAt": "N"
+							}
+						]
+					},
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"address1": "9800 E Saharasavana",
+								"address2": "6e",
+								"city": "Las Vegas",
+								"stateCode": "NV",
+								"postalCode": "89012",
+								"countryCode": "US",
+								"mfPrimaryYN": "Y",
+								"cleansed": false,
+								"addressType": "HOME"
+							}
+						]
+					},
+					"phoneNumbers": {
+						"phoneNumber": [
+							{
+								"phoneNumber": "9986047739",
+								"mfPrimaryYN": "Y",
+								"confirmation": false,
+								"phoneNumberType": "OTHER"
+							}
+						]
+					},
+					"mfResort": "001",
+					"mfResortProfileID": "815701735",
+					"mfAllowMail": "YES",
+					"mfAllowEMail": "NO",
+					"mfGuestPriv": "NO",
+					"mfAllowPhone": false,
+					"mfAllowSMS": false,
+					"salesExtention": {
+						
+					},
+					"privacyOption": {
+						"mfAllowMail": "Y",
+						"mfAllowEMail": "N",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowHistory": false,
+						"mfAllowMarketResearch": true,
+						"mfAllowThirdParty": true
+					},
+					"resortList": [
+						"001"
+					],
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"entity": "CREDIT_CARDS",
+								"included": false
+							},
+							{
+								"entity": "RESORT_ARS",
+								"included": false
+							},
+							{
+								"entity": "COMMENTS",
+								"included": true
+							},
+							{
+								"entity": "PREFERENCES",
+								"included": true
+							},
+							{
+								"entity": "NEGOTIATED_RATES",
+								"included": true
+							},
+							{
+								"entity": "RESORT_NEG_RATES",
+								"included": true
+							},
+							{
+								"entity": "RESORT_COMMISSIONS",
+								"included": true
+							},
+							{
+								"entity": "CHANNEL_ACCESS_CODES",
+								"included": true
+							},
+							{
+								"entity": "YIELD_ADJUSTMENTS",
+								"included": true
+							},
+							{
+								"entity": "RELATIONSHIPS",
+								"included": false
+							}
+						]
+					},
+					"profileType": "GUEST",
+					"gender": "UNKNOWN",
+					"multiProperty": false,
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"replaceAddress": false
+				},
+				"resProfileRPH": 0
+			}
+		]
+	},
+	"roomStays": {
+		"roomStay": [
+			{
+				"roomInventoryCode": "SESQ",
+				"timeSpan": {
+					"startTime": 1589328000000,
+					"numberOfTimeUnits": 1,
+					"timeUnitType": "DAY"
+				},
+				"guestCounts": {
+					"guestCount": [
+						{
+							"ageQualifyingCode": "ADULT",
+							"mfCount": 2
+						},
+						{
+							"ageQualifyingCode": "CHILD",
+							"mfCount": 0
+						}
+					]
+				},
+				"ratePlans": {
+					"ratePlan": [
+						{
+							"ratePlanRPH": 0,
+							"ratePlanCode": "PREVAIL",
+							"timeSpan": {
+								"startTime": 1589328000000,
+								"numberOfTimeUnits": 1,
+								"timeUnitType": "DAY"
+							},
+							"mfMarketCode": "TFIT",
+							"rates": {
+								"rate": [
+									{
+										"rateRPH": 0,
+										"amount": {
+											"valueNum": 5000,
+											"currencyCode": "USD"
+										},
+										"rateBasisUnits": 1,
+										"timeSpan": {
+											"startTime": 1589328000000,
+											"numberOfTimeUnits": 1,
+											"timeUnitType": "DAY"
+										},
+										"mfAdults": 2,
+										"mfChildren": 0,
+										"mfCribs": 0,
+										"mfExtraBeds": 0,
+										"mfsourceCode": "TFITIC",
+										"mfMarketCode": "TFIT",
+										"reservationActionType": "SYNC",
+										"rateBasisTimeUnitType": "DAY"
+									}
+								]
+							},
+							"mfsourceCode": "TFITIC",
+							"reservationActionType": "SYNC"
+						}
+					]
+				},
+				"marketSegmentCode": "TFIT",
+				"resGuestRPHs": "0",
+				"selectedMembershipRPHs": "0",
+				"guaranteeInfo": {
+					"mfGuaranteeType": "CC",
+					"guaranteeDeposit": {
+						"dueDate": 1583427805000,
+						"amount": {
+							"valueNum": 5668.9944,
+							"currencyCode": "USD"
+						},
+						"cancelIfNotReceived": false
+					},
+					"guaranteeType": "NA"
+				},
+				"cancelPenalties": {
+					"cancelPenalty": [
+						{
+							"cancelByDate": 1583427805000,
+							"amount": {
+								"valueNum": 5668.9944,
+								"currencyCode": "USD"
+							},
+							"mfRuleScope": "R",
+							"mfRuleDescription": "First Night's Deposit",
+							"activityDeposit": 0,
+							"roomDeposit": 5668.9944,
+							"ruleCode": "1NT",
+							"mfRuleType": "DEPOSIT"
+						},
+						{
+							"cancelByDate": 1589068800000,
+							"amount": {
+								"valueNum": 5668.9944,
+								"currencyCode": "USD"
+							},
+							"mfRuleScope": "R",
+							"mfPercentage": 100,
+							"mfCancelPercentDue": 100,
+							"mfCancelRoomNights": 1,
+							"mfRuleDescription": "72 Hours Cancellation",
+							"ruleCode": "72H",
+							"mfRuleType": "CANCEL"
+						}
+					]
+				},
+				"paymentInstructions": {
+					"paymentInstruction": [
+						{
+							"mfPaymentMethod": "MC",
+							"paymentDue": {
+								"amount": {
+									"currencyCode": "USD"
+								},
+								"cancelIfNotReceived": false
+							},
+							"paymentMethodType": "NA"
+						}
+					]
+				},
+				"mfsourceCode": "TFITIC",
+				"mfconfidentialRate": false,
+				"mfAsbProrated": false,
+				"mfShareAction": "NA",
+				"mfReservationAction": "NA",
+				"reservationActionType": "SYNC",
+				"reservationStatusType": "CANCELED"
+			}
+		]
+	},
+	"selectedMemberships": {
+		"selectedMembership": [
+			{
+				"selectedMembershipRPH": 0,
+				"programCode": "PC",
+				"accountID": "79110950",
+				"reservationActionType": "SYNC"
+			}
+		]
+	},
+	"resProfileRPHs": "0",
+	"mfcancellationComment": "CANCELLATION ON THE WEB",
+	"mfupdateDate": 1583427839000,
+	"mfcomplementary": false,
+	"mfImage": {
+		"numRooms": 1,
+		"describe": {
+			"resortName": "MGM Grand",
+			"insertUser": "*TIBCOBUS*",
+			"updateUser": "*TIBCOBUS*",
+			"roomCategory": "Executive Two Queen Suite",
+			"rateCode": "Prevailing Rates",
+			"marketCode": "Frqt Ind Trvlr",
+			"guarantee": "CC: Credit Card",
+			"company": "MGM Resorts International"
+		},
+		"change": {
+			"bdiscountReason": false,
+			"bmultipleRateYN": false,
+			"bresvStatus": false,
+			"bguarType": false,
+			"bnumNights": false,
+			"bnumChildren": false,
+			"bnumRooms": false,
+			"bnumAdults": false,
+			"barrivalDate": false,
+			"bcribs": false,
+			"bpaymentType": false,
+			"broomCategory": false
+		}
+	},
+	"udfs": {
+		"udf": [
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC09",
+					"module": "RESERVATION"
+				},
+				"udfValue": "Manasvi"
+			},
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC25",
+					"module": "RESERVATION"
+				}
+			},
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC26",
+					"module": "RESERVATION"
+				},
+				"udfValue": "mgmgrandlv"
+			},
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC33",
+					"module": "RESERVATION"
+				}
+			}
+		]
+	},
+	"mfShareAction": "NA",
+	"mfReservationAction": "CANCEL",
+	"_rid": "nLx5AIqfWsGQhB4AAAAAAA==",
+	"_self": "dbs/nLx5AA==/colls/nLx5AIqfWsE=/docs/nLx5AIqfWsGQhB4AAAAAAA==/",
+	"_etag": "\"1a00453c-0000-0700-0000-5e83815d0000\"",
+	"_attachments": "attachments/",
+	"_ts": 1585676637
+}

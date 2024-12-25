@@ -1,0 +1,2 @@
+variables:
+  whitelistIpParameters: -AllowApigeeXProd $true -AllowVPN $true -AllowAzureCloud $true -AllowNonProdAPIM $false -AllowAzureFrontDoor $false

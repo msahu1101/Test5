@@ -1,0 +1,48 @@
+{
+  "operaConfirmationNumber": "796566668",
+  "reservationStatus": "RESERVED",
+  "checkInDate": "2019-12-18",
+  "checkOutDate": "2019-12-20",
+  "roomNumber": "14552",
+  "profile": {
+    "firstName": "Brown",
+    "lastName": "Rebeca"
+  },
+  "folios": [
+    {
+      "windowNo": "1",
+      "windowCharges": 49.94,
+      "windowCredits": 13.47,
+      "windowBalance": 36.47,
+      "windowLastUpdated": "2020-01-02",
+      "billItems": [
+        {
+          "date": "2019-12-02",
+          "description": "description",
+          "chargeAmount": 10,
+          "supplement": "remark",
+          "reference": "reference",
+          "ccLast4Digits": "4444"
+        },
+        {
+          "date": "2019-12-03",
+          "description": "description_1",
+          "chargeAmount": 24.57,
+          "creditAmount": 13.47,
+          "supplement": "remark_1",
+          "reference": "reference_1"
+        },
+        {
+          "date": "2019-12-04",
+          "description": "description_2",
+          "chargeAmount": 15.37,
+          "supplement": "remark_2",
+          "reference": "reference_2"
+        }
+      ]
+    }
+  ],
+  "totalCharges": 49.94,
+  "totalCredits": 13.47,
+  "currentBalance": 36.47
+}

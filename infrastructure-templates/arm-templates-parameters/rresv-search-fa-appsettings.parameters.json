@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"application": {
+            "type": "string",
+            "value": "room-reservation-search"			
+		},
+		"functionAppName": {
+            "type": "string",
+            "value": "roomresvsearch-uw-fa-$(Environment)"			
+		},
+		"functionMainClass": {
+            "type": "string",
+            "value": "com.mgmresorts.booking.room.reservation.search.SearchApplication"			
+		},
+		"appInsightsName": {
+			"type": "string",
+			"value": "roomresvsearch-uw-ai-$(Environment)"		
+		},
+		"storageAccountName": {
+			"type": "string",
+			"value": "roomresvsearchuwsa$(Environment)"		
+		},
+		"functionWorkerRuntime": {
+			"type": "string",
+			"value": "java"		
+		},
+		"runtimeEnvironment": {
+			"type": "string",
+			"value": "$(runtimeEnvironment)"
+		},
+		"environment": {
+			"type": "string",
+			"value": "$(TagEnvironment)"
+		},
+		"appProfile": {
+			"type": "string",
+			"value": "$(appProfile)"
+		},
+		"vaultName": {
+			"type": "string",
+			"value": "Bookingprv-uw-kv-$(commonAppEnvironment)"
+		},
+		"cosmosDbAccessKey": {
+			"type": "string",
+			"value": "rresv-cosmos-key-$(Environment)"
+		},
+		"vaultResourceGroupName": {
+			"type": "string",
+			"value": "bookingKeyVault-uw-rg-$(commonAppEnvironment)"
+		},
+		"operaDbUserNameSecretName": {
+			"type": "string",
+			"value": "rresv-operadb-username-$(Environment)"
+		},
+		"operaDbUserPwdSecretName": {
+			"type": "string",
+			"value": "rresv-operadb-userpwd-$(Environment)"
+		},
+		"operaDbUrlSecretName": {
+			"type": "string",
+			"value": "rresv-operadb-url-$(Environment)"
+		}
+	}
+}

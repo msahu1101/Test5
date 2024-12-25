@@ -1,0 +1,461 @@
+{
+	"id": "46cb10a2-a39f-332d-a269-63bdca907556",
+	"hotelReference": {
+		"hotelCode": "285"
+	},
+	"reservationID": "797907620",
+	"resvNameId": "786195318",
+	"reservationOriginatorCode": "*TIBCOBUS*",
+	"originalBookingDate": 1584013971000,
+	"stayDateRange": {
+		"startTime": 1593993600000,
+		"numberOfTimeUnits": 1,
+		"timeUnitType": "DAY"
+	},
+	"roomUpsell": {
+		"status": "AWARDED",
+		"type": "CONFIRMED",
+		"title": "Congratulations, you’ve been upgraded!",
+		"formattedMessage": "Congratulations, you’ve been upgraded! The room upgrade you requested has been approved. Updated charges and incidentals will be reflected on your stay summary."
+	},
+	"guestCounts": {
+		"guestCount": [
+			{
+				"ageQualifyingCode": "ADULT",
+				"mfCount": 2
+			},
+			{
+				"ageQualifyingCode": "CHILD",
+				"mfCount": 0
+			}
+		]
+	},
+	"resGuests": {
+		"resGuest": [
+			{
+				"resGuestRPH": 0,
+				"profileRPHs": "0",
+				"ageQualifyingCode": "ADULT",
+				"inHouseTimeSpan": {
+					"startTime": 1593993600000,
+					"numberOfTimeUnits": 1,
+					"timeUnitType": "DAY"
+				},
+				"arrivalTransport": {},
+				"departureTransport": {},
+				"arrivalTime": 1593993600000,
+				"departureTime": 1594080000000,
+				"reservationID": "797907620",
+				"reservationReferences": {
+					"reservationReference": [
+						{
+							"type": "AURORA",
+							"referenceNumber": "M03CCD9E1"
+						},
+						{
+							"type": "GUESTID",
+							"referenceNumber": "M03CCD9E1"
+						},
+						{
+							"type": "PMSID",
+							"referenceNumber": "797907620",
+							"legNumber": "1"
+						},
+						{
+							"type": "TIBCOBUS",
+							"referenceNumber": "M03CCD9E1"
+						}
+					]
+				},
+				"preRegistered": false,
+				"commissionPaidTo": "N",
+				"nameTaxType": "0",
+				"reservationActionType": "NEW"
+			}
+		]
+	},
+	"resComments": {
+		"resComment": [
+			{
+				"mfcommentType": "RESERVATION",
+				"reservationActionType": "CHANGE",
+				"commentOriginatorCode": "*PASSKEY*",
+				"comment": "Room Upsell comment; AWARD STATUS: AWARDED",
+				"guestViewable": true,
+				"resCommentRPH": 0,
+				"mfcommentDate": 1580846920000
+			}
+		]
+	},
+	"resProfiles": {
+		"resProfile": [
+			{
+				"profile": {
+					"creatorCode": "*TIBCOBUS*",
+					"createdDate": 1584013971000,
+					"lastUpdaterCode": "*TIBCOBUS*",
+					"lastUpdated": 1584013971000,
+					"genericName": "Test",
+					"individualName": {
+						"nameFirst": "Test",
+						"nameSur": "Test"
+					},
+					"electronicAddresses": {
+						"electronicAddress": [
+							{
+								"mfPrimaryYN": "Y",
+								"confirmation": false,
+								"electronicAddressType": "EMAIL",
+								"eaddress": "test@test.test"
+							}
+						]
+					},
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"address1": "975 KJ Drive",
+								"city": "Las Vegas",
+								"stateCode": "NV",
+								"postalCode": "89119",
+								"countryCode": "US",
+								"mfPrimaryYN": "Y",
+								"cleansed": false,
+								"addressType": "HOME"
+							}
+						]
+					},
+					"memberships": {
+                        "membership": [
+                            {
+                                "programCode": "GP",
+                                "accountID": "102292360",
+                                "nameOnCard": "John Smith",
+                                "displaySequence": 1,
+                                "pointIndicator": false,
+                                "enrollmentSource": "N",
+                                "enrolledAt": "N"
+                            }
+                        ]
+                    },
+					"phoneNumbers": {
+						"phoneNumber": [
+							{
+								"phoneNumber": "1234567890",
+								"mfPrimaryYN": "Y",
+								"confirmation": false,
+								"phoneNumberType": "OTHER"
+							}
+						]
+					},
+					"mfResort": "285",
+					"mfResortProfileID": "815706755",
+					"mfAllowMail": "NO",
+					"mfAllowEMail": "NO",
+					"mfGuestPriv": "NO",
+					"salesExtention": {},
+					"privacyOption": {
+						"mfAllowMail": "N",
+						"mfAllowEMail": "N",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowHistory": false
+					},
+					"resortList": [
+						"285"
+					],
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"entity": "CREDIT_CARDS",
+								"included": false
+							},
+							{
+								"entity": "RESORT_ARS",
+								"included": false
+							},
+							{
+								"entity": "COMMENTS",
+								"included": true
+							},
+							{
+								"entity": "PREFERENCES",
+								"included": true
+							},
+							{
+								"entity": "NEGOTIATED_RATES",
+								"included": true
+							},
+							{
+								"entity": "RESORT_NEG_RATES",
+								"included": true
+							},
+							{
+								"entity": "RESORT_COMMISSIONS",
+								"included": true
+							},
+							{
+								"entity": "CHANNEL_ACCESS_CODES",
+								"included": true
+							},
+							{
+								"entity": "YIELD_ADJUSTMENTS",
+								"included": true
+							},
+							{
+								"entity": "RELATIONSHIPS",
+								"included": false
+							}
+						]
+					},
+					"profileType": "GUEST",
+					"gender": "UNKNOWN",
+					"multiProperty": false,
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"replaceAddress": false
+				},
+				"resProfileRPH": 0
+			}
+		]
+	},
+	"roomStays": {
+		"roomStay": [
+			{
+				"roomInventoryCode": "DWTK",
+				"timeSpan": {
+					"startTime": 1593993600000,
+					"numberOfTimeUnits": 1,
+					"timeUnitType": "DAY"
+				},
+				"guestCounts": {
+					"guestCount": [
+						{
+							"ageQualifyingCode": "ADULT",
+							"mfCount": 2
+						},
+						{
+							"ageQualifyingCode": "CHILD",
+							"mfCount": 0
+						}
+					]
+				},
+				"ratePlans": {
+					"ratePlan": [
+						{
+							"ratePlanRPH": 0,
+							"ratePlanCode": "EXWEBA",
+							"timeSpan": {
+								"startTime": 1593993600000,
+								"numberOfTimeUnits": 1,
+								"timeUnitType": "DAY"
+							},
+							"mfMarketCode": "TFIT",
+							"rates": {
+								"rate": [
+									{
+										"rateRPH": 0,
+										"amount": {
+											"valueNum": 9999.99,
+											"currencyCode": "USD"
+										},
+										"rateBasisUnits": 1,
+										"timeSpan": {
+											"startTime": 1593993600000,
+											"numberOfTimeUnits": 1,
+											"timeUnitType": "DAY"
+										},
+										"mfAdults": 2,
+										"mfChildren": 0,
+										"mfCribs": 0,
+										"mfExtraBeds": 0,
+										"mfsourceCode": "TFITIWB",
+										"mfMarketCode": "TFIT",
+										"reservationActionType": "NEW",
+										"rateBasisTimeUnitType": "DAY"
+									}
+								]
+							},
+							"mfsourceCode": "TFITIWB",
+							"reservationActionType": "NEW"
+						}
+					]
+				},
+				"marketSegmentCode": "TFIT",
+				"promotionCode": "EXWEBA",
+				"resGuestRPHs": "0",
+				"guaranteeInfo": {
+					"mfGuaranteeType": "CC",
+					"guaranteeDeposit": {
+						"dueDate": 1584013968000,
+						"amount": {
+							"valueNum": 11337.9887,
+							"currencyCode": "USD"
+						},
+						"cancelIfNotReceived": false
+					},
+					"guaranteeType": "NA"
+				},
+				"cancelPenalties": {
+					"cancelPenalty": [
+						{
+							"cancelByDate": 1584013968000,
+							"amount": {
+								"valueNum": 11337.9887,
+								"currencyCode": "USD"
+							},
+							"mfRuleScope": "R",
+							"mfRuleDescription": "First Night's Deposit",
+							"activityDeposit": 0,
+							"roomDeposit": 11337.9887,
+							"ruleCode": "1NT",
+							"mfRuleType": "DEPOSIT"
+						},
+						{
+							"cancelByDate": 1593734400000,
+							"amount": {
+								"valueNum": 11337.9887,
+								"currencyCode": "USD"
+							},
+							"mfRuleScope": "R",
+							"mfPercentage": 100,
+							"mfCancelPercentDue": 100,
+							"mfCancelRoomNights": 1,
+							"mfRuleDescription": "72 Hours Cancellation",
+							"ruleCode": "72H",
+							"mfRuleType": "CANCEL"
+						}
+					]
+				},
+				"paymentInstructions": {
+					"paymentInstruction": [
+						{
+							"mfPaymentMethod": "MC",
+							"paymentDue": {
+								"amount": {
+									"currencyCode": "USD"
+								},
+								"cancelIfNotReceived": false
+							},
+							"paymentMethodType": "NA"
+						}
+					]
+				},
+				"mfsourceCode": "TFITIWB",
+				"mfconfidentialRate": false,
+				"mfAsbProrated": false,
+				"mfShareAction": "NA",
+				"mfReservationAction": "NA",
+				"reservationActionType": "NEW",
+				"reservationStatusType": "RESERVED"
+			}
+		]
+	},
+	"resProfileRPHs": "0",
+	"mfupdateDate": 1584013971000,
+	"mfcomplementary": false,
+	"mfImage": {
+		"numRooms": 1,
+		"describe": {
+			"resortName": "Excalibur Hotel Casino Las Vegas",
+			"insertUser": "*TIBCOBUS*",
+			"updateUser": "*TIBCOBUS*",
+			"roomCategory": "Resort Tower King",
+			"rateCode": "EXWEBA",
+			"marketCode": "Frqt Ind Trvlr",
+			"guarantee": "CC: Credit Card",
+			"company": "MGM Resorts International"
+		},
+		"change": {
+			"bmultipleRateYN": false,
+			"bdiscountReason": false,
+			"barrivalDate": true,
+			"bsource": true,
+			"bnumNights": true,
+			"bnumAdults": true,
+			"bnumChildren": true,
+			"broomCategory": true,
+			"brateCode": true,
+			"brateAmount": true,
+			"bguarType": true,
+			"bcribs": false,
+			"bresvStatus": true,
+			"bpaymentType": true,
+			"bmarketCode": true,
+			"bnumRooms": true
+		}
+	},
+	"udfs": {
+		"udf": [
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC09",
+					"module": "RESERVATION"
+				},
+				"udfValue": "MGMRI"
+			},
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC25",
+					"module": "RESERVATION"
+				}
+			},
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC26",
+					"module": "RESERVATION"
+				},
+				"udfValue": "mlife"
+			},
+			{
+				"udfDefinition": {
+					"pmsTableName": "RESERVATION_NAME",
+					"pmsColumnName": "UDFC33",
+					"module": "RESERVATION"
+				}
+			}
+		]
+	},
+	"rateServices": {
+		"rateService": [
+			{
+				"service": {
+					"serviceRPH": 0,
+					"serviceInventoryCode": "EXRESORTFEE",
+					"ratePlanCode": "EXWEBA",
+					"timeSpan": {
+						"startTime": 1593993600000,
+						"numberOfTimeUnits": 1,
+						"timeUnitType": "DAY"
+					},
+					"price": {
+						"valueNum": 35,
+						"currencyCode": "USD"
+					},
+					"quantity": 1,
+					"servicePrices": {
+						"servicePrice": [
+							{
+								"beginDate": 1593993600000,
+								"endDate": 1593993600000,
+								"unitPrice": 35
+							}
+						]
+					},
+					"reservationActionType": "NEW",
+					"servicePricingType": "NA",
+					"reservationStatusType": "NA"
+				}
+			}
+		]
+	},
+	"mfShareAction": "NA",
+	"mfReservationAction": "ADD",
+	"_rid": "nLx5AIqfWsE3kB4AAAAAAA==",
+	"_self": "dbs/nLx5AA==/colls/nLx5AIqfWsE=/docs/nLx5AIqfWsE3kB4AAAAAAA==/",
+	"_etag": "\"04006cbd-0000-0700-0000-5e6a850a0000\"",
+	"_attachments": "attachments/",
+	"_ts": 1584039178
+}

@@ -1,0 +1,1291 @@
+{
+	"stayDateRange": {
+		"timeUnitType": "DAY",
+		"numberOfTimeUnits": 5,
+		"startTime": 1581810228000
+	},
+	"resCommentRPHs": "0,1,2",
+	"resProfiles": {
+		"resProfile": [
+			{
+				"resProfileRPH": 0,
+				"profile": {
+					"mfResort": "275",
+					"privacyOption": {
+						"mfAllowHistory": false,
+						"mfAllowEMail": "N",
+						"mfAllowThirdParty": true,
+						"mfAllowMail": "Y",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowMarketResearch": true
+					},
+					"gender": "UNKNOWN",
+					"genericName": "Fukumoto",
+					"lastUpdaterCode": "MIJORDAN275",
+					"electronicAddresses": {
+						"electronicAddress": [
+							{
+								"electronicAddressType": "EMAIL",
+								"eaddress": "Ronald.Bagley@fmr.com",
+								"mfPrimaryYN": "Y",
+								"confirmation": false
+							}
+						]
+					},
+					"primaryLanguageID": "E",
+					"memberships": {
+						"membership": [
+							{
+								"accountID": "70894828",
+								"programCode": "PC",
+								"nameOnCard": "Fukumoto Sandra",
+								"displaySequence": 1,
+								"enrollmentSource": "N",
+								"pointIndicator": false,
+								"enrolledAt": "N"
+							}
+						]
+					},
+					"phoneNumbers": {
+						"phoneNumber": [
+							{
+								"phoneNumber": "310-480-3745",
+								"mfPrimaryYN": "Y",
+								"phoneNumberType": "HOME",
+								"confirmation": false
+							},
+							{
+								"phoneNumber": "310-480-3745",
+								"mfPrimaryYN": "N",
+								"phoneNumberType": "MOBILE",
+								"confirmation": false
+							}
+						]
+					},
+					"lastUpdated": 1581810130000,
+					"salesExtention": {
+						
+					},
+					"profileType": "GUEST",
+					"mfOccupation": "Hospital Manager",
+					"multiProperty": false,
+					"mfResortProfileID": "783526522",
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"mfAllowPhone": false,
+					"creatorCode": "*PASSKEY*",
+					"individualName": {
+						"nameFirst": "Sandra",
+						"nameSur": "Fukumoto"
+					},
+					"mfGuestPriv": "NO",
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"cleansed": false,
+								"address2": "#6",
+								"city": "Garden Grove",
+								"address1": "10371 Garden Grove Bl.",
+								"countryCode": "US",
+								"addressType": "HOME",
+								"postalCode": "92843",
+								"mfPrimaryYN": "Y",
+								"stateCode": "CA"
+							},
+							{
+								"cleansed": false,
+								"city": "Huntington Beach",
+								"address1": "16449 Lazare",
+								"countryCode": "US",
+								"addressType": "BILLING",
+								"postalCode": "92649",
+								"mfPrimaryYN": "N",
+								"stateCode": "CA"
+							},
+							{
+								"cleansed": false,
+								"city": "Long Beach",
+								"address1": "3816 E. Anaheim St.",
+								"countryCode": "US",
+								"addressType": "HOME",
+								"postalCode": "90804",
+								"mfPrimaryYN": "N",
+								"stateCode": "CA"
+							}
+						]
+					},
+					"resortList": [
+						"275"
+					],
+					"createdDate": 1445641854000,
+					"creditCards": {
+						"creditCard": [
+							{
+								"creditCardCode": "MC",
+								"creditCardNumber": "5499740A0016IOFGH8VGOIKS0776",
+								"creditCardHolderName": "Carl Palazzolo",
+								"mfPrimaryYN": "Y",
+								"creditCardExpire": 1682812800000
+							}
+						]
+					},
+					"resortSpecialRequests": {
+						"specialRequest": [
+							{
+								"mfResort": "275",
+								"requestCode": "RW",
+								"requestComments": "Rollaway",
+								"mfSpecialRequestType": "SPE"
+							}
+						]
+					},
+					"mfAllowEMail": "NO",
+					"mfAllowMail": "YES",
+					"specialRequests": {
+						"specialRequest": [
+							{
+								"mfResort": "275",
+								"requestCode": "RW",
+								"requestComments": "Rollaway",
+								"mfSpecialRequestType": "SPE"
+							}
+						]
+					},
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"included": true,
+								"entity": "CREDIT_CARDS"
+							},
+							{
+								"included": false,
+								"entity": "RESORT_ARS"
+							},
+							{
+								"included": true,
+								"entity": "COMMENTS"
+							},
+							{
+								"included": true,
+								"entity": "PREFERENCES"
+							},
+							{
+								"included": true,
+								"entity": "NEGOTIATED_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_NEG_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_COMMISSIONS"
+							},
+							{
+								"included": true,
+								"entity": "CHANNEL_ACCESS_CODES"
+							},
+							{
+								"included": true,
+								"entity": "YIELD_ADJUSTMENTS"
+							},
+							{
+								"included": false,
+								"entity": "RELATIONSHIPS"
+							}
+						]
+					},
+					"replaceAddress": false,
+					"mfAllowSMS": false
+				}
+			},
+			{
+				"resProfileRPH": 1,
+				"profile": {
+					"mfResort": "275",
+					"privacyOption": {
+						"mfAllowHistory": false,
+						"mfAllowEMail": "Y",
+						"mfAllowThirdParty": true,
+						"mfAllowMail": "Y",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowMarketResearch": true
+					},
+					"gender": "UNKNOWN",
+					"genericName": "Western Veterinary Conference 2020| Main",
+					"lastUpdaterCode": "MCRUZ275",
+					"electronicAddresses": {
+						"electronicAddress": [
+							{
+								"electronicAddressType": "EMAIL",
+								"eaddress": "Romanth.Dunstan@hotmail.edu",
+								"mfPrimaryYN": "Y",
+								"confirmation": false
+							}
+						]
+					},
+					"primaryLanguageID": "E",
+					"lastUpdated": 1543571039000,
+					"salesExtention": {
+						
+					},
+					"profileType": "GROUP",
+					"multiProperty": false,
+					"mfResortProfileID": "807870726",
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"mfAllowPhone": false,
+					"creatorCode": "MCRUZ275",
+					"individualName": {
+						"nameSur": "Western Veterinary Conference 2020| Main"
+					},
+					"mfGuestPriv": "NO",
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"cleansed": false,
+								"countryCode": "US",
+								"addressType": "BUSINESS",
+								"mfPrimaryYN": "Y",
+								"mfAddressLanguage": "E"
+							}
+						]
+					},
+					"resortList": [
+						"275"
+					],
+					"createdDate": 1543571039000,
+					"mfAllowEMail": "YES",
+					"mfAllowMail": "YES",
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"included": true,
+								"entity": "CREDIT_CARDS"
+							},
+							{
+								"included": false,
+								"entity": "RESORT_ARS"
+							},
+							{
+								"included": true,
+								"entity": "COMMENTS"
+							},
+							{
+								"included": true,
+								"entity": "PREFERENCES"
+							},
+							{
+								"included": true,
+								"entity": "NEGOTIATED_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_NEG_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_COMMISSIONS"
+							},
+							{
+								"included": true,
+								"entity": "CHANNEL_ACCESS_CODES"
+							},
+							{
+								"included": true,
+								"entity": "YIELD_ADJUSTMENTS"
+							},
+							{
+								"included": false,
+								"entity": "RELATIONSHIPS"
+							}
+						]
+					},
+					"replaceAddress": false,
+					"mfAllowSMS": false
+				}
+			},
+			{
+				"resProfileRPH": 2,
+				"profile": {
+					"mfResort": "275",
+					"privacyOption": {
+						"mfAllowHistory": true,
+						"mfAllowEMail": "N",
+						"mfAllowThirdParty": true,
+						"mfAllowMail": "Y",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowMarketResearch": true
+					},
+					"gender": "UNKNOWN",
+					"genericName": "Team 3 - Group Services Mandalay Bay",
+					"lastUpdaterCode": "ESTEPHENS275",
+					"phoneNumbers": {
+						"phoneNumber": [
+							{
+								"phoneNumber": "702-632-9000",
+								"mfPrimaryYN": "Y",
+								"phoneNumberType": "BUSINESS",
+								"confirmation": false
+							}
+						]
+					},
+					"lastUpdated": 1563459860000,
+					"salesExtention": {
+						
+					},
+					"profileType": "WHOLESALER",
+					"multiProperty": false,
+					"mfResortProfileID": "314577431",
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"mfAllowPhone": false,
+					"mfCommissionCurrencyCode": "USD",
+					"creatorCode": "IWEAVER275",
+					"individualName": {
+						"nameSur": "Team 3 - Group Services Mandalay Bay"
+					},
+					"mfGuestPriv": "NO",
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"cleansed": false,
+								"address2": "3950 S Las Vegas Blvd",
+								"city": "Las Vegas",
+								"address1": "Mandalay Bay Resort and Casino",
+								"countryCode": "US",
+								"addressType": "BUSINESS",
+								"postalCode": "89119",
+								"mfPrimaryYN": "Y",
+								"stateCode": "NV"
+							}
+						]
+					},
+					"resortList": [
+						"275"
+					],
+					"createdDate": 1321791455000,
+					"mfAllowEMail": "NO",
+					"mfAllowMail": "YES",
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"included": true,
+								"entity": "CREDIT_CARDS"
+							},
+							{
+								"included": false,
+								"entity": "RESORT_ARS"
+							},
+							{
+								"included": true,
+								"entity": "COMMENTS"
+							},
+							{
+								"included": true,
+								"entity": "PREFERENCES"
+							},
+							{
+								"included": true,
+								"entity": "NEGOTIATED_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_NEG_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_COMMISSIONS"
+							},
+							{
+								"included": true,
+								"entity": "CHANNEL_ACCESS_CODES"
+							},
+							{
+								"included": true,
+								"entity": "YIELD_ADJUSTMENTS"
+							},
+							{
+								"included": false,
+								"entity": "RELATIONSHIPS"
+							}
+						]
+					},
+					"replaceAddress": false,
+					"commissionPlanCode": "NON",
+					"resortCommissions": {
+						"resortCommission": [
+							{
+								"mfCommissionCurrencyCode": "USD",
+								"mfResort": "275",
+								"commissionPlanCode": "NON"
+							}
+						]
+					},
+					"mfAllowSMS": false
+				}
+			},
+			{
+				"resProfileRPH": 3,
+				"profile": {
+					"mfResort": "275",
+					"privacyOption": {
+						"mfAllowHistory": false,
+						"mfAllowEMail": "N",
+						"mfAllowThirdParty": true,
+						"mfAllowMail": "Y",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowMarketResearch": true
+					},
+					"gender": "UNKNOWN",
+					"genericName": "Yamamoto",
+					"lastUpdaterCode": "*PASSKEY*",
+					"electronicAddresses": {
+						"electronicAddress": [
+							{
+								"electronicAddressType": "EMAIL",
+								"eaddress": "Ronald.Bagley@fmr.com",
+								"mfPrimaryYN": "Y",
+								"confirmation": false
+							}
+						]
+					},
+					"phoneNumbers": {
+						"phoneNumber": [
+							{
+								"phoneNumber": "562-434-9966",
+								"mfPrimaryYN": "Y",
+								"phoneNumberType": "HOME",
+								"confirmation": false
+							},
+							{
+								"phoneNumber": "310-480-3745",
+								"mfPrimaryYN": "N",
+								"phoneNumberType": "HOME",
+								"confirmation": false
+							}
+						]
+					},
+					"lastUpdated": 1580846921000,
+					"salesExtention": {
+						
+					},
+					"profileType": "GUEST",
+					"mfOccupation": "Associate Veterinarian",
+					"multiProperty": false,
+					"mfResortProfileID": "813694860",
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"mfAllowPhone": false,
+					"creatorCode": "*PASSKEY*",
+					"individualName": {
+						"nameFirst": "Alexis",
+						"nameSur": "Yamamoto"
+					},
+					"mfGuestPriv": "NO",
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"cleansed": false,
+								"address2": "#6",
+								"city": "Garden Grove",
+								"address1": "10371 Garden Grove Bl.",
+								"countryCode": "US",
+								"addressType": "HOME",
+								"postalCode": "92843",
+								"mfPrimaryYN": "Y",
+								"stateCode": "CA"
+							},
+							{
+								"cleansed": false,
+								"city": "Huntington Beach",
+								"address1": "9602 Zetland Dr. .",
+								"countryCode": "US",
+								"addressType": "HOME",
+								"postalCode": "92646",
+								"mfPrimaryYN": "N",
+								"stateCode": "CA"
+							}
+						]
+					},
+					"resortList": [
+						"275"
+					],
+					"createdDate": 1567117595000,
+					"creditCards": {
+						"creditCard": [
+							{
+								"creditCardCode": "MC",
+								"creditCardNumber": "5499740A0016IOFGH8VGOIKS0776",
+								"creditCardHolderName": "Carl Palazzolo",
+								"mfPrimaryYN": "Y",
+								"creditCardExpire": 1682812800000
+							}
+						]
+					},
+					"resortSpecialRequests": {
+						"specialRequest": [
+							{
+								"mfResort": "275",
+								"requestCode": "RW",
+								"requestComments": "Rollaway",
+								"mfSpecialRequestType": "SPE"
+							}
+						]
+					},
+					"mfAllowEMail": "NO",
+					"mfAllowMail": "YES",
+					"specialRequests": {
+						"specialRequest": [
+							{
+								"mfResort": "275",
+								"requestCode": "RW",
+								"requestComments": "Rollaway",
+								"mfSpecialRequestType": "SPE"
+							}
+						]
+					},
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"included": true,
+								"entity": "CREDIT_CARDS"
+							},
+							{
+								"included": false,
+								"entity": "RESORT_ARS"
+							},
+							{
+								"included": true,
+								"entity": "COMMENTS"
+							},
+							{
+								"included": true,
+								"entity": "PREFERENCES"
+							},
+							{
+								"included": true,
+								"entity": "NEGOTIATED_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_NEG_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_COMMISSIONS"
+							},
+							{
+								"included": true,
+								"entity": "CHANNEL_ACCESS_CODES"
+							},
+							{
+								"included": true,
+								"entity": "YIELD_ADJUSTMENTS"
+							},
+							{
+								"included": false,
+								"entity": "RELATIONSHIPS"
+							}
+						]
+					},
+					"replaceAddress": false,
+					"mfAllowSMS": false
+				}
+			},
+			{
+				"resProfileRPH": 4,
+				"profile": {
+					"mfResort": "275",
+					"privacyOption": {
+						"mfAllowHistory": false,
+						"mfAllowEMail": "Y",
+						"mfAllowThirdParty": true,
+						"mfAllowMail": "Y",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowMarketResearch": true
+					},
+					"gender": "UNKNOWN",
+					"genericName": "Western Veterinary Conference 2020| Main",
+					"lastUpdaterCode": "MCRUZ275",
+					"electronicAddresses": {
+						"electronicAddress": [
+							{
+								"electronicAddressType": "EMAIL",
+								"eaddress": "Romanth.Dunstan@hotmail.edu",
+								"mfPrimaryYN": "Y",
+								"confirmation": false
+							}
+						]
+					},
+					"primaryLanguageID": "E",
+					"lastUpdated": 1543571039000,
+					"salesExtention": {
+						
+					},
+					"profileType": "GROUP",
+					"multiProperty": false,
+					"mfResortProfileID": "807870726",
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"mfAllowPhone": false,
+					"creatorCode": "MCRUZ275",
+					"individualName": {
+						"nameSur": "Western Veterinary Conference 2020| Main"
+					},
+					"mfGuestPriv": "NO",
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"cleansed": false,
+								"countryCode": "US",
+								"addressType": "BUSINESS",
+								"mfPrimaryYN": "Y",
+								"mfAddressLanguage": "E"
+							}
+						]
+					},
+					"resortList": [
+						"275"
+					],
+					"createdDate": 1543571039000,
+					"mfAllowEMail": "YES",
+					"mfAllowMail": "YES",
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"included": true,
+								"entity": "CREDIT_CARDS"
+							},
+							{
+								"included": false,
+								"entity": "RESORT_ARS"
+							},
+							{
+								"included": true,
+								"entity": "COMMENTS"
+							},
+							{
+								"included": true,
+								"entity": "PREFERENCES"
+							},
+							{
+								"included": true,
+								"entity": "NEGOTIATED_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_NEG_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_COMMISSIONS"
+							},
+							{
+								"included": true,
+								"entity": "CHANNEL_ACCESS_CODES"
+							},
+							{
+								"included": true,
+								"entity": "YIELD_ADJUSTMENTS"
+							},
+							{
+								"included": false,
+								"entity": "RELATIONSHIPS"
+							}
+						]
+					},
+					"replaceAddress": false,
+					"mfAllowSMS": false
+				}
+			},
+			{
+				"resProfileRPH": 5,
+				"profile": {
+					"mfResort": "275",
+					"privacyOption": {
+						"mfAllowHistory": true,
+						"mfAllowEMail": "N",
+						"mfAllowThirdParty": true,
+						"mfAllowMail": "Y",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"mfAllowMarketResearch": true
+					},
+					"gender": "UNKNOWN",
+					"genericName": "Team 3 - Group Services Mandalay Bay",
+					"lastUpdaterCode": "ESTEPHENS275",
+					"phoneNumbers": {
+						"phoneNumber": [
+							{
+								"phoneNumber": "702-632-9000",
+								"mfPrimaryYN": "Y",
+								"phoneNumberType": "BUSINESS",
+								"confirmation": false
+							}
+						]
+					},
+					"lastUpdated": 1563459860000,
+					"salesExtention": {
+						
+					},
+					"profileType": "WHOLESALER",
+					"multiProperty": false,
+					"mfResortProfileID": "314577431",
+					"miniProfile": false,
+					"pseudoProfile": false,
+					"mfAllowPhone": false,
+					"mfCommissionCurrencyCode": "USD",
+					"creatorCode": "IWEAVER275",
+					"individualName": {
+						"nameSur": "Team 3 - Group Services Mandalay Bay"
+					},
+					"mfGuestPriv": "NO",
+					"postalAddresses": {
+						"postalAddress": [
+							{
+								"cleansed": false,
+								"address2": "3950 S Las Vegas Blvd",
+								"city": "Las Vegas",
+								"address1": "Mandalay Bay Resort and Casino",
+								"countryCode": "US",
+								"addressType": "BUSINESS",
+								"postalCode": "89119",
+								"mfPrimaryYN": "Y",
+								"stateCode": "NV"
+							}
+						]
+					},
+					"resortList": [
+						"275"
+					],
+					"createdDate": 1321791455000,
+					"mfAllowEMail": "NO",
+					"mfAllowMail": "YES",
+					"multiResortEntities": {
+						"multiResortEntity": [
+							{
+								"included": true,
+								"entity": "CREDIT_CARDS"
+							},
+							{
+								"included": false,
+								"entity": "RESORT_ARS"
+							},
+							{
+								"included": true,
+								"entity": "COMMENTS"
+							},
+							{
+								"included": true,
+								"entity": "PREFERENCES"
+							},
+							{
+								"included": true,
+								"entity": "NEGOTIATED_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_NEG_RATES"
+							},
+							{
+								"included": true,
+								"entity": "RESORT_COMMISSIONS"
+							},
+							{
+								"included": true,
+								"entity": "CHANNEL_ACCESS_CODES"
+							},
+							{
+								"included": true,
+								"entity": "YIELD_ADJUSTMENTS"
+							},
+							{
+								"included": false,
+								"entity": "RELATIONSHIPS"
+							}
+						]
+					},
+					"replaceAddress": false,
+					"commissionPlanCode": "NON",
+					"resortCommissions": {
+						"resortCommission": [
+							{
+								"mfCommissionCurrencyCode": "USD",
+								"mfResort": "275",
+								"commissionPlanCode": "NON"
+							}
+						]
+					},
+					"mfAllowSMS": false
+				}
+			}
+		]
+	},
+	"guestCounts": {
+		"guestCount": [
+			{
+				"ageQualifyingCode": "ADULT",
+				"mfCount": 3
+			},
+			{
+				"ageQualifyingCode": "CHILD",
+				"mfCount": 0
+			}
+		]
+	},
+	"originalBookingDate": 1567117594000,
+	"mfImage": {
+		"numRooms": 1,
+		"change": {
+			"bguarType": false,
+			"bnumAdults": false,
+			"bmultipleRateYN": true,
+			"bcribs": false,
+			"barrivalDate": false,
+			"bsource": false,
+			"bpaymentType": false,
+			"bnumRooms": false,
+			"brateAmount": false,
+			"bresvStatus": false,
+			"bmarketCode": false,
+			"bnumNights": false,
+			"brateCode": false,
+			"bdiscountReason": false,
+			"bnumChildren": false,
+			"broomCategory": false
+		},
+		"describe": {
+			"resortName": "Mandalay Bay Resort and Casino",
+			"insertUser": "*PASSKEY*",
+			"roomCategory": "Resort Two Queen",
+			"updateUser": "SSUNDARESA",
+			"marketCode": "Tradeshow",
+			"guarantee": "CHECKED IN: Checked In",
+			"company": "MGM Resorts International"
+		}
+	},
+	"resProfileRPHs": "0, 1, 2, 3, 4, 5",
+	"reservationOriginatorCode": "SSUNDARESA",
+	"mfcomplementary": false,
+	"_attachments": "attachments/",
+	"serviceRPHs": "0",
+	"id": "245297d9-2305-3ee3-888d-2ed6bb1de0f3",
+	"hotelReference": {
+		"hotelCode": "275"
+	},
+	"mfReservationAction": "EDIT",
+	"_self": "dbs/+ZVcAA==/colls/+ZVcAO9iid8=/docs/+ZVcAO9iid8PAAAAAAAAAA==/",
+	"tierStatus": "WHITE",
+	"resGuests": {
+		"resGuest": [
+			{
+				"departureTime": 1582060200000,
+				"preRegistered": false,
+				"profileRPHs": "0, 1, 2",
+				"inHouseTimeSpan": {
+					"timeUnitType": "DAY",
+					"numberOfTimeUnits": 3,
+					"startTime": 1581810228000
+				},
+				"arrivalTransport": {
+					
+				},
+				"resGuestRPH": 0,
+				"reservationReferences": {
+					"reservationReference": [
+						{
+							"referenceNumber": "32MBMHZX0",
+							"type": "GUESTID"
+						},
+						{
+							"referenceNumber": "32MBMHZX0",
+							"type": "PASSKEY"
+						},
+						{
+							"legNumber": "1",
+							"referenceNumber": "794987260",
+							"type": "PMSID"
+						},
+						{
+							"referenceNumber": "Long Beach Animal Hospital",
+							"type": "TA_RECORD_LOCATOR"
+						}
+					]
+				},
+				"reservationActionType": "CHANGE",
+				"reservationID": "794987260",
+				"arrivalTime": 1581810228000,
+				"ageQualifyingCode": "ADULT",
+				"commissionPaidTo": "N",
+				"departureTransport": {
+					
+				},
+				"mfCRSShareID": 794987260
+			},
+			{
+				"departureTime": 1582156800000,
+				"preRegistered": false,
+				"profileRPHs": "3, 4, 5",
+				"inHouseTimeSpan": {
+					"timeUnitType": "DAY",
+					"numberOfTimeUnits": 5,
+					"startTime": 1581810244000
+				},
+				"arrivalTransport": {
+					
+				},
+				"resGuestRPH": 1,
+				"reservationReferences": {
+					"reservationReference": [
+						{
+							"referenceNumber": "32MBMHZX1",
+							"type": "GUESTID"
+						},
+						{
+							"referenceNumber": "32MBMHZX1",
+							"type": "PASSKEY"
+						},
+						{
+							"legNumber": "1",
+							"referenceNumber": "794987261",
+							"type": "PMSID"
+						},
+						{
+							"referenceNumber": "Long Beach Animal Hospital",
+							"type": "TA_RECORD_LOCATOR"
+						}
+					]
+				},
+				"reservationActionType": "CHANGE",
+				"reservationID": "794987261",
+				"arrivalTime": 1581810244000,
+				"ageQualifyingCode": "ADULT",
+				"commissionPaidTo": "N",
+				"departureTransport": {
+					
+				},
+				"mfCRSShareID": 794987260
+			}
+		]
+	},
+	"_etag": "\"2201493f-0000-0700-0000-5e50b7e70000\"",
+	"_ts": 1582348263,
+	"resvNameId": "783587566",
+	"_rid": "+ZVcAO9iid8PAAAAAAAAAA==",
+	"mfupdateDate": 1582319452000,
+	"roomStays": {
+		"roomStay": [
+			{
+				"marketSegmentCode": "VTSH",
+				"cancelPenalties": {
+					"cancelPenalty": [
+						{
+							"ruleCode": "72H",
+							"mfPercentage": 100,
+							"amount": {
+								"valueNum": 255.11,
+								"currencyCode": "USD"
+							},
+							"mfRuleDescription": "72 Hours Cancellation",
+							"mfCancelPercentDue": 100,
+							"mfCancelRoomNights": 1,
+							"mfRuleType": "CANCEL",
+							"mfRuleScope": "R",
+							"cancelByDate": 1581519600000,
+							"manualRule": false
+						}
+					]
+				},
+				"mfconfidentialRate": false,
+				"resCommentRPHs": "0,1,2",
+				"guaranteeInfo": {
+					"guaranteeType": "NA",
+					"mfGuaranteeType": "CHECKED IN",
+					"guaranteeDeposit": {
+						"amount": {
+							"currencyCode": "USD"
+						},
+						"cancelIfNotReceived": false
+					}
+				},
+				"paymentInstructions": {
+					"paymentInstruction": [
+						{
+							"mfPaymentMethod": "VI",
+							"paymentDue": {
+								"amount": {
+									"currencyCode": "USD"
+								},
+								"cancelIfNotReceived": false
+							},
+							"paymentMethodType": "CREDITCARD",
+							"resCreditCardRPH": 0
+						}
+					]
+				},
+				"guestCounts": {
+					"guestCount": [
+						{
+							"ageQualifyingCode": "ADULT",
+							"mfCount": 3
+						},
+						{
+							"ageQualifyingCode": "CHILD",
+							"mfCount": 0
+						}
+					]
+				},
+				"mfsharedGuestRPHs": "1",
+				"reservationFixedCharges": {
+					"reservationFixedCharge": [
+						{
+							"beginDate": 1581724800000,
+							"quantity": 1,
+							"endDate": 1581984000000,
+							"price": 40,
+							"transactionCode": "62315001",
+							"frequency": "D"
+						}
+					]
+				},
+				"roomID": "09118",
+				"reservationStatusType": "CHECKEDOUT",
+				"roomInventoryCode": "DRSQ",
+				"serviceRPHs": "0",
+				"reservationActionType": "CHANGE",
+				"inventoryBlockCode": "SWVC0220MB",
+				"resGuestRPHs": "0",
+				"mfShareAction": "NA",
+				"mfAsbProrated": false,
+				"timeSpan": {
+					"timeUnitType": "DAY",
+					"numberOfTimeUnits": 5,
+					"startTime": 1581810228000
+				},
+				"mfsourceCode": "VRMLIST",
+				"ratePlans": {
+					"ratePlan": [
+						{
+							"reservationActionType": "CHANGE",
+							"mfMarketCode": "VTSH",
+							"rates": {
+								"rate": [
+									{
+										"amount": {
+											"valueNum": 225,
+											"currencyCode": "USD"
+										},
+										"reservationActionType": "CHANGE",
+										"rateRPH": 0,
+										"rateBasisUnits": 1,
+										"rateBasisTimeUnitType": "DAY",
+										"mfChildren": 0,
+										"mfMarketCode": "VTSH",
+										"mfCribs": 0,
+										"timeSpan": {
+											"timeUnitType": "DAY",
+											"numberOfTimeUnits": 2,
+											"startTime": 1581724800000
+										},
+										"mfExtraBeds": 0,
+										"mfsourceCode": "VRMLIST",
+										"mfAdults": 3
+									},
+									{
+										"amount": {
+											"valueNum": 185,
+											"currencyCode": "USD"
+										},
+										"reservationActionType": "CHANGE",
+										"rateRPH": 1,
+										"rateBasisUnits": 1,
+										"rateBasisTimeUnitType": "DAY",
+										"mfChildren": 0,
+										"mfMarketCode": "VTSH",
+										"mfCribs": 0,
+										"timeSpan": {
+											"timeUnitType": "DAY",
+											"numberOfTimeUnits": 1,
+											"startTime": 1581897600000
+										},
+										"mfExtraBeds": 0,
+										"mfsourceCode": "VRMLIST",
+										"mfAdults": 3
+									},
+									{
+										"amount": {
+											"valueNum": 0,
+											"currencyCode": "USD"
+										},
+										"reservationActionType": "CHANGE",
+										"rateRPH": 2,
+										"rateBasisUnits": 1,
+										"rateBasisTimeUnitType": "DAY",
+										"mfChildren": 0,
+										"mfMarketCode": "VTSH",
+										"mfCribs": 0,
+										"timeSpan": {
+											"timeUnitType": "DAY",
+											"numberOfTimeUnits": 2,
+											"startTime": 1581984000000
+										},
+										"mfExtraBeds": 0,
+										"mfsourceCode": "VRMLIST",
+										"mfAdults": 0
+									}
+								]
+							},
+							"timeSpan": {
+								"timeUnitType": "DAY",
+								"numberOfTimeUnits": 5,
+								"startTime": 1581724800000
+							},
+							"mfsourceCode": "VRMLIST",
+							"ratePlanRPH": 0
+						}
+					]
+				},
+				"mfReservationAction": "NA",
+				"selectedMembershipRPHs": "0",
+				"mfshareCode": "1032612157"
+			}
+		]
+	},
+	"udfs": {
+		"udf": [
+			{
+				"udfDefinition": {
+					"pmsColumnName": "UDFC09",
+					"module": "RESERVATION",
+					"pmsTableName": "RESERVATION_NAME"
+				}
+			},
+			{
+				"udfDefinition": {
+					"pmsColumnName": "UDFC25",
+					"module": "RESERVATION",
+					"pmsTableName": "RESERVATION_NAME"
+				}
+			},
+			{
+				"udfDefinition": {
+					"pmsColumnName": "UDFC26",
+					"module": "RESERVATION",
+					"pmsTableName": "RESERVATION_NAME"
+				}
+			},
+			{
+				"udfDefinition": {
+					"pmsColumnName": "UDFC33",
+					"module": "RESERVATION",
+					"pmsTableName": "RESERVATION_NAME"
+				}
+			}
+		]
+	},
+	"services": {
+		"service": [
+			{
+				"quantity": 1,
+				"reservationActionType": "CHANGE",
+				"serviceRPH": 0,
+				"servicePrices": {
+					"servicePrice": [
+						{
+							"unitPrice": 26,
+							"beginDate": 1581724800000,
+							"endDate": 1581897600000
+						}
+					]
+				},
+				"price": {
+					"valueNum": 26,
+					"currencyCode": "USD"
+				},
+				"timeSpan": {
+					"timeUnitType": "DAY",
+					"numberOfTimeUnits": 6,
+					"startTime": 1581724800000
+				},
+				"serviceInventoryCode": "MBRSTFEE26",
+				"servicePricingType": "NA",
+				"reservationStatusType": "NA"
+			}
+		]
+	},
+	"resCreditCards": {
+		"resCreditCard": [
+			{
+				"reservationActionType": "CHANGE",
+				"creditCard": {
+					"creditCardCode": "VI",
+					"creditCardNumber": "4321430A0011AK546Z66UCG24327",
+					"mfPrimaryYN": "Y",
+					"creditCardExpire": 1701302400000
+				},
+				"resCreditCardRPH": 0
+			}
+		]
+	},
+	"reservationID": "794987260",
+	"resComments": {
+		"resComment": [
+			{
+				"mfcommentType": "RESERVATION",
+				"reservationActionType": "CHANGE",
+				"commentOriginatorCode": "*PASSKEY*",
+				"comment": "M life 70894828 added to reservation through TBM Append.  We would like to request a cot/rollaway bed for the 3rd adult in our room, please. Thank you!",
+				"guestViewable": true,
+				"resCommentRPH": 0,
+				"mfcommentDate": 1580846920000
+			},
+			{
+				"mfcommentType": "RESERVATION",
+				"reservationActionType": "CHANGE",
+				"commentOriginatorCode": "*PASSKEY*",
+				"comment": "M life 70894828 added to reservation through TBM Append.  We would like to request a cot/rollaway bed for the 3rd adult in our room, please. Thank you!",
+				"guestViewable": true,
+				"resCommentRPH": 1,
+				"mfcommentDate": 1580846920000
+			},
+			{
+				"mfcommentType": "RESERVATION",
+				"reservationActionType": "CHANGE",
+				"commentOriginatorCode": "*PASSKEY*",
+				"comment": "M life 70894828 added to reservation through TBM Append.  We would like to request a cot/rollaway bed for the 3rd adult in our room, please. Thank you!",
+				"guestViewable": true,
+				"resCommentRPH": 2,
+				"mfcommentDate": 1580846920000
+			}
+		]
+	},
+	"mfShareAction": "NA",
+	"selectedMemberships": {
+		"selectedMembership": [
+			{
+				"accountID": "70894828",
+				"reservationActionType": "CHANGE",
+				"programCode": "PC",
+				"selectedMembershipRPH": 0
+			}
+		]
+	},
+	"specialRequests": {
+		"specialRequest": [
+			{
+				"specialRequestRPH": 0,
+				"reservationActionType": "CHANGE",
+				"requestCode": "RW",
+				"requestComments": "Rollaway",
+				"mfSpecialRequestType": "SPE"
+			}
+		]
+	},
+	"specialRequestRPHs": "0"
+}

@@ -1,0 +1,3182 @@
+[
+	{
+		"id": "6a3e41ad-0c28-393f-a72a-61cc3466da26",
+		"hotelReference": {
+			"hotelCode": "001"
+		},
+		"reservationID": "788697724",
+		"resvNameId": "777919544",
+		"tierStatus": "BLUE",
+		"mgmProfile": {
+			"additionalGuests": [
+				{
+					"firstName": "fName",
+					"lastName": "lName",
+					"reservationID": "788197724",
+					"mgmId": "938387233",
+					"precreated": true,
+					"reservationStatus": "INHOUSE",
+					"resvNameId": "777919544",
+					"shareType": "digital-key",
+					"metadata": {
+						"etaUpdated": true,
+						"paymentFailed": false,
+						"paymentUpdated": true
+					},
+					"creditCard": {
+						"creditCardCode": "VI",
+						"creditCardHolderName": "John Doe",
+						"creditCardNumber": "4111111111111111",
+						"creditCardExpire": "2028-05"
+					}
+				}
+			]
+		},
+		"reservationOriginatorCode": "ASATCHER001",
+		"originalBookingDate": 1550213691000,
+		"stayDateRange": {
+			"startTime": 1550213710000,
+			"numberOfTimeUnits": 365,
+			"timeUnitType": "DAY"
+		},
+		"guestCounts": {
+			"guestCount": [
+				{
+					"ageQualifyingCode": "ADULT",
+					"mfCount": 0
+				},
+				{
+					"ageQualifyingCode": "CHILD",
+					"mfCount": 0
+				}
+			]
+		},
+		"resGuests": {
+			"resGuest": [
+				{
+					"resGuestRPH": 0,
+					"profileRPHs": "0",
+					"ageQualifyingCode": "ADULT",
+					"inHouseTimeSpan": {
+						"startTime": 1550213710000,
+						"numberOfTimeUnits": 365,
+						"timeUnitType": "DAY"
+					},
+					"arrivalTransport": {
+						
+					},
+					"departureTransport": {
+						
+					},
+					"arrivalTime": 1550213710000,
+					"departureTime": 1581724800000,
+					"reservationID": "788697724",
+					"reservationReferences": {
+						"reservationReference": [
+							{
+								"type": "GUESTID",
+								"referenceNumber": "788697724",
+								"legNumber": "1"
+							},
+							{
+								"type": "PMSID",
+								"referenceNumber": "788697724",
+								"legNumber": "1"
+							}
+						]
+					},
+					"preRegistered": false,
+					"commissionPaidTo": "N",
+					"nameTaxType": "0",
+					"reservationActionType": "SYNC"
+				}
+			]
+		},
+		"resProfiles": {
+			"resProfile": [
+				{
+					"profile": {
+						"creatorCode": "*TIBCOBUS*",
+						"createdDate": 1539943964000,
+						"lastUpdaterCode": "ASATCHER001",
+						"lastUpdated": 1550213855000,
+						"genericName": "Meister",
+						"individualName": {
+							"namePrefix": "Mr",
+							"nameFirst": "Keith  (MGMRI)",
+							"nameSur": "Meister"
+						},
+						"dateOfBirth": 103248000000,
+						"electronicAddresses": {
+							"electronicAddress": [
+								{
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"electronicAddressType": "EMAIL",
+									"eaddress": "Drew.Crittenden@yahoo.com"
+								},
+								{
+									"mfPrimaryYN": "N",
+									"confirmation": false,
+									"electronicAddressType": "EMAIL",
+									"eaddress": "Rory.Baker@msn.net"
+								}
+							]
+						},
+						"memberships": {
+							"membership": [
+								{
+									"programCode": "PC",
+									"accountID": "77286842",
+									"nameOnCard": "Meister Keith",
+									"displaySequence": 1,
+									"pointIndicator": false,
+									"enrollmentSource": "N",
+									"enrolledAt": "N"
+								}
+							]
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "667 Madison Ave",
+									"city": "New York",
+									"stateCode": "NY",
+									"postalCode": "10065",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"phoneNumbers": {
+							"phoneNumber": [
+								{
+									"phoneNumber": "12124746720",
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"phoneNumberType": "MOBILE"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "807137334",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": false,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "GUEST",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 0
+				}
+			]
+		},
+		"roomStays": {
+			"roomStay": [
+				{
+					"roomInventoryCode": "AR",
+					"roomID": "95117",
+					"timeSpan": {
+						"startTime": 1550213710000,
+						"numberOfTimeUnits": 365,
+						"timeUnitType": "DAY"
+					},
+					"guestCounts": {
+						"guestCount": [
+							{
+								"ageQualifyingCode": "ADULT",
+								"mfCount": 0
+							},
+							{
+								"ageQualifyingCode": "CHILD",
+								"mfCount": 0
+							}
+						]
+					},
+					"ratePlans": {
+						"ratePlan": [
+							{
+								"ratePlanRPH": 0,
+								"ratePlanCode": "NONR",
+								"timeSpan": {
+									"startTime": 1550188800000,
+									"numberOfTimeUnits": 365,
+									"timeUnitType": "DAY"
+								},
+								"mfMarketCode": "NONR",
+								"rates": {
+									"rate": [
+										{
+											"rateRPH": 0,
+											"amount": {
+												"valueNum": 0,
+												"currencyCode": "USD"
+											},
+											"rateBasisUnits": 1,
+											"timeSpan": {
+												"startTime": 1550188800000,
+												"numberOfTimeUnits": 365,
+												"timeUnitType": "DAY"
+											},
+											"mfAdults": 0,
+											"mfChildren": 0,
+											"mfCribs": 0,
+											"mfExtraBeds": 0,
+											"mfsourceCode": "NONR",
+											"mfMarketCode": "NONR",
+											"reservationActionType": "SYNC",
+											"rateBasisTimeUnitType": "DAY"
+										}
+									]
+								},
+								"mfsourceCode": "NONR",
+								"reservationActionType": "SYNC"
+							}
+						]
+					},
+					"marketSegmentCode": "NONR",
+					"resGuestRPHs": "0",
+					"selectedMembershipRPHs": "0",
+					"guaranteeInfo": {
+						"mfGuaranteeType": "CHECKED IN",
+						"guaranteeDeposit": {
+							"amount": {
+								"currencyCode": "USD"
+							},
+							"cancelIfNotReceived": false
+						},
+						"guaranteeType": "NA"
+					},
+					"cancelPenalties": {
+						"cancelPenalty": [
+							{
+								"cancelByDate": 1549983600000,
+								"amount": {
+									"valueNum": 0,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfPercentage": 100,
+								"mfCancelPercentDue": 100,
+								"mfCancelRoomNights": 1,
+								"mfRuleDescription": "72 Hours Cancellation",
+								"ruleCode": "72H",
+								"mfRuleType": "CANCEL",
+								"manualRule": false
+							}
+						]
+					},
+					"paymentInstructions": {
+						"paymentInstruction": [
+							{
+								"mfPaymentMethod": "CA",
+								"paymentDue": {
+									"amount": {
+										"currencyCode": "USD"
+									},
+									"cancelIfNotReceived": false
+								},
+								"paymentMethodType": "NA"
+							}
+						]
+					},
+					"mfsourceCode": "NONR",
+					"mfconfidentialRate": false,
+					"mfAsbProrated": false,
+					"mfShareAction": "NA",
+					"mfReservationAction": "NA",
+					"reservationActionType": "SYNC",
+					"reservationStatusType": "INHOUSE"
+				}
+			]
+		},
+		"selectedMemberships": {
+			"selectedMembership": [
+				{
+					"selectedMembershipRPH": 0,
+					"programCode": "PC",
+					"accountID": "77286842",
+					"reservationActionType": "SYNC"
+				}
+			]
+		},
+		"resProfileRPHs": "0",
+		"mfupdateDate": 1550213855000,
+		"mfcomplementary": false,
+		"mfImage": {
+			"numRooms": 1,
+			"describe": {
+				"resortName": "MGM Grand",
+				"insertUser": "ASATCHER001",
+				"updateUser": "ASATCHER001",
+				"roomCategory": "Accounts Receivable",
+				"rateCode": "Non Revenue",
+				"marketCode": "Non Revenue",
+				"guarantee": "CHECKED IN: Checked In",
+				"company": "MGM Resorts International"
+			},
+			"change": {
+				"barrivalDate": false,
+				"bnumAdults": false,
+				"bnumNights": false,
+				"bnumChildren": false,
+				"bcribs": false,
+				"bnumRooms": false,
+				"broomCategory": false,
+				"bpaymentType": false,
+				"bresvStatus": false,
+				"bguarType": false,
+				"bdiscountReason": false,
+				"bmultipleRateYN": false
+			}
+		},
+		"udfs": {
+			"udf": [
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC09",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC25",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC26",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC33",
+						"module": "RESERVATION"
+					}
+				}
+			]
+		},
+		"mfShareAction": "NA",
+		"mfReservationAction": "CHECKIN",
+		"_rid": "J3Q7AJfAvs7YRB8AAAAAAA==",
+		"_self": "dbs/J3Q7AA==/colls/J3Q7AJfAvs4=/docs/J3Q7AJfAvs7YRB8AAAAAAA==/",
+		"_etag": "\"15004e96-0000-0700-0000-5e39e70a0000\"",
+		"_attachments": "attachments/",
+		"_ts": 1580853002
+	},
+	{
+		"id": "78fe9f37-9d02-32c2-a15e-c91c0adb1f59",
+		"hotelReference": {
+			"hotelCode": "001"
+		},
+		"reservationID": "791737252",
+		"resvNameId": "780638384",
+		"tierStatus": "BLACK",
+		"reservationOriginatorCode": "ASATCHER001",
+		"originalBookingDate": 1558349500000,
+		"stayDateRange": {
+			"startTime": 1558349517000,
+			"numberOfTimeUnits": 366,
+			"timeUnitType": "DAY"
+		},
+		"guestCounts": {
+			"guestCount": [
+				{
+					"ageQualifyingCode": "ADULT",
+					"mfCount": 0
+				},
+				{
+					"ageQualifyingCode": "CHILD",
+					"mfCount": 0
+				}
+			]
+		},
+		"resGuests": {
+			"resGuest": [
+				{
+					"resGuestRPH": 0,
+					"profileRPHs": "0",
+					"ageQualifyingCode": "ADULT",
+					"inHouseTimeSpan": {
+						"startTime": 1558349517000,
+						"numberOfTimeUnits": 366,
+						"timeUnitType": "DAY"
+					},
+					"arrivalTransport": {
+						
+					},
+					"departureTransport": {
+						
+					},
+					"arrivalTime": 1558349517000,
+					"departureTime": 1589932800000,
+					"reservationID": "791737252",
+					"reservationReferences": {
+						"reservationReference": [
+							{
+								"type": "GUESTID",
+								"referenceNumber": "791737252",
+								"legNumber": "1"
+							},
+							{
+								"type": "PMSID",
+								"referenceNumber": "791737252",
+								"legNumber": "1"
+							}
+						]
+					},
+					"preRegistered": false,
+					"commissionPaidTo": "N",
+					"nameTaxType": "0",
+					"reservationActionType": "SYNC"
+				}
+			]
+		},
+		"resProfiles": {
+			"resProfile": [
+				{
+					"profile": {
+						"creatorCode": "MRODRIGUEZ",
+						"createdDate": 1152457817000,
+						"lastUpdaterCode": "PCIESLEWIC",
+						"lastUpdated": 1547637878000,
+						"genericName": "Taylor",
+						"individualName": {
+							"namePrefix": "Mr.",
+							"nameFirst": "Dan",
+							"nameSur": "Taylor"
+						},
+						"primaryLanguageID": "E",
+						"memberships": {
+							"membership": [
+								{
+									"programCode": "PC",
+									"accountID": "69473619",
+									"startDate": 1483488000000,
+									"nameOnCard": "DAN TAYLOR",
+									"displaySequence": 1,
+									"pointIndicator": false,
+									"enrollmentSource": "N",
+									"enrolledAt": "N"
+								}
+							]
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "3600 Las Vegas Blvd South",
+									"city": "Las Vegas",
+									"stateCode": "NV",
+									"postalCode": "89109",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"mfAddressLanguage": "E",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"phoneNumbers": {
+							"phoneNumber": [
+								{
+									"phoneNumber": "7028243362",
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"phoneNumberType": "MOBILE"
+								}
+							]
+						},
+						"specialRequests": {
+							"specialRequest": [
+								{
+									"requestCode": "VP",
+									"mfResort": "001",
+									"mfSpecialRequestType": "SPE"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "2369356",
+						"mfVipStatus": "EXEC",
+						"mfAllowMail": "NO",
+						"mfAllowEMail": "YES",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "N",
+							"mfAllowEMail": "Y",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"resortSpecialRequests": {
+							"specialRequest": [
+								{
+									"requestCode": "VP",
+									"mfResort": "001",
+									"mfSpecialRequestType": "SPE"
+								}
+							]
+						},
+						"profileType": "GUEST",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 0
+				}
+			]
+		},
+		"roomStays": {
+			"roomStay": [
+				{
+					"roomInventoryCode": "AR",
+					"roomID": "95138",
+					"timeSpan": {
+						"startTime": 1558349517000,
+						"numberOfTimeUnits": 366,
+						"timeUnitType": "DAY"
+					},
+					"guestCounts": {
+						"guestCount": [
+							{
+								"ageQualifyingCode": "ADULT",
+								"mfCount": 0
+							},
+							{
+								"ageQualifyingCode": "CHILD",
+								"mfCount": 0
+							}
+						]
+					},
+					"ratePlans": {
+						"ratePlan": [
+							{
+								"ratePlanRPH": 0,
+								"ratePlanCode": "NONR",
+								"timeSpan": {
+									"startTime": 1558310400000,
+									"numberOfTimeUnits": 366,
+									"timeUnitType": "DAY"
+								},
+								"mfMarketCode": "NONR",
+								"rates": {
+									"rate": [
+										{
+											"rateRPH": 0,
+											"amount": {
+												"valueNum": 0,
+												"currencyCode": "USD"
+											},
+											"rateBasisUnits": 1,
+											"timeSpan": {
+												"startTime": 1558310400000,
+												"numberOfTimeUnits": 366,
+												"timeUnitType": "DAY"
+											},
+											"mfAdults": 0,
+											"mfChildren": 0,
+											"mfCribs": 0,
+											"mfExtraBeds": 0,
+											"mfsourceCode": "NONR",
+											"mfMarketCode": "NONR",
+											"reservationActionType": "SYNC",
+											"rateBasisTimeUnitType": "DAY"
+										}
+									]
+								},
+								"mfsourceCode": "NONR",
+								"reservationActionType": "SYNC"
+							}
+						]
+					},
+					"marketSegmentCode": "NONR",
+					"resGuestRPHs": "0",
+					"selectedMembershipRPHs": "0",
+					"guaranteeInfo": {
+						"mfGuaranteeType": "CHECKED IN",
+						"guaranteeDeposit": {
+							"amount": {
+								"currencyCode": "USD"
+							},
+							"cancelIfNotReceived": false
+						},
+						"guaranteeType": "NA"
+					},
+					"cancelPenalties": {
+						"cancelPenalty": [
+							{
+								"cancelByDate": 1558105200000,
+								"amount": {
+									"valueNum": 0,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfPercentage": 100,
+								"mfCancelPercentDue": 100,
+								"mfCancelRoomNights": 1,
+								"mfRuleDescription": "72 Hours Cancellation",
+								"ruleCode": "72H",
+								"mfRuleType": "CANCEL",
+								"manualRule": false
+							}
+						]
+					},
+					"paymentInstructions": {
+						"paymentInstruction": [
+							{
+								"mfPaymentMethod": "CA",
+								"paymentDue": {
+									"amount": {
+										"currencyCode": "USD"
+									},
+									"cancelIfNotReceived": false
+								},
+								"paymentMethodType": "NA"
+							}
+						]
+					},
+					"mfsourceCode": "NONR",
+					"mfconfidentialRate": false,
+					"mfAsbProrated": false,
+					"mfShareAction": "NA",
+					"mfReservationAction": "NA",
+					"reservationActionType": "SYNC",
+					"reservationStatusType": "INHOUSE"
+				}
+			]
+		},
+		"selectedMemberships": {
+			"selectedMembership": [
+				{
+					"selectedMembershipRPH": 0,
+					"programCode": "PC",
+					"accountID": "69473619",
+					"reservationActionType": "SYNC"
+				}
+			]
+		},
+		"resProfileRPHs": "0",
+		"mfupdateDate": 1558349517000,
+		"mfcomplementary": false,
+		"mfImage": {
+			"numRooms": 1,
+			"describe": {
+				"resortName": "MGM Grand",
+				"insertUser": "ASATCHER001",
+				"updateUser": "ASATCHER001",
+				"roomCategory": "Accounts Receivable",
+				"rateCode": "Non Revenue",
+				"marketCode": "Non Revenue",
+				"guarantee": "CHECKED IN: Checked In",
+				"company": "MGM Resorts International"
+			},
+			"change": {
+				"bmultipleRateYN": false,
+				"bdiscountReason": false,
+				"bnumRooms": false,
+				"bnumNights": false,
+				"bpaymentType": false,
+				"broomCategory": false,
+				"barrivalDate": false,
+				"bnumAdults": false,
+				"bnumChildren": false,
+				"bcribs": false,
+				"bresvStatus": false,
+				"bguarType": false
+			}
+		},
+		"udfs": {
+			"udf": [
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC09",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC25",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC26",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC33",
+						"module": "RESERVATION"
+					}
+				}
+			]
+		},
+		"mfShareAction": "NA",
+		"mfReservationAction": "CHECKIN",
+		"_rid": "J3Q7AJfAvs7sRB8AAAAAAA==",
+		"_self": "dbs/J3Q7AA==/colls/J3Q7AJfAvs4=/docs/J3Q7AJfAvs7sRB8AAAAAAA==/",
+		"_etag": "\"17002f70-0000-0700-0000-5e3a4c740000\"",
+		"_attachments": "attachments/",
+		"_ts": 1580878964
+	},
+	{
+		"id": "7b2bf257-7ae0-31ce-850b-1d8fd903f8e2",
+		"hotelReference": {
+			"hotelCode": "001"
+		},
+		"reservationID": "792639068",
+		"resvNameId": "781457216",
+		"tierStatus": "BLUE",
+		"reservationOriginatorCode": "JANETHERNA",
+		"originalBookingDate": 1560790762000,
+		"stayDateRange": {
+			"startTime": 1560790860000,
+			"numberOfTimeUnits": 365,
+			"timeUnitType": "DAY"
+		},
+		"resCreditCards": {
+			"resCreditCard": [
+				{
+					"creditCard": {
+						"creditCardCode": "MC",
+						"creditCardNumber": "5555550A00102E3UJZ27YC954444",
+						"creditCardExpire": 1672444800000,
+						"mfPrimaryYN": "Y"
+					},
+					"resCreditCardRPH": 0,
+					"reservationActionType": "CHANGE"
+				}
+			]
+		},
+		"guestCounts": {
+			"guestCount": [
+				{
+					"ageQualifyingCode": "ADULT",
+					"mfCount": 0
+				},
+				{
+					"ageQualifyingCode": "CHILD",
+					"mfCount": 0
+				}
+			]
+		},
+		"resGuests": {
+			"resGuest": [
+				{
+					"resGuestRPH": 0,
+					"profileRPHs": "0",
+					"ageQualifyingCode": "ADULT",
+					"inHouseTimeSpan": {
+						"startTime": 1560790860000,
+						"numberOfTimeUnits": 365,
+						"timeUnitType": "DAY"
+					},
+					"arrivalTransport": {
+						
+					},
+					"departureTransport": {
+						
+					},
+					"arrivalTime": 1560790860000,
+					"departureTime": 1592265600000,
+					"reservationID": "792639068",
+					"reservationReferences": {
+						"reservationReference": [
+							{
+								"type": "GUESTID",
+								"referenceNumber": "792639068",
+								"legNumber": "1"
+							},
+							{
+								"type": "PMSID",
+								"referenceNumber": "792639068",
+								"legNumber": "1"
+							}
+						]
+					},
+					"preRegistered": false,
+					"commissionPaidTo": "N",
+					"nameTaxType": "0",
+					"reservationActionType": "SYNC"
+				}
+			]
+		},
+		"resProfiles": {
+			"resProfile": [
+				{
+					"profile": {
+						"creatorCode": "BLIGHTL",
+						"createdDate": 1279258910000,
+						"lastUpdaterCode": "ASWANN01307",
+						"lastUpdated": 1481036591000,
+						"genericName": "BIBLE",
+						"individualName": {
+							"namePrefix": "Mr.",
+							"nameFirst": "BILL",
+							"nameSur": "BIBLE"
+						},
+						"primaryLanguageID": "E",
+						"electronicAddresses": {
+							"electronicAddress": [
+								{
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"electronicAddressType": "EMAIL",
+									"eaddress": "Drew.Crittenden@yahoo.com"
+								},
+								{
+									"mfPrimaryYN": "N",
+									"confirmation": false,
+									"electronicAddressType": "EMAIL",
+									"eaddress": "Damon.Botolph@hotmail.com"
+								}
+							]
+						},
+						"memberships": {
+							"membership": [
+								{
+									"programCode": "PC",
+									"accountID": "54102838",
+									"nameOnCard": "BILL BIBLE",
+									"displaySequence": 1,
+									"pointIndicator": false,
+									"enrollmentSource": "N",
+									"enrolledAt": "N"
+								}
+							]
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "275 Antelope Village Cir",
+									"address2": "Henderson",
+									"address3": "BOARD MEMBER",
+									"city": "Henderson",
+									"stateCode": "NV",
+									"postalCode": "89012",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"mfAddressLanguage": "E",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "136867206",
+						"mfVipStatus": "EXEC",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "YES",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "Y",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": false,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "GUEST",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 0
+				}
+			]
+		},
+		"roomStays": {
+			"roomStay": [
+				{
+					"roomInventoryCode": "AR",
+					"roomID": "95124",
+					"timeSpan": {
+						"startTime": 1560790860000,
+						"numberOfTimeUnits": 365,
+						"timeUnitType": "DAY"
+					},
+					"guestCounts": {
+						"guestCount": [
+							{
+								"ageQualifyingCode": "ADULT",
+								"mfCount": 0
+							},
+							{
+								"ageQualifyingCode": "CHILD",
+								"mfCount": 0
+							}
+						]
+					},
+					"ratePlans": {
+						"ratePlan": [
+							{
+								"ratePlanRPH": 0,
+								"ratePlanCode": "NONR",
+								"timeSpan": {
+									"startTime": 1560729600000,
+									"numberOfTimeUnits": 365,
+									"timeUnitType": "DAY"
+								},
+								"mfMarketCode": "NONR",
+								"rates": {
+									"rate": [
+										{
+											"rateRPH": 0,
+											"amount": {
+												"valueNum": 0,
+												"currencyCode": "USD"
+											},
+											"rateBasisUnits": 1,
+											"timeSpan": {
+												"startTime": 1560729600000,
+												"numberOfTimeUnits": 365,
+												"timeUnitType": "DAY"
+											},
+											"mfAdults": 0,
+											"mfChildren": 0,
+											"mfCribs": 0,
+											"mfExtraBeds": 0,
+											"mfsourceCode": "NONR",
+											"mfMarketCode": "NONR",
+											"reservationActionType": "SYNC",
+											"rateBasisTimeUnitType": "DAY"
+										}
+									]
+								},
+								"mfsourceCode": "NONR",
+								"reservationActionType": "SYNC"
+							}
+						]
+					},
+					"marketSegmentCode": "NONR",
+					"resGuestRPHs": "0",
+					"selectedMembershipRPHs": "0",
+					"guaranteeInfo": {
+						"mfGuaranteeType": "CHECKED IN",
+						"guaranteeDeposit": {
+							"amount": {
+								"currencyCode": "USD"
+							},
+							"cancelIfNotReceived": false
+						},
+						"guaranteeType": "NA"
+					},
+					"cancelPenalties": {
+						"cancelPenalty": [
+							{
+								"cancelByDate": 1560524400000,
+								"amount": {
+									"valueNum": 0,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfPercentage": 100,
+								"mfCancelPercentDue": 100,
+								"mfCancelRoomNights": 1,
+								"mfRuleDescription": "72 Hours Cancellation",
+								"ruleCode": "72H",
+								"mfRuleType": "CANCEL",
+								"manualRule": false
+							}
+						]
+					},
+					"paymentInstructions": {
+						"paymentInstruction": [
+							{
+								"mfPaymentMethod": "CA",
+								"paymentDue": {
+									"amount": {
+										"currencyCode": "USD"
+									},
+									"cancelIfNotReceived": false
+								},
+								"paymentMethodType": "NA"
+							}
+						]
+					},
+					"mfsourceCode": "NONR",
+					"mfconfidentialRate": true,
+					"mfAsbProrated": false,
+					"mfShareAction": "NA",
+					"mfReservationAction": "NA",
+					"reservationActionType": "SYNC",
+					"reservationStatusType": "INHOUSE"
+				}
+			]
+		},
+		"selectedMemberships": {
+			"selectedMembership": [
+				{
+					"selectedMembershipRPH": 0,
+					"programCode": "PC",
+					"accountID": "54102838",
+					"reservationActionType": "SYNC"
+				}
+			]
+		},
+		"resProfileRPHs": "0",
+		"mfupdateDate": 1561241001000,
+		"mfcomplementary": false,
+		"mfImage": {
+			"numRooms": 1,
+			"describe": {
+				"resortName": "MGM Grand",
+				"insertUser": "CMENJIVA03",
+				"updateUser": "JANETHERNA",
+				"roomCategory": "Accounts Receivable",
+				"rateCode": "Non Revenue",
+				"marketCode": "Non Revenue",
+				"guarantee": "CHECKED IN: Checked In",
+				"company": "MGM Resorts International"
+			},
+			"change": {
+				"bmultipleRateYN": false,
+				"bdiscountReason": false,
+				"bnumRooms": false,
+				"bnumNights": false,
+				"bpaymentType": false,
+				"broomCategory": false,
+				"barrivalDate": false,
+				"bnumAdults": false,
+				"bnumChildren": false,
+				"bcribs": false,
+				"bresvStatus": false,
+				"bguarType": false
+			}
+		},
+		"udfs": {
+			"udf": [
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC09",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC25",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC26",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC33",
+						"module": "RESERVATION"
+					}
+				}
+			]
+		},
+		"mfShareAction": "NA",
+		"mfReservationAction": "CHECKIN",
+		"_rid": "J3Q7AJfAvs7tRB8AAAAAAA==",
+		"_self": "dbs/J3Q7AA==/colls/J3Q7AJfAvs4=/docs/J3Q7AJfAvs7tRB8AAAAAAA==/",
+		"_etag": "\"17003a70-0000-0700-0000-5e3a4c760000\"",
+		"_attachments": "attachments/",
+		"_ts": 1580878966
+	},
+	{
+		"id": "796566668",
+		"hotelReference": {
+			"hotelCode": "005"
+		},
+		"mgmProfile": {
+			"additionalGuests": [
+				{
+					"firstName": "fName",
+					"lastName": "lName",
+					"reservationID": "788197724",
+					"mgmId": "938387233",
+					"precreated": true,
+					"reservationStatus": "INHOUSE",
+					"resvNameId": "777919544",
+					"shareType": "digital-key",
+					"creditCard": {
+						"creditCardCode": "VI",
+						"creditCardHolderName": "John Doe",
+						"creditCardNumber": "4111111111111111",
+						"creditCardExpire": "2028-05"
+					}
+				}
+			]
+		},
+		"reservationID": "796566668",
+		"reservationOriginatorCode": "DDESHMUKH",
+		"originalBookingDate": 1574423634000,
+		"stayDateRange": {
+			"startTime": 1576685700000,
+			"numberOfTimeUnits": 2,
+			"timeUnitType": "DAY"
+		},
+		"guestCounts": {
+			"guestCount": [
+				{
+					"ageQualifyingCode": "ADULT",
+					"mfCount": 2
+				},
+				{
+					"ageQualifyingCode": "CHILD",
+					"mfCount": 0
+				}
+			]
+		},
+		"resCreditCards": {
+			"resCreditCard": [
+				{
+					"creditCard": {
+						"creditCardCode": "MC",
+						"creditCardNumber": "5555550A00102E3UJZ27YC954444",
+						"creditCardExpire": 1672444800000,
+						"mfPrimaryYN": "Y"
+					},
+					"resCreditCardRPH": 0,
+					"reservationActionType": "CHANGE"
+				}
+			]
+		},
+		"resGuests": {
+			"resGuest": [
+				{
+					"resGuestRPH": 0,
+					"profileRPHs": "0, 1, 2, 3, 4",
+					"ageQualifyingCode": "ADULT",
+					"inHouseTimeSpan": {
+						"startTime": 1576685700000,
+						"numberOfTimeUnits": 2,
+						"timeUnitType": "DAY"
+					},
+					"arrivalTransport": {
+						
+					},
+					"departureTransport": {
+						
+					},
+					"arrivalTime": 1576685700000,
+					"departureTime": 1576836000000,
+					"reservationID": "796566668",
+					"reservationReferences": {
+						"reservationReference": [
+							{
+								"type": "GUESTID",
+								"referenceNumber": "796566664",
+								"legNumber": "1"
+							},
+							{
+								"type": "PMSID",
+								"referenceNumber": "796566664",
+								"legNumber": "1"
+							}
+						]
+					},
+					"preRegistered": false,
+					"commissionPaidTo": "T",
+					"nameTaxType": "0",
+					"reservationActionType": "CHANGE"
+				}
+			]
+		},
+		"resProfiles": {
+			"resProfile": [
+				{
+					"profile": {
+						"creatorCode": "JHONGISTO",
+						"createdDate": 1249266329000,
+						"lastUpdaterCode": "DDESHMUKH",
+						"lastUpdated": 1574675054000,
+						"genericName": "Rebeca",
+						"individualName": {
+							"namePrefix": "Mrs.",
+							"nameFirst": "Brown",
+							"nameSur": "Rebeca"
+						},
+						"primaryLanguageID": "E",
+						"electronicAddresses": {
+							"electronicAddress": [
+								{
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"electronicAddressType": "EMAIL",
+									"eaddress": "Farrell.Edward@iol.gov"
+								}
+							]
+						},
+						"memberships": {
+							"membership": [
+								{
+									"programCode": "PC",
+									"accountID": "77286842",
+									"nameOnCard": "Meister Keith",
+									"displaySequence": 1,
+									"pointIndicator": false,
+									"enrollmentSource": "N",
+									"enrolledAt": "N"
+								}
+							]
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "8825 West Blvd",
+									"city": "Pico Rivera",
+									"stateCode": "CA",
+									"postalCode": "90660",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"mfAddressLanguage": "E",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"phoneNumbers": {
+							"phoneNumber": [
+								{
+									"phoneNumber": "562 688 9748",
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"phoneNumberType": "HOME"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "55657134",
+						"mfVipStatus": "EXEC",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "YES",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "Y",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "GUEST",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 0
+				},
+				{
+					"profile": {
+						"creatorCode": "JZAPALSKI016",
+						"createdDate": 1250061347000,
+						"lastUpdaterCode": "JFELDES",
+						"lastUpdated": 1360121106000,
+						"genericName": "Active International",
+						"individualName": {
+							"nameSur": "Active International",
+							"name2": "Sky Auction"
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "One Blue Hill Plaza",
+									"city": "Pearl River",
+									"stateCode": "NY",
+									"postalCode": "10965",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "59697090",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "CORPORATE",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 1
+				},
+				{
+					"profile": {
+						"creatorCode": "DIMAZANAE",
+						"createdDate": 1326719814000,
+						"lastUpdaterCode": "DIMAZANAE",
+						"lastUpdated": 1326719814000,
+						"genericName": "BROWN INFINITY TOURS",
+						"individualName": {
+							"nameSur": "BROWN INFINITY TOURS"
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "947 GRANT ROAD",
+									"city": "FOLCROFT",
+									"postalCode": "19032",
+									"countryCode": "USA",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								},
+								{
+									"address1": "947 GRANT ROAD",
+									"city": "FOLCROFT",
+									"postalCode": "19032",
+									"mfPrimaryYN": "N",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"phoneNumbers": {
+							"phoneNumber": [
+								{
+									"phoneNumber": "2155096477",
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"phoneNumberType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "341836364",
+						"mfNameCode": "00453611",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "TRAVEL",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 2
+				},
+				{
+					"profile": {
+						"creatorCode": "JUASH",
+						"createdDate": 1533198266000,
+						"lastUpdaterCode": "JUASH",
+						"lastUpdated": 1533198266000,
+						"genericName": "Active International 2019",
+						"individualName": {
+							"nameSur": "Active International 2019"
+						},
+						"primaryLanguageID": "E",
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"mfAddressLanguage": "E",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "805386589",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "YES",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "Y",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": false,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "GROUP",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 3
+				},
+				{
+					"profile": {
+						"creatorCode": "CSESEPASARA",
+						"createdDate": 1475059652000,
+						"lastUpdaterCode": "CSESEPASARA",
+						"lastUpdated": 1475059652000,
+						"genericName": "Sese Sesepasara",
+						"individualName": {
+							"nameSur": "Sese Sesepasara"
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "3799 Las Vegas Blvd South",
+									"city": "Las Vegas",
+									"stateCode": "NV",
+									"postalCode": "89109",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "790930493",
+						"mfAllowMail": "NO",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "N",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": false,
+							"mfAllowThirdParty": false
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "WHOLESALER",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 4
+				}
+			]
+		},
+		"roomStays": {
+			"roomStay": [
+				{
+					"roomInventoryCode": "DLXW",
+					"roomID": "14552",
+					"timeSpan": {
+						"startTime": 1576685700000,
+						"numberOfTimeUnits": 2,
+						"timeUnitType": "DAY"
+					},
+					"guestCounts": {
+						"guestCount": [
+							{
+								"ageQualifyingCode": "ADULT",
+								"mfCount": 2
+							},
+							{
+								"ageQualifyingCode": "CHILD",
+								"mfCount": 0
+							}
+						]
+					},
+					"ratePlans": {
+						"ratePlan": [
+							{
+								"ratePlanRPH": 0,
+								"ratePlanCode": "MGBKD15W",
+								"timeSpan": {
+									"startTime": 1576627200000,
+									"numberOfTimeUnits": 2,
+									"timeUnitType": "DAY"
+								},
+								"mfMarketCode": "TFIT",
+								"rates": {
+									"rate": [
+										{
+											"rateRPH": 0,
+											"amount": {
+												"valueNum": 201.52,
+												"currencyCode": "USD"
+											},
+											"rateBasisUnits": 1,
+											"timeSpan": {
+												"startTime": 1576627200000,
+												"numberOfTimeUnits": 2,
+												"timeUnitType": "DAY"
+											},
+											"mfAdults": 2,
+											"mfChildren": 0,
+											"mfCribs": 0,
+											"mfExtraBeds": 0,
+											"mfsourceCode": "TFITIC",
+											"mfMarketCode": "TFIT",
+											"reservationActionType": "CHANGE",
+											"rateBasisTimeUnitType": "DAY"
+										}
+									]
+								},
+								"mfsourceCode": "TFITIC",
+								"reservationActionType": "CHANGE"
+							}
+						]
+					},
+					"inventoryBlockCode": "ACT2019",
+					"marketSegmentCode": "TFIT",
+					"promotionCode": "356335",
+					"resGuestRPHs": "0",
+					"serviceRPHs": "0",
+					"guaranteeInfo": {
+						"mfGuaranteeType": "CC",
+						"guaranteeDeposit": {
+							"dueDate": 1574640000000,
+							"amount": {
+								"valueNum": 228.48,
+								"currencyCode": "USD"
+							},
+							"cancelIfNotReceived": false
+						},
+						"guaranteeType": "NA"
+					},
+					"cancelPenalties": {
+						"cancelPenalty": [
+							{
+								"cancelByDate": 1574640000000,
+								"amount": {
+									"valueNum": 228.48,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfRuleDescription": "First Night's Deposit",
+								"activityDeposit": 0,
+								"roomDeposit": 228.48,
+								"ruleCode": "1NT",
+								"mfRuleType": "DEPOSIT",
+								"manualRule": false
+							},
+							{
+								"cancelByDate": 1576422000000,
+								"amount": {
+									"valueNum": 228.48,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfPercentage": 100,
+								"mfCancelPercentDue": 100,
+								"mfCancelRoomNights": 1,
+								"mfRuleDescription": "72 Hours Cancellation",
+								"ruleCode": "72H",
+								"mfRuleType": "CANCEL",
+								"manualRule": false
+							}
+						]
+					},
+					"paymentInstructions": {
+						"paymentInstruction": [
+							{
+								"mfPaymentMethod": "MC",
+								"resCreditCardRPH": 0,
+								"paymentDue": {
+									"amount": {
+										"currencyCode": "USD"
+									},
+									"cancelIfNotReceived": false
+								},
+								"paymentMethodType": "CREDITCARD"
+							}
+						]
+					},
+					"mfsourceCode": "TFITIC",
+					"mfchannelCode": "WEB",
+					"mfconfidentialRate": false,
+					"mfAsbProrated": false,
+					"mfShareAction": "NA",
+					"mfReservationAction": "NA",
+					"reservationActionType": "CHANGE",
+					"reservationStatusType": "RESERVED"
+				}
+			]
+		},
+		"specialRequests": {
+			"specialRequest": [
+				{
+					"specialRequestRPH": 0,
+					"requestCode": "LA",
+					"requestComments": "Late Arrival",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "SPE"
+				},
+				{
+					"specialRequestRPH": 1,
+					"requestCode": "HI",
+					"requestComments": "Hearing Impaired",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "SPE"
+				},
+				{
+					"specialRequestRPH": 2,
+					"requestCode": "CR",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "FEA"
+				},
+				{
+					"specialRequestRPH": 3,
+					"requestCode": "KQ",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "FEA"
+				}
+			]
+		},
+		"services": {
+			"service": [
+				{
+					"serviceRPH": 0,
+					"serviceInventoryCode": "MGMRESORTFEE37",
+					"timeSpan": {
+						"startTime": 1576627200000,
+						"numberOfTimeUnits": 2,
+						"timeUnitType": "DAY"
+					},
+					"price": {
+						"valueNum": 37,
+						"currencyCode": "USD"
+					},
+					"quantity": 1,
+					"servicePrices": {
+						"servicePrice": [
+							{
+								"beginDate": 1576627200000,
+								"endDate": 1576713600000,
+								"unitPrice": 37
+							}
+						]
+					},
+					"reservationActionType": "CHANGE",
+					"servicePricingType": "NA",
+					"reservationStatusType": "NA"
+				}
+			]
+		},
+		"resProfileRPHs": "0, 1, 2, 3, 4",
+		"specialRequestRPHs": "0, 1, 2, 3",
+		"serviceRPHs": "0",
+		"mfupdateDate": 1574675075000,
+		"mfcomplementary": false,
+		"mfImage": {
+			"numRooms": 1,
+			"describe": {
+				"resortName": "MGM Grand",
+				"insertUser": "DDESHMUKH",
+				"updateUser": "DDESHMUKH",
+				"roomCategory": "West Wing King",
+				"rateCode": "MGBKD15W",
+				"marketCode": "Frqt Ind Trvlr",
+				"guarantee": "CC: Credit Card",
+				"company": "MGM Resorts International"
+			},
+			"change": {
+				"bnumChildren": false,
+				"bnumRooms": false,
+				"bcribs": false,
+				"broomCategory": false,
+				"brateCode": false,
+				"bsource": false,
+				"brateAmount": false,
+				"bnumNights": false,
+				"bnumAdults": false,
+				"bmarketCode": false,
+				"barrivalDate": false,
+				"bguarType": false,
+				"bpaymentType": false,
+				"bresvStatus": false,
+				"bdiscountReason": false,
+				"bmultipleRateYN": false
+			}
+		},
+		"udfs": {
+			"udf": [
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC09",
+						"module": "RESERVATION"
+					},
+					"udfValue": "Brown Rebeca"
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC25",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC26",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC33",
+						"module": "RESERVATION"
+					}
+				}
+			]
+		},
+		"rateServices": {
+			"rateService": [
+				{
+					"service": {
+						"serviceRPH": 0,
+						"serviceInventoryCode": "MGRESORTFEE",
+						"ratePlanCode": "MGBKD15W",
+						"timeSpan": {
+							"startTime": 1576627200000,
+							"numberOfTimeUnits": 2,
+							"timeUnitType": "DAY"
+						},
+						"price": {
+							"valueNum": 37,
+							"currencyCode": "USD"
+						},
+						"quantity": 1,
+						"servicePrices": {
+							"servicePrice": [
+								{
+									"beginDate": 1576627200000,
+									"endDate": 1576713600000,
+									"unitPrice": 37
+								}
+							]
+						},
+						"reservationActionType": "CHANGE",
+						"servicePricingType": "NA",
+						"reservationStatusType": "NA"
+					},
+					"quantityExcluded": 1
+				}
+			]
+		},
+		"mfShareAction": "NA",
+		"mfReservationAction": "EDIT",
+		"_rid": "J3Q7AJfAvs53PR8AAAAAAA==",
+		"_self": "dbs/J3Q7AA==/colls/J3Q7AJfAvs4=/docs/J3Q7AJfAvs53PR8AAAAAAA==/",
+		"_etag": "\"0b00d1b7-0000-0700-0000-5e335fe10000\"",
+		"_attachments": "attachments/",
+		"_ts": 1580425185
+	},
+	{
+		"id": "796566668",
+		"hotelReference": {
+			"hotelCode": "005"
+		},
+		"reservationID": "796566668",
+		"mgmProfile": {
+			"additionalGuests": [
+				{
+					"firstName": "fName",
+					"lastName": "lName",
+					"reservationID": "788197724",
+					"mgmId": "938387233",
+					"precreated": true,
+					"reservationStatus": "INHOUSE",
+					"resvNameId": "777919544",
+					"shareType": "digital-key",
+					"metadata": {
+						"etaUpdated": true,
+						"paymentFailed": false,
+						"paymentUpdated": true
+					}
+				}
+			]
+		},
+		"reservationOriginatorCode": "DDESHMUKH",
+		"originalBookingDate": 1574423634000,
+		"stayDateRange": {
+			"startTime": 1576685700000,
+			"numberOfTimeUnits": 2,
+			"timeUnitType": "DAY"
+		},
+		"guestCounts": {
+			"guestCount": [
+				{
+					"ageQualifyingCode": "ADULT",
+					"mfCount": 2
+				},
+				{
+					"ageQualifyingCode": "CHILD",
+					"mfCount": 0
+				}
+			]
+		},
+		"resCreditCards": {
+			"resCreditCard": [
+				{
+					"creditCard": {
+						"creditCardCode": "MC",
+						"creditCardNumber": "5555550A00102E3UJZ27YC954444",
+						"creditCardExpire": 1672444800000,
+						"mfPrimaryYN": "Y"
+					},
+					"resCreditCardRPH": 0,
+					"reservationActionType": "CHANGE"
+				}
+			]
+		},
+		"resGuests": {
+			"resGuest": [
+				{
+					"resGuestRPH": 0,
+					"profileRPHs": "0, 1, 2, 3, 4",
+					"ageQualifyingCode": "ADULT",
+					"inHouseTimeSpan": {
+						"startTime": 1576685700000,
+						"numberOfTimeUnits": 2,
+						"timeUnitType": "DAY"
+					},
+					"arrivalTransport": {
+						
+					},
+					"departureTransport": {
+						
+					},
+					"arrivalTime": 1576685700000,
+					"departureTime": 1576836000000,
+					"reservationID": "796566664",
+					"reservationReferences": {
+						"reservationReference": [
+							{
+								"type": "GUESTID",
+								"referenceNumber": "796566664",
+								"legNumber": "1"
+							},
+							{
+								"type": "PMSID",
+								"referenceNumber": "796566664",
+								"legNumber": "1"
+							}
+						]
+					},
+					"preRegistered": false,
+					"commissionPaidTo": "T",
+					"nameTaxType": "0",
+					"reservationActionType": "CHANGE"
+				}
+			]
+		},
+		"resProfiles": {
+			"resProfile": [
+				{
+					"profile": {
+						"creatorCode": "JHONGISTO",
+						"createdDate": 1249266329000,
+						"lastUpdaterCode": "DDESHMUKH",
+						"lastUpdated": 1574675054000,
+						"genericName": "Rebeca",
+						"individualName": {
+							"namePrefix": "Mrs.",
+							"nameFirst": "Brown",
+							"nameSur": "Rebeca"
+						},
+						"primaryLanguageID": "E",
+						"electronicAddresses": {
+							"electronicAddress": [
+								{
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"electronicAddressType": "EMAIL",
+									"eaddress": "Farrell.Edward@iol.gov"
+								}
+							]
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "8825 West Blvd",
+									"city": "Pico Rivera",
+									"stateCode": "CA",
+									"postalCode": "90660",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"mfAddressLanguage": "E",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"phoneNumbers": {
+							"phoneNumber": [
+								{
+									"phoneNumber": "562 688 9748",
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"phoneNumberType": "HOME"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "55657134",
+						"mfVipStatus": "EXEC",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "YES",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "Y",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "GUEST",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 0
+				},
+				{
+					"profile": {
+						"creatorCode": "JZAPALSKI016",
+						"createdDate": 1250061347000,
+						"lastUpdaterCode": "JFELDES",
+						"lastUpdated": 1360121106000,
+						"genericName": "Active International",
+						"individualName": {
+							"nameSur": "Active International",
+							"name2": "Sky Auction"
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "One Blue Hill Plaza",
+									"city": "Pearl River",
+									"stateCode": "NY",
+									"postalCode": "10965",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "59697090",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "CORPORATE",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 1
+				},
+				{
+					"profile": {
+						"creatorCode": "DIMAZANAE",
+						"createdDate": 1326719814000,
+						"lastUpdaterCode": "DIMAZANAE",
+						"lastUpdated": 1326719814000,
+						"genericName": "BROWN INFINITY TOURS",
+						"individualName": {
+							"nameSur": "BROWN INFINITY TOURS"
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "947 GRANT ROAD",
+									"city": "FOLCROFT",
+									"postalCode": "19032",
+									"countryCode": "USA",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								},
+								{
+									"address1": "947 GRANT ROAD",
+									"city": "FOLCROFT",
+									"postalCode": "19032",
+									"mfPrimaryYN": "N",
+									"cleansed": false,
+									"addressType": "HOME"
+								}
+							]
+						},
+						"phoneNumbers": {
+							"phoneNumber": [
+								{
+									"phoneNumber": "2155096477",
+									"mfPrimaryYN": "Y",
+									"confirmation": false,
+									"phoneNumberType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "341836364",
+						"mfNameCode": "00453611",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "TRAVEL",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 2
+				},
+				{
+					"profile": {
+						"creatorCode": "JUASH",
+						"createdDate": 1533198266000,
+						"lastUpdaterCode": "JUASH",
+						"lastUpdated": 1533198266000,
+						"genericName": "Active International 2019",
+						"individualName": {
+							"nameSur": "Active International 2019"
+						},
+						"primaryLanguageID": "E",
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"mfAddressLanguage": "E",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "805386589",
+						"mfAllowMail": "YES",
+						"mfAllowEMail": "YES",
+						"mfGuestPriv": "NO",
+						"mfAllowPhone": false,
+						"mfAllowSMS": false,
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "Y",
+							"mfAllowEMail": "Y",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": false,
+							"mfAllowMarketResearch": true,
+							"mfAllowThirdParty": true
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "GROUP",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 3
+				},
+				{
+					"profile": {
+						"creatorCode": "CSESEPASARA",
+						"createdDate": 1475059652000,
+						"lastUpdaterCode": "CSESEPASARA",
+						"lastUpdated": 1475059652000,
+						"genericName": "Sese Sesepasara",
+						"individualName": {
+							"nameSur": "Sese Sesepasara"
+						},
+						"postalAddresses": {
+							"postalAddress": [
+								{
+									"address1": "3799 Las Vegas Blvd South",
+									"city": "Las Vegas",
+									"stateCode": "NV",
+									"postalCode": "89109",
+									"countryCode": "US",
+									"mfPrimaryYN": "Y",
+									"cleansed": false,
+									"addressType": "BUSINESS"
+								}
+							]
+						},
+						"mfResort": "001",
+						"mfResortProfileID": "790930493",
+						"mfAllowMail": "NO",
+						"mfAllowEMail": "NO",
+						"mfGuestPriv": "NO",
+						"salesExtention": {
+							
+						},
+						"privacyOption": {
+							"mfAllowMail": "N",
+							"mfAllowEMail": "N",
+							"mfAllowPhone": false,
+							"mfAllowSMS": false,
+							"mfAllowHistory": true,
+							"mfAllowMarketResearch": false,
+							"mfAllowThirdParty": false
+						},
+						"resortList": [
+							"001"
+						],
+						"multiResortEntities": {
+							"multiResortEntity": [
+								{
+									"entity": "CREDIT_CARDS",
+									"included": true
+								},
+								{
+									"entity": "RESORT_ARS",
+									"included": false
+								},
+								{
+									"entity": "COMMENTS",
+									"included": true
+								},
+								{
+									"entity": "PREFERENCES",
+									"included": true
+								},
+								{
+									"entity": "NEGOTIATED_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_NEG_RATES",
+									"included": true
+								},
+								{
+									"entity": "RESORT_COMMISSIONS",
+									"included": true
+								},
+								{
+									"entity": "CHANNEL_ACCESS_CODES",
+									"included": true
+								},
+								{
+									"entity": "YIELD_ADJUSTMENTS",
+									"included": true
+								},
+								{
+									"entity": "RELATIONSHIPS",
+									"included": false
+								}
+							]
+						},
+						"profileType": "WHOLESALER",
+						"gender": "UNKNOWN",
+						"multiProperty": false,
+						"miniProfile": false,
+						"pseudoProfile": false,
+						"replaceAddress": false
+					},
+					"resProfileRPH": 4
+				}
+			]
+		},
+		"roomStays": {
+			"roomStay": [
+				{
+					"roomInventoryCode": "DLXW",
+					"roomID": "14552",
+					"timeSpan": {
+						"startTime": 1576685700000,
+						"numberOfTimeUnits": 2,
+						"timeUnitType": "DAY"
+					},
+					"guestCounts": {
+						"guestCount": [
+							{
+								"ageQualifyingCode": "ADULT",
+								"mfCount": 2
+							},
+							{
+								"ageQualifyingCode": "CHILD",
+								"mfCount": 0
+							}
+						]
+					},
+					"ratePlans": {
+						"ratePlan": [
+							{
+								"ratePlanRPH": 0,
+								"ratePlanCode": "MGBKD15W",
+								"timeSpan": {
+									"startTime": 1576627200000,
+									"numberOfTimeUnits": 2,
+									"timeUnitType": "DAY"
+								},
+								"mfMarketCode": "TFIT",
+								"rates": {
+									"rate": [
+										{
+											"rateRPH": 0,
+											"amount": {
+												"valueNum": 201.52,
+												"currencyCode": "USD"
+											},
+											"rateBasisUnits": 1,
+											"timeSpan": {
+												"startTime": 1576627200000,
+												"numberOfTimeUnits": 2,
+												"timeUnitType": "DAY"
+											},
+											"mfAdults": 2,
+											"mfChildren": 0,
+											"mfCribs": 0,
+											"mfExtraBeds": 0,
+											"mfsourceCode": "TFITIC",
+											"mfMarketCode": "TFIT",
+											"reservationActionType": "CHANGE",
+											"rateBasisTimeUnitType": "DAY"
+										}
+									]
+								},
+								"mfsourceCode": "TFITIC",
+								"reservationActionType": "CHANGE"
+							}
+						]
+					},
+					"inventoryBlockCode": "ACT2019",
+					"marketSegmentCode": "TFIT",
+					"promotionCode": "356335",
+					"resGuestRPHs": "0",
+					"serviceRPHs": "0",
+					"guaranteeInfo": {
+						"mfGuaranteeType": "CC",
+						"guaranteeDeposit": {
+							"dueDate": 1574640000000,
+							"amount": {
+								"valueNum": 228.48,
+								"currencyCode": "USD"
+							},
+							"cancelIfNotReceived": false
+						},
+						"guaranteeType": "NA"
+					},
+					"cancelPenalties": {
+						"cancelPenalty": [
+							{
+								"cancelByDate": 1574640000000,
+								"amount": {
+									"valueNum": 228.48,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfRuleDescription": "First Night's Deposit",
+								"activityDeposit": 0,
+								"roomDeposit": 228.48,
+								"ruleCode": "1NT",
+								"mfRuleType": "DEPOSIT",
+								"manualRule": false
+							},
+							{
+								"cancelByDate": 1576422000000,
+								"amount": {
+									"valueNum": 228.48,
+									"currencyCode": "USD"
+								},
+								"mfRuleScope": "R",
+								"mfPercentage": 100,
+								"mfCancelPercentDue": 100,
+								"mfCancelRoomNights": 1,
+								"mfRuleDescription": "72 Hours Cancellation",
+								"ruleCode": "72H",
+								"mfRuleType": "CANCEL",
+								"manualRule": false
+							}
+						]
+					},
+					"paymentInstructions": {
+						"paymentInstruction": [
+							{
+								"mfPaymentMethod": "MC",
+								"resCreditCardRPH": 0,
+								"paymentDue": {
+									"amount": {
+										"currencyCode": "USD"
+									},
+									"cancelIfNotReceived": false
+								},
+								"paymentMethodType": "CREDITCARD"
+							}
+						]
+					},
+					"mfsourceCode": "TFITIC",
+					"mfchannelCode": "WEB",
+					"mfconfidentialRate": false,
+					"mfAsbProrated": false,
+					"mfShareAction": "NA",
+					"mfReservationAction": "NA",
+					"reservationActionType": "CHANGE",
+					"reservationStatusType": "RESERVED"
+				}
+			]
+		},
+		"specialRequests": {
+			"specialRequest": [
+				{
+					"specialRequestRPH": 0,
+					"requestCode": "LA",
+					"requestComments": "Late Arrival",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "SPE"
+				},
+				{
+					"specialRequestRPH": 1,
+					"requestCode": "HI",
+					"requestComments": "Hearing Impaired",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "SPE"
+				},
+				{
+					"specialRequestRPH": 2,
+					"requestCode": "CR",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "FEA"
+				},
+				{
+					"specialRequestRPH": 3,
+					"requestCode": "KQ",
+					"reservationActionType": "CHANGE",
+					"mfSpecialRequestType": "FEA"
+				}
+			]
+		},
+		"services": {
+			"service": [
+				{
+					"serviceRPH": 0,
+					"serviceInventoryCode": "MGMRESORTFEE37",
+					"timeSpan": {
+						"startTime": 1576627200000,
+						"numberOfTimeUnits": 2,
+						"timeUnitType": "DAY"
+					},
+					"price": {
+						"valueNum": 37,
+						"currencyCode": "USD"
+					},
+					"quantity": 1,
+					"servicePrices": {
+						"servicePrice": [
+							{
+								"beginDate": 1576627200000,
+								"endDate": 1576713600000,
+								"unitPrice": 37
+							}
+						]
+					},
+					"reservationActionType": "CHANGE",
+					"servicePricingType": "NA",
+					"reservationStatusType": "NA"
+				}
+			]
+		},
+		"resProfileRPHs": "0, 1, 2, 3, 4",
+		"specialRequestRPHs": "0, 1, 2, 3",
+		"serviceRPHs": "0",
+		"mfupdateDate": 1574675075000,
+		"mfcomplementary": false,
+		"mfImage": {
+			"numRooms": 1,
+			"describe": {
+				"resortName": "MGM Grand",
+				"insertUser": "DDESHMUKH",
+				"updateUser": "DDESHMUKH",
+				"roomCategory": "West Wing King",
+				"rateCode": "MGBKD15W",
+				"marketCode": "Frqt Ind Trvlr",
+				"guarantee": "CC: Credit Card",
+				"company": "MGM Resorts International"
+			},
+			"change": {
+				"bnumChildren": false,
+				"bnumRooms": false,
+				"bcribs": false,
+				"broomCategory": false,
+				"brateCode": false,
+				"bsource": false,
+				"brateAmount": false,
+				"bnumNights": false,
+				"bnumAdults": false,
+				"bmarketCode": false,
+				"barrivalDate": false,
+				"bguarType": false,
+				"bpaymentType": false,
+				"bresvStatus": false,
+				"bdiscountReason": false,
+				"bmultipleRateYN": false
+			}
+		},
+		"udfs": {
+			"udf": [
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC09",
+						"module": "RESERVATION"
+					},
+					"udfValue": "Brown Rebeca"
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC25",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC26",
+						"module": "RESERVATION"
+					}
+				},
+				{
+					"udfDefinition": {
+						"pmsTableName": "RESERVATION_NAME",
+						"pmsColumnName": "UDFC33",
+						"module": "RESERVATION"
+					}
+				}
+			]
+		},
+		"rateServices": {
+			"rateService": [
+				{
+					"service": {
+						"serviceRPH": 0,
+						"serviceInventoryCode": "MGRESORTFEE",
+						"ratePlanCode": "MGBKD15W",
+						"timeSpan": {
+							"startTime": 1576627200000,
+							"numberOfTimeUnits": 2,
+							"timeUnitType": "DAY"
+						},
+						"price": {
+							"valueNum": 37,
+							"currencyCode": "USD"
+						},
+						"quantity": 1,
+						"servicePrices": {
+							"servicePrice": [
+								{
+									"beginDate": 1576627200000,
+									"endDate": 1576713600000,
+									"unitPrice": 37
+								}
+							]
+						},
+						"reservationActionType": "CHANGE",
+						"servicePricingType": "NA",
+						"reservationStatusType": "NA"
+					},
+					"quantityExcluded": 1
+				}
+			]
+		},
+		"mfShareAction": "NA",
+		"mfReservationAction": "EDIT",
+		"_rid": "J3Q7AJfAvs53PR8AAAAAAA==",
+		"_self": "dbs/J3Q7AA==/colls/J3Q7AJfAvs4=/docs/J3Q7AJfAvs53PR8AAAAAAA==/",
+		"_etag": "\"0b00d1b7-0000-0700-0000-5e335fe10000\"",
+		"_attachments": "attachments/",
+		"_ts": 1580425185
+	}
+]

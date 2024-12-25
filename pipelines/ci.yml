@@ -1,0 +1,20 @@
+name: $(Build.SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+- develop
+- staging
+- master
+
+resources:
+  repositories:
+  - repository: SharedTemplates
+    type: github
+    endpoint: MGMResorts
+    name: MGMResorts/guestservices-pipelines-shared
+
+extends:
+  template: templates/build-ocrs.yml@SharedTemplates
+  parameters:
+    sonarExtraProps: |
+      sonar.exclusions=**/*SearchApplication.*,**/models/*,**/*DocumentDaoImpl.*,**/handlers/*,**/config/*,**/inject/*,**/logging/*,**/response/*,**/*ReservationRepositoryImpl.*,**/test/*
+      sonar.projectKey=MGMResorts_booking-room-resv-search

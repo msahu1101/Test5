@@ -1,0 +1,3451 @@
+{
+	"info": {
+		"_postman_id": "5ed20f45-8274-426f-9aa7-3089d40baff2",
+		"name": "OCRS - Search - Integration Tests - Apigee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18887515"
+	},
+	"item": [
+		{
+			"name": "Create Service Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"authorization\", \"bearer \" + jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "booking.room.resv:search booking.room.resv:batch booking.room.resv:update booking.room.resv:folio",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{identityDomain}}/identity/authorization/v1/mgmsvc/token",
+					"host": [
+						"{{identityDomain}}"
+					],
+					"path": [
+						"identity",
+						"authorization",
+						"v1",
+						"mgmsvc",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Guest Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"guest_auth\", \"bearer \" + jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "integration_auth",
+						"value": "bypass-automation",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\": \"mgmtest@gmail.com\",\r\n\"password\": \"Password123!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa4-api.devtest.vegas/v2/auth/login",
+					"protocol": "https",
+					"host": [
+						"qa4-api",
+						"devtest",
+						"vegas"
+					],
+					"path": [
+						"v2",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - No Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with no headers, response status code should be 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - No Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with no query params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with no query params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Opera Conf Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with opera conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with opera conf number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with opera conf number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?operaConfirmationNumber=797890264990",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "operaConfirmationNumber",
+							"value": "797890264990"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By MGM ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with MGM ID, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with MGM ID, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with MGM ID, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?mgmId={{mgmId}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "mgmId",
+							"value": "{{mgmId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Opera Profile Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with Opera Profile ID, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with Opera Profile ID, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with Opera Profile ID, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?operaProfileId={{operaProfileId}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "operaProfileId",
+							"value": "{{operaProfileId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Secondary MGM ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with MGM ID of secondary user, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with MGM ID of secondary user, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with MGM ID of secondary user, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?mgmId={{secondaryMgmId}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "mgmId",
+							"value": "{{secondaryMgmId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Gse Conf Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with GSE conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with GSE conf number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with GSE conf number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?confNumber={{gseConfNumber}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{gseConfNumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Gse Conf Number - Guest Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with GSE conf number with guest auth, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with GSE conf number with guest auth, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{guest_auth}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?confNumber={{gseConfNumber}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{gseConfNumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with cloud ID, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with cloud ID, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with cloud ID, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?id=0288e209-2635-3f21-bf87-0f8f456e96e5",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0288e209-2635-3f21-bf87-0f8f456e96e5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Mlife Number on reservation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with Mlife number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with Mlife number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with Mlife number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?mlifeNumber=79110950",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "mlifeNumber",
+							"value": "79110950"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Primary Guest Mlife Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with primary guest Mlife number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with primary guest Mlife number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with primary guest Mlife number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?guestMlifeNumber=79110950",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "guestMlifeNumber",
+							"value": "79110950"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Secondary Guest Mlife Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with secondary guest Mlife number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with secondary guest Mlife number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with secondary guest Mlife number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?guestMlifeNumber={{secGuestMlife}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "guestMlifeNumber",
+							"value": "{{secGuestMlife}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Other Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with guest details, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with guest details, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with guest details, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?hotelCode=001&firstName=brown&lastName=ReBeca&checkInDate=2019-12-18",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "001"
+						},
+						{
+							"key": "firstName",
+							"value": "brown"
+						},
+						{
+							"key": "lastName",
+							"value": "ReBeca"
+						},
+						{
+							"key": "checkInDate",
+							"value": "2019-12-18"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Other Params - Partial Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with guest details, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with guest details, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with guest details, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?hotelCode=001&firstName=bro&lastName=ReB&checkInDate=2019-12-18&nameSearchOperation=STARTSWITH",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "001"
+						},
+						{
+							"key": "firstName",
+							"value": "bro"
+						},
+						{
+							"key": "lastName",
+							"value": "ReB"
+						},
+						{
+							"key": "checkInDate",
+							"value": "2019-12-18"
+						},
+						{
+							"key": "nameSearchOperation",
+							"value": "STARTSWITH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By All Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with multiple query params, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with multiple query params, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with multiple query params, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?hotelCode={{srchByAllParam_hotelCode}}&firstName={{srchByAllParam_firstName}}&lastName={{srchByAllParam_lastName}}&checkInDate={{srchByAllParam_checkInDate}}&email={{srchByAllParam_email}}&checkOutDate={{srchByAllParam_checkOutDate}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{srchByAllParam_hotelCode}}"
+						},
+						{
+							"key": "firstName",
+							"value": "{{srchByAllParam_firstName}}"
+						},
+						{
+							"key": "lastName",
+							"value": "{{srchByAllParam_lastName}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{srchByAllParam_checkInDate}}"
+						},
+						{
+							"key": "email",
+							"value": "{{srchByAllParam_email}}"
+						},
+						{
+							"key": "checkOutDate",
+							"value": "{{srchByAllParam_checkOutDate}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By ICE Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with multiple query params, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with multiple query params, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with multiple query params, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?hotelCode=001&firstName=brown&lastName=ReBeca&startDate=2019-12-18&endDate=2019-12-20",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "001"
+						},
+						{
+							"key": "firstName",
+							"value": "brown"
+						},
+						{
+							"key": "lastName",
+							"value": "ReBeca"
+						},
+						{
+							"key": "startDate",
+							"value": "2019-12-18"
+						},
+						{
+							"key": "endDate",
+							"value": "2019-12-20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By CheckOut Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with required params for checkout, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with required params for checkout, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with required params for checkout, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?lastName=ReBeca&checkInDate=2019-12-18&roomNumber=14552&ccLast4Digits=4444",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "lastName",
+							"value": "ReBeca"
+						},
+						{
+							"key": "checkInDate",
+							"value": "2019-12-18"
+						},
+						{
+							"key": "roomNumber",
+							"value": "14552"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search - By Partner Account on reservation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search API is called with partner account number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search API is called with partner account number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search API is called with partner account number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('stayDateRange');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"    pm.expect(resv).to.have.property('roomStays');",
+							"    pm.expect(resv.hotelReference).to.have.property('hotelCode');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations?partnerAccountNumber=234234234",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "partnerAccountNumber",
+							"value": "234234234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Basic - By Opera Conf Number & Last Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When basic/unprotected search API is called with opera conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When basic/unprotected search API is called with opera conf number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When basic/unprotected search API is called with opera conf number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(resv).to.have.property('hotelCode');",
+							"    pm.expect(resv).to.have.property('roomType');",
+							"    pm.expect(resv).to.have.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/basic?operaConfirmationNumber=797890264990&lastName={{basic_lastName}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"basic"
+					],
+					"query": [
+						{
+							"key": "operaConfirmationNumber",
+							"value": "797890264990"
+						},
+						{
+							"key": "lastName",
+							"value": "{{basic_lastName}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Basic - By Gse Conf Number & Last Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When basic/unprotected search API is called with GSE conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When basic/unprotected search API is called with GSE conf number, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When basic/unprotected search API is called with GSE conf number, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(resv).to.have.property('hotelCode');",
+							"    pm.expect(resv).to.have.property('roomType');",
+							"    pm.expect(resv).to.have.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/basic?confNumber={{gseConfNumber}}&lastName={{gse_lastName}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"basic"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{gseConfNumber}}"
+						},
+						{
+							"key": "lastName",
+							"value": "{{gse_lastName}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch - No Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch API is called with no headers, response status code should be 401\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch - No Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch API is called with no query params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch API is called with no query params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch API is called with valid query params, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch API is called with valid query params, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When batch fetch API is called with valid query params, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('hotelCode');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(resv).to.have.property('status');",
+							"    pm.expect(resv).to.have.property('stayLength');",
+							"    pm.expect(resv).to.have.property('profile');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch?hotelCode={{bulkFetchHotelCode}}&checkInDate={{bulkFetchCheckInDt}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{bulkFetchHotelCode}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{bulkFetchCheckInDt}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch - First Page Results",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch API has large result set, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch API has large result set, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('hotelCode');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(resv).to.have.property('status');",
+							"    pm.expect(resv).to.have.property('stayLength');",
+							"    pm.expect(resv).to.have.property('profile');",
+							"});",
+							"",
+							"pm.test(\"When batch fetch API has large result set, response headers should include continuation token\", function () {",
+							"    pm.response.to.have.header(\"continuationToken\");",
+							"",
+							"    pm.environment.set(\"continuationToken\", postman.getResponseHeader(\"continuationToken\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch?hotelCode={{bulkFetchHotelCode}}&checkInDate={{bulkFetchCheckInDtLargeDataset}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{bulkFetchHotelCode}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{bulkFetchCheckInDtLargeDataset}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch - Request by Continuation Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch API is called with continuationToken, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch API is called with continuationToken, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('hotelCode');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(resv).to.have.property('status');",
+							"    pm.expect(resv).to.have.property('stayLength');",
+							"    pm.expect(resv).to.have.property('profile');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch?hotelCode={{bulkFetchHotelCode}}&checkInDate={{bulkFetchCheckInDtLargeDataset}}&continuationToken={{continuationToken}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{bulkFetchHotelCode}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{bulkFetchCheckInDtLargeDataset}}"
+						},
+						{
+							"key": "continuationToken",
+							"value": "{{continuationToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch Verbose - No Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch verbose API is called with no headers, response status code should be 401\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch/verbose",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch",
+						"verbose"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch Verbose - No Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch verbose API is called with no query params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch verbose API is called with no query params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch/verbose",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch",
+						"verbose"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch Verbose",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch verbose API is called with valid query params, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch verbose API is called with valid query params, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When batch fetch verbose API is called with valid query params, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('hotelReference');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('mgmProfile');",
+							"    pm.expect(resv).to.have.property('resGuests');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch/verbose?hotelCode={{bulkFetchHotelCode}}&checkInDate={{bulkFetchCheckInDt}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch",
+						"verbose"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{bulkFetchHotelCode}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{bulkFetchCheckInDt}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch  Verbose - First Page Results",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch verbose API has large result set, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch verbose API has large result set, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('hotelReference');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('mgmProfile');",
+							"    pm.expect(resv).to.have.property('resGuests');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"});",
+							"",
+							"pm.test(\"When batch fetch verbose API has large result set, response headers should include continuation token\", function () {",
+							"    pm.response.to.have.header(\"continuationToken\");",
+							"",
+							"    pm.environment.set(\"continuationToken\", postman.getResponseHeader(\"continuationToken\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch/verbose?hotelCode={{bulkFetchHotelCode}}&checkInDate={{bulkFetchCheckInDtLargeDataset}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch",
+						"verbose"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{bulkFetchHotelCode}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{bulkFetchCheckInDtLargeDataset}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Fetch Verbose - Request by Continuation Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When batch fetch verbose API is called with continuationToken, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When batch fetch verbose API is called with continuationToken, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('hotelReference');",
+							"    pm.expect(resv).to.have.property('id');",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('mgmProfile');",
+							"    pm.expect(resv).to.have.property('resGuests');",
+							"    pm.expect(resv).to.have.property('resProfiles');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservations/batch/verbose?hotelCode={{bulkFetchHotelCode}}&checkInDate={{bulkFetchCheckInDtLargeDataset}}&continuationToken={{continuationToken}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservations",
+						"batch",
+						"verbose"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "{{bulkFetchHotelCode}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{bulkFetchCheckInDtLargeDataset}}"
+						},
+						{
+							"key": "continuationToken",
+							"value": "{{continuationToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Profiles - No Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search profiles API is called with no headers, response status code should be 401\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/profiles",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Profiles - No Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search profiles API is called with no query params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with no query params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/profiles",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Profiles - By Opera Conf Numbers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search profiles API is called with valid opera conf numbers, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with valid opera conf numbers, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with valid opera conf numbers, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resvNameId');",
+							"    pm.expect(resv).to.have.property('firstName');",
+							"    pm.expect(resv).to.have.property('lastName');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/profiles?operaConfirmationNumbers={{confNumber}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"profiles"
+					],
+					"query": [
+						{
+							"key": "operaConfirmationNumbers",
+							"value": "{{confNumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Profiles - By Resv Name Ids",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search profiles API is called with valid resvNameIds, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with valid resvNameIds, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with valid resvNameIds, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resvNameId');",
+							"    pm.expect(resv).to.have.property('firstName');",
+							"    pm.expect(resv).to.have.property('lastName');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/profiles?resvNameIds={{resvNameId}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"profiles"
+					],
+					"query": [
+						{
+							"key": "resvNameIds",
+							"value": "{{resvNameId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Profiles - By Ids",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When search profiles API is called with valid cloud IDs, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with valid cloud IDs, response should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When search profiles API is called with valid cloud IDs, mandatory attributes in response should be available\", function () {",
+							"    var resv = pm.response.json()[0];",
+							"    pm.expect(resv).to.have.property('reservationID');",
+							"    pm.expect(resv).to.have.property('resvNameId');",
+							"    pm.expect(resv).to.have.property('firstName');",
+							"    pm.expect(resv).to.have.property('lastName');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/profiles?ids={{id}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"profiles"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - No Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with no headers, response status code should be 401\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - No Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with no query params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with no query params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Other Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with other details, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with other details, folios should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.folios).to.be.an('array');",
+							"    pm.expect(jsonData.folios[0].billItems).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with other details, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.have.property('totalCharges');",
+							"    pm.expect(folioResp.totalCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('totalCredits');",
+							"    pm.expect(folioResp.totalCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('currentBalance');",
+							"    pm.expect(folioResp.currentBalance).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    var folio = folioResp.folios[0];",
+							"    pm.expect(folio).to.have.property('windowNo');",
+							"    pm.expect(folio).to.have.property('windowCharges');",
+							"    pm.expect(folio.windowCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowCredits');",
+							"    pm.expect(folio.windowCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowBalance');",
+							"    pm.expect(folio).to.have.property('windowLastUpdated');",
+							"    var billItem = folio.billItems[0];",
+							"    pm.expect(billItem).to.have.property('date');",
+							"    pm.expect(billItem).to.have.property('description');",
+							"    pm.expect(billItem).to.have.any.keys('chargeAmount','creditAmount');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{folio_roomNumber}}&ccLast4Digits={{folio_ccLast4Digits}}&lastName={{folio_lastName}}&checkInDate={{folio_checkInDate}}&hotelCode={{folio_hotelCode}}&aggregated=true",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{folio_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "{{folio_ccLast4Digits}}"
+						},
+						{
+							"key": "lastName",
+							"value": "{{folio_lastName}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{folio_checkInDate}}"
+						},
+						{
+							"key": "hotelCode",
+							"value": "{{folio_hotelCode}}"
+						},
+						{
+							"key": "aggregated",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Other Params - aggregate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with other details, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with other details, folios should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.folios).to.be.an('array');",
+							"    pm.expect(jsonData.folios[0].billItems).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with other details, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.have.property('totalCharges');",
+							"    pm.expect(folioResp.totalCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('totalCredits');",
+							"    pm.expect(folioResp.totalCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('currentBalance');",
+							"    pm.expect(folioResp.currentBalance).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    var folio = folioResp.folios[0];",
+							"    pm.expect(folio).to.have.property('windowNo');",
+							"    pm.expect(folio).to.have.property('windowCharges');",
+							"    pm.expect(folio.windowCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowCredits');",
+							"    pm.expect(folio.windowCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowBalance');",
+							"    pm.expect(folio).to.have.property('windowLastUpdated');",
+							"    var billItem = folio.billItems[0];",
+							"    pm.expect(billItem).to.have.property('date');",
+							"    pm.expect(billItem).to.have.property('description');",
+							"    pm.expect(billItem).to.have.any.keys('chargeAmount','creditAmount');",
+							"    var chargeAmount = _.get(billItem,'chargeAmount');",
+							"    if(chargeAmount){",
+							"        pm.expect(billItem.chargeAmount).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    }",
+							"    var creditAmount = _.get(billItem,'creditAmount');",
+							"    if(creditAmount){",
+							"        pm.expect(billItem.creditAmount).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{folio_aggregate_roomNumber}}&ccLast4Digits={{folio_aggregate_ccLast4Digits}}&lastName={{folio_aggregate_lastName}}&checkInDate={{folio_aggregate_checkInDate}}&hotelCode={{folio_aggregate_hotelCode}}&aggregated=true",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{folio_aggregate_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "{{folio_aggregate_ccLast4Digits}}"
+						},
+						{
+							"key": "lastName",
+							"value": "{{folio_aggregate_lastName}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{folio_aggregate_checkInDate}}"
+						},
+						{
+							"key": "hotelCode",
+							"value": "{{folio_aggregate_hotelCode}}"
+						},
+						{
+							"key": "aggregated",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Other Params - No Folio Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with other details and folio data not found, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with other details and folio data not found, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.not.have.property('totalCharges');",
+							"    pm.expect(folioResp).to.not.have.property('totalCredits');",
+							"    pm.expect(folioResp).to.not.have.property('currentBalance');",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    pm.expect(folioResp).to.not.have.property('folios');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{nofolio_roomNumber}}&ccLast4Digits={{nofolio_ccLast4Digits}}&lastName={{nofolio_lastName}}&checkInDate={{nofolio_checkInDate}}&hotelCode={{nofolio_hotelCode}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{nofolio_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "{{nofolio_ccLast4Digits}}"
+						},
+						{
+							"key": "lastName",
+							"value": "{{nofolio_lastName}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{nofolio_checkInDate}}"
+						},
+						{
+							"key": "hotelCode",
+							"value": "{{nofolio_hotelCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Opera Conf Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with opera conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with opera conf number, folios should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    // pm.expect(jsonData.folios).to.be.an('array');",
+							"    pm.expect(jsonData.folios[0].billItems).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with opera conf number, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.have.property('totalCharges');",
+							"    pm.expect(folioResp.totalCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('totalCredits');",
+							"    pm.expect(folioResp.totalCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('currentBalance');",
+							"    pm.expect(folioResp.currentBalance).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    var folio = folioResp.folios[0];",
+							"    pm.expect(folio).to.have.property('windowNo');",
+							"    pm.expect(folio).to.have.property('windowCharges');",
+							"    pm.expect(folio.windowCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowCredits');",
+							"    pm.expect(folio.windowCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowBalance');",
+							"    pm.expect(folio).to.have.property('windowLastUpdated');",
+							"    var billItem = folio.billItems[0];",
+							"    pm.expect(billItem).to.have.property('date');",
+							"    pm.expect(billItem).to.have.property('description');",
+							"    pm.expect(billItem).to.have.any.keys('chargeAmount','creditAmount');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?confNumber={{folio_operaConfNo}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{folio_operaConfNo}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Opera Conf Number - aggregate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with opera conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with opera conf number, folios should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.folios).to.be.an('array');",
+							"    pm.expect(jsonData.folios[0].billItems).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with opera conf number, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.have.property('totalCharges');",
+							"    pm.expect(folioResp).to.have.property('totalCredits');",
+							"    pm.expect(folioResp).to.have.property('currentBalance');",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    var folio = folioResp.folios[0];",
+							"    pm.expect(folio).to.have.property('windowNo');",
+							"    pm.expect(folio).to.have.property('windowCharges');",
+							"    pm.expect(folio.windowCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowCredits');",
+							"    pm.expect(folio.windowCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowBalance');",
+							"    pm.expect(folio).to.have.property('windowLastUpdated');",
+							"    var billItem = folio.billItems[0];",
+							"    pm.expect(billItem).to.have.property('date');",
+							"    pm.expect(billItem).to.have.property('description');",
+							"    pm.expect(billItem).to.have.any.keys('chargeAmount','creditAmount');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?confNumber={{folio_aggregate_confNumber}}&aggregated=true",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{folio_aggregate_confNumber}}"
+						},
+						{
+							"key": "aggregated",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Opera Conf Number - No Folio Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with opera conf number and folio data not found, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"When folio API is called with opera conf number and folio data not found, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.not.have.property('totalCharges');",
+							"    pm.expect(folioResp).to.not.have.property('totalCredits');",
+							"    pm.expect(folioResp).to.not.have.property('currentBalance');",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    pm.expect(folioResp).to.not.have.property('folios');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?confNumber={{nofolio_operaConfNo}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{nofolio_operaConfNo}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By GSE Conf Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with GSE conf number, response status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with GSE conf number, folios should be an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.folios).to.be.an('array');",
+							"    pm.expect(jsonData.folios[0].billItems).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with GSE conf number, mandatory attributes in response should be available\", function () {",
+							"    var folioResp = pm.response.json();",
+							"    pm.expect(folioResp).to.have.property('operaConfirmationNumber');",
+							"    pm.expect(folioResp).to.have.property('reservationStatus');",
+							"    pm.expect(folioResp).to.have.property('checkInDate');",
+							"    pm.expect(folioResp).to.have.property('checkOutDate');",
+							"    pm.expect(folioResp).to.have.property('roomNumber');",
+							"    pm.expect(folioResp).to.have.property('totalCharges');",
+							"    pm.expect(folioResp.totalCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('totalCredits');",
+							"    pm.expect(folioResp.totalCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folioResp).to.have.property('currentBalance');",
+							"    pm.expect(folioResp.currentBalance).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    var profile = folioResp.profile;",
+							"    pm.expect(profile).to.have.property('firstName');",
+							"    pm.expect(profile).to.have.property('lastName');",
+							"    var folio = folioResp.folios[0];",
+							"    pm.expect(folio).to.have.property('windowNo');",
+							"    pm.expect(folio).to.have.property('windowCharges');",
+							"    pm.expect(folio.windowCharges).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowCredits');",
+							"    pm.expect(folio.windowCredits).to.match(/\\d*(?:\\.\\d{1,2})?$/);",
+							"    pm.expect(folio).to.have.property('windowBalance');",
+							"    pm.expect(folio).to.have.property('windowLastUpdated');",
+							"    var billItem = folio.billItems[0];",
+							"    pm.expect(billItem).to.have.property('date');",
+							"    pm.expect(billItem).to.have.property('description');",
+							"    pm.expect(billItem).to.have.any.keys('chargeAmount','creditAmount');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?confNumber={{folio_gseConfNo}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "confNumber",
+							"value": "{{folio_gseConfNo}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Invalid ccLast4Digits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with invalid ccLast4Digits, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with invalid ccLast4Digits, response error code should be _invalid_format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_format\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{folio_roomNumber}}&ccLast4Digits=12345&lastName={{folio_lastName}}&checkInDate={{folio_checkInDate}}&hotelCode={{folio_hotelCode}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{folio_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "12345"
+						},
+						{
+							"key": "lastName",
+							"value": "{{folio_lastName}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{folio_checkInDate}}"
+						},
+						{
+							"key": "hotelCode",
+							"value": "{{folio_hotelCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Other Params - No Reservation Match",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with other details and no reservation match found, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with other details and no reservation match found, response error code should be _no_data_found\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_no_data_found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber=20981&ccLast4Digits=1234&lastName=testLName&checkInDate=2019-05-18&hotelCode=245",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "20981"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "1234"
+						},
+						{
+							"key": "lastName",
+							"value": "testLName"
+						},
+						{
+							"key": "checkInDate",
+							"value": "2019-05-18"
+						},
+						{
+							"key": "hotelCode",
+							"value": "245"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Partial Request Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with partial request params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with partial request params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{folio_roomNumber}}&ccLast4Digits={{folio_ccLast4Digits}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{folio_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "{{folio_ccLast4Digits}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Invalid ccLast4Digits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with invalid ccLast4Digits, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with invalid ccLast4Digits, response error code should be _invalid_format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_format\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{folio_roomNumber}}&ccLast4Digits=12345&lastName={{folio_lastName}}&checkInDate={{folio_checkInDate}}&hotelCode={{folio_hotelCode}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{folio_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "12345"
+						},
+						{
+							"key": "lastName",
+							"value": "{{folio_lastName}}"
+						},
+						{
+							"key": "checkInDate",
+							"value": "{{folio_checkInDate}}"
+						},
+						{
+							"key": "hotelCode",
+							"value": "{{folio_hotelCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folio - By Partial Request Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"When folio API is called with partial request params, response status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"When folio API is called with partial request params, response error code should be _invalid_request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(\"_invalid_request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/guestservices/ocrs/srch/v1/reservation/folio?roomNumber={{folio_roomNumber}}&ccLast4Digits={{folio_ccLast4Digits}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"guestservices",
+						"ocrs",
+						"srch",
+						"v1",
+						"reservation",
+						"folio"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "{{folio_roomNumber}}"
+						},
+						{
+							"key": "ccLast4Digits",
+							"value": "{{folio_ccLast4Digits}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

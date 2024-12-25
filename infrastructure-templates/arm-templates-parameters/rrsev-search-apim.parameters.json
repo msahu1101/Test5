@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"apimName": {
+			"value": "dignengAPIM-uw-apim-$(commonAppEnvironment)"
+		},
+		"apiName": {
+			"value": "roomresvsearch-uw-fa-$(Environment)"
+		},
+		"functionAppName": {
+			"value": "roomresvsearch-uw-fa-$(Environment)"
+		},
+		"path": {
+			"value": "roomresvsearch-uw-fa-$(Environment)"
+		},
+		"functionSubscriptionId": {
+			"value": "3c3bd594-e3c9-4762-88cf-558073ff00dd"
+		},
+		"functionResourceGroup": {
+			"value": "rbs-uw-rg-$(Environment)"
+		},
+		"subscriptionRequired": {
+			"value": false
+		}
+	}
+}

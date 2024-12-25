@@ -1,0 +1,3 @@
+variables:
+  appName: guestservices-ocrs-srch-uw-fa-q
+  appArmTemplateParameterFile: $(Pipeline.Workspace)/RCS/ARM/FunctionApp/Parameters/preprod/WestUS/arm-template-function-app-ocrs-srch-q.parameters.json

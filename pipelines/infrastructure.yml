@@ -1,0 +1,90 @@
+name: Release-Infrastructure-$(environmentName)$(rev:.r)
+
+parameters:
+- name: environment
+  displayName: Environment
+  type: string
+  default: Development
+  values:
+  - Development
+  - PreProd
+  - Prod
+  - Green
+  - QA3
+
+trigger: none
+
+pr: none
+
+resources:
+  repositories:
+  - repository: SharedTemplates
+    type: github
+    endpoint: MGMResorts
+    name: MGMResorts/guestservices-pipelines-shared
+  - repository: RCS
+    type: github
+    endpoint: MGMResorts
+    name: MGMResorts/room-checkin-service
+
+variables:
+- name: environmentName
+  value: ${{ parameters.environment }}
+- name: environmentCode
+  ${{ if eq(parameters.environment, 'Development') }}:
+    value: dev
+  ${{ elseif eq(parameters.environment, 'PreProd') }}:
+    value: preprod
+  ${{ elseif eq(parameters.environment, 'Prod') }}:
+    value: prod
+  ${{ elseif eq(parameters.environment, 'Green') }}:
+    value: green
+  ${{ elseif eq(parameters.environment, 'QA3') }}:
+    value: qa3
+  ${{ else }}:
+    value: dev
+- template: templates/variables/azure-${{ variables.environmentCode }}.yml@SharedTemplates
+- template: templates/variables/azure-env-${{ variables.azureEnvironment }}.yml@SharedTemplates
+- template: variables/common-variables-${{ variables.environmentCode }}.yml
+- template: variables/infrastructure-${{ variables.environmentCode }}.yml
+
+extends:
+  template: templates/infrastructure-deploy.yml@SharedTemplates
+  parameters:
+    westUsPreDeploySteps:
+    - checkout: self
+    - checkout: RCS
+      path: RCS
+    azureSubscription: ${{ variables.azureSubscription }}
+    azureSubscriptionId: ${{ variables.azureSubscriptionId }}
+    westUsResourceGroupName: ${{ variables.westUsResourceGroupName }}
+    armTemplateFile: $(Pipeline.Workspace)/RCS/ARM/FunctionApp/arm-template-function-app.json
+    westUsArmParameterFile: ${{ variables.appArmTemplateParameterFile }}
+    westUsPostDeploySteps:
+    - ${{ if eq(parameters.environment, 'QA3') }}:
+      - task: AzureCLI@2
+        inputs:
+          connectedServiceNameARM: ${{ variables.azureSubscription }}
+          scriptType: pscore
+          scriptLocation: inlineScript
+          inlineScript: az functionapp config set --name ${{ variables.appName }} --resource-group ${{ variables.westUsResourceGroupName }} --linux-fx-version "Java|8"
+      - task: AzureCLI@2
+        inputs:
+          connectedServiceNameARM: ${{ variables.azureSubscription }}
+          scriptType: pscore
+          scriptLocation: inlineScript
+          inlineScript: az functionapp config set --name ${{ variables.appName }} --resource-group ${{ variables.westUsResourceGroupName }} -s staging --linux-fx-version "Java|8"
+    - task: AzurePowerShell@5
+      displayName: 'Whitelisting IP - Production slot'
+      inputs:
+        ConnectedServiceNameARM: ${{ variables.azureSubscription }}
+        ScriptPath: '$(Pipeline.Workspace)/RCS/Scripts/IpWhitelisting/WhitelistIps.ps1'
+        ScriptArguments: '-SubscriptionId ${{ variables.azureSubscriptionId }} -ResourceGroup ${{ variables.westUsResourceGroupName }} -AppName ${{ variables.appName }} -SlotName "production" ${{ variables.whitelistIpParameters }}'
+        azurePowerShellVersion: LatestVersion
+    - task: AzurePowerShell@5
+      displayName: 'Whitelisting IP - Staging slot'
+      inputs:
+        ConnectedServiceNameARM: ${{ variables.azureSubscription }}
+        ScriptPath: '$(Pipeline.Workspace)/RCS/Scripts/IpWhitelisting/WhitelistIps.ps1'
+        ScriptArguments: '-SubscriptionId ${{ variables.azureSubscriptionId }} -ResourceGroup ${{ variables.westUsResourceGroupName }} -AppName ${{ variables.appName }} -SlotName "staging" ${{ variables.whitelistIpParameters }}'
+        azurePowerShellVersion: LatestVersion

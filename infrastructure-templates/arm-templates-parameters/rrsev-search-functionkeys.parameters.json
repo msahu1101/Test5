@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"functionAppName": {
+            "type": "string",
+            "value": "roomresvsearch-uw-fa-$(Environment)"			
+		},
+		"functionSubscriptionId": {
+			"value": "3c3bd594-e3c9-4762-88cf-558073ff00dd"
+		},
+		"functionResourceGroup": {
+			"value": "rbs-uw-rg-$(Environment)"
+		}
+	}
+}

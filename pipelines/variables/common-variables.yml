@@ -1,0 +1,26 @@
+variables:
+  ciPipelineName: CI_OCRS_Search
+  packageRelativePath: /$(ciPipelineName)/drop/target/azure-functions/room-resv-search
+  appArmTemplateFile: $(Pipeline.Workspace)/RCS/ARM/FunctionApp/arm-template-function-app.json
+  stagingSlotApiProxyName: $(productionSlotApiProxyName)-staging
+  stagingSlotApiProxyBasePath: /staging$(productionSlotApiProxyBasePath)
+  apiProxyOpenApiBasePath: $(Pipeline.Workspace)/$(ciPipelineName)/drop/infrastructure-templates/openapi/
+  stagingSlotApiProxyOpenApiPath: $(apiProxyOpenApiBasePath)openapi-staging.yaml
+  stagingSlotApiProxyBackendUrl: https://$(appName)-staging.azurewebsites.net/api
+  stagingSlotHealthCheckUrl: https://$(appName)-staging.azurewebsites.net/api/v1/health
+  postmanEnvironmentPath: $(Pipeline.Workspace)/$(ciPipelineName)/drop/postman/$(environmentCode).postman_environment.json
+  stagingSlotTestRunTitle: Smoke_Test_OCRS_Search_Staging_Slot($(environmentCode))
+  postmanSecretsAzureServiceConnection: $(azureSubscription)
+  postmanSecretsKeyVault: $(azureKeyVaultName)
+  postmanSecretsKeys: OCRS--IdentityAuthClientId,OCRS--IdentityAuthClientSecret
+  postmanEnvironmentVariables: |
+    client_id=$(OCRS--IdentityAuthClientId)
+    client_secret=$(OCRS--IdentityAuthClientSecret)
+  manualValidationInstructions: Validate OCRS Search ($(environmentCode)) deployment failures and provide approval to proceed
+  productionSlotApiProxyName: guestservices-ocrs-srch
+  productionSlotApiProxyBasePath: /guestservices/ocrs/srch
+  productionSlotApiProxyOpenApiPath: $(apiProxyOpenApiBasePath)openapi.yaml
+  productionSlotApiProxyBackendUrl: https://$(appName).azurewebsites.net/api
+  productionSlotHealthCheckUrl: https://$(appName).azurewebsites.net/api/v1/health
+  productionSlotPostmanCollectionPath: $(Pipeline.Workspace)/$(ciPipelineName)/drop/postman/sanity-tests-apigee.postman_collection.json
+  productionSlotTestRunTitle: Smoke_Test_OCRS_Search_Production_Slot($(environmentCode))

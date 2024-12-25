@@ -1,0 +1,276 @@
+{
+    "reservationFolioInformation": {
+        "folioWindows": [
+            {
+                "revenue": {
+                    "amount": 801.61,
+                    "currencyCode": "USD"
+                },
+                "payment": {
+                    "amount": 0,
+                    "currencyCode": "USD"
+                },
+                "balance": {
+                    "amount": 666.35,
+                    "currencyCode": "USD"
+                },
+                "debitPayment": {
+                    "currencyCode": "USD"
+                },
+                "debitBalance": {
+                    "currencyCode": "USD"
+                },
+                "paymentMethod": {
+                    "paymentCard": {
+                        "cardId": {
+                            "id": "51849",
+                            "type": "CreditCard"
+                        },
+                        "cardType": "Mc",
+                        "cardNumberMasked": "XXXXXXXXXXXX4444",
+                        "expirationDateMasked": "XX/XX",
+                        "expirationDateExpired": false,
+                        "cardHolderName": "Sam Jones",
+                        "processing": "Eft",
+                        "swiped": false,
+                        "cardPresent": false,
+                        "cardOrToken": "CardNumber"
+                    },
+                    "authorizationRule": {
+                        "code": 2,
+                        "amount": {
+                            "amount": 100,
+                            "currencyCode": "USD"
+                        }
+                    },
+                    "paymentMethod": "MC",
+                    "description": "Mastercard",
+                    "folioView": 1
+                },
+                "folios": [
+                    {
+                        "payeeInfo": {
+                            "payeeId": {
+                                "id": "331282",
+                                "type": "Profile"
+                            },
+                            "payeeName": "Smith, Sarah",
+                            "payeeAddress": {
+                                "address": {
+                                    "country": {}
+                                }
+                            }
+                        },
+                        "postings": [
+                            {
+                                "reference": "ref1",
+                                "checkNo": "check1",
+                                "postedAmount": {
+                                    "amount": 111.15,
+                                    "currencyCode": "USD"
+                                },
+                                "price": {
+                                    "amount": 111.15,
+                                    "currencyCode": "USD"
+                                },
+                                "quantity": 1,
+                                "transactionType": "Revenue",
+                                "debitAmount": {
+                                    "amount": 111.15,
+                                    "currencyCode": "USD"
+                                },
+                                "cashierInfo": {
+                                    "cashierId": 4,
+                                    "cashierName": "Salomon Giron"
+                                },
+                                "paidOut": false,
+                                "serviceRecovery": false,
+                                "exchange": {
+                                    "debitAmount": {
+                                        "amount": 111,
+                                        "currencyCode": "USD"
+                                    }
+                                },
+                                "stampDuty": false,
+                                "transactionNo": 1000,
+                                "transactionDate": "2024-01-29",
+                                "transactionCode": "140201",
+                                "transactionAmount": 111,
+                                "postingDate": "2024-01-24",
+                                "postingTime": {
+                                    "time": "2024-08-05 11:20:25.0",
+                                    "timezone": "UTC"
+                                }
+                            },
+                            {
+                                "reference": "ref2",
+                                "checkNo": "check2",
+                                "postedAmount": {
+                                    "amount": 222.1,
+                                    "currencyCode": "USD"
+                                },
+                                "price": {
+                                    "amount": 222.1,
+                                    "currencyCode": "USD"
+                                },
+                                "quantity": 1,
+                                "transactionType": "Revenue",
+                                "creditAmount": {
+                                    "amount": 222.1,
+                                    "currencyCode": "USD"
+                                },
+                                "cashierInfo": {
+                                    "cashierId": 4,
+                                    "cashierName": "Salomon Giron"
+                                },
+                                "paidOut": false,
+                                "serviceRecovery": false,
+                                "exchange": {
+                                    "creditAmount": {
+                                        "amount": 222.1,
+                                        "currencyCode": "USD"
+                                    }
+                                },
+                                "stampDuty": false,
+                                "transactionNo": 1001,
+                                "transactionDate": "2024-01-24",
+                                "transactionCode": "140202",
+                                "transactionAmount": 222.1,
+                                "postingDate": "2024-01-28",
+                                "postingTime": {
+                                    "time": "2024-08-05 11:20:25.0",
+                                    "timezone": "UTC"
+                                }
+                            },
+                            {
+                                "reference": "12345",
+                                "postedAmount": {
+                                    "amount": 333.15,
+                                    "currencyCode": "USD"
+                                },
+                                "price": {
+                                    "amount": 333.15,
+                                    "currencyCode": "USD"
+                                },
+                                "quantity": 1,
+                                "debitAmount": {
+                                    "amount": 333.15,
+                                    "currencyCode": "USD"
+                                },
+                                "cashierInfo": {
+                                    "cashierId": 4,
+                                    "cashierName": "Salomon Giron"
+                                },
+                                "paidOut": false,
+                                "serviceRecovery": false,
+                                "exchange": {
+                                    "debitAmount": {
+                                        "amount": 333.15,
+                                        "currencyCode": "USD"
+                                    }
+                                },
+                                "stampDuty": false,
+                                "transactionNo": 1002,
+                                "transactionDate": "2024-01-24",
+                                "transactionCode": "140203",
+                                "transactionAmount": 333.15,
+                                "postingDate": "2024-01-24",
+                                "postingTime": {
+                                    "time": "2024-08-05 11:20:25.0",
+                                    "timezone": "UTC"
+                                }
+                            },
+                            {
+                                "reference": "12345",
+                                "postedAmount": {
+                                    "amount": 444.15,
+                                    "currencyCode": "USD"
+                                },
+                                "price": {
+                                    "amount": 444.15,
+                                    "currencyCode": "USD"
+                                },
+                                "quantity": 1,
+                                "transactionType": "Payment",
+                                "debitAmount": {
+                                    "amount": 444.15,
+                                    "currencyCode": "USD"
+                                },
+                                "cashierInfo": {
+                                    "cashierId": 4,
+                                    "cashierName": "Salomon Giron"
+                                },
+                                "paidOut": false,
+                                "serviceRecovery": false,
+                                "exchange": {
+                                    "debitAmount": {
+                                        "amount": 444.15,
+                                        "currencyCode": "USD"
+                                    }
+                                },
+                                "stampDuty": false,
+                                "transactionNo": 1003,
+                                "transactionDate": "2024-01-26",
+                                "transactionCode": "140204",
+                                "transactionAmount": 444.15,
+                                "postingDate": "2024-01-26",
+                                "postingTime": {
+                                    "time": "2024-08-05 11:20:25.0",
+                                    "timezone": "UTC"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "folioWindowNo": 1,
+                "internalFolioWindowID": "153996",
+                "emptyFolio": false,
+                "emptyWindow": false,
+                "simpleFolio": false,
+                "paymentsOnly": false,
+                "totalPages": 1,
+                "offset": 200,
+                "limit": 200,
+                "totalResults": 9
+            }
+        ]
+    },
+    "trxCodesInfo": [
+        {
+            "description": "description1",
+            "transactionGroup": "ROOM",
+            "transactionSubGroup": "ROOMREV",
+            "trxServiceType": "S",
+            "transactionCode": "140201",
+            "hotelId": "275",
+            "printTrxReceipt": false
+        },
+        {
+            "description": "description2",
+            "transactionGroup": "ROOM",
+            "transactionSubGroup": "ROOMREV",
+            "trxServiceType": "S",
+            "transactionCode": "140202",
+            "hotelId": "275",
+            "printTrxReceipt": false
+        },
+        {
+            "description": "King Room",
+            "transactionGroup": "ROOM",
+            "transactionSubGroup": "ROOMREV",
+            "trxServiceType": "S",
+            "transactionCode": "140203",
+            "hotelId": "275",
+            "printTrxReceipt": false
+        },
+        {
+            "description": "King Room Tax",
+            "transactionGroup": "ROOM",
+            "transactionSubGroup": "ROOMREV",
+            "trxServiceType": "S",
+            "transactionCode": "140204",
+            "hotelId": "275",
+            "printTrxReceipt": false
+        }
+    ]
+}

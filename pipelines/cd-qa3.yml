@@ -1,0 +1,35 @@
+name: QA3$(rev:.r)
+
+parameters:
+- name: bypassApigeeXApiChangeDetection
+  displayName: Bypass Apigee X API change detection
+  type: boolean
+  default: false
+
+trigger: none
+
+pr: none
+
+resources:
+  pipelines:
+  - pipeline: CI_OCRS_Search
+    source: CI-OCRS-Search
+    trigger:
+      branches:
+        include:
+        - develop
+  repositories:
+  - repository: SharedTemplates
+    type: github
+    endpoint: MGMResorts
+    name: MGMResorts/guestservices-pipelines-shared
+
+extends:
+  template: templates/deploy-ocrs.yml@SharedTemplates
+  parameters:
+    environmentCode: qa3
+    appType: functionAppLinux
+    stagingSlotTemporaryWhitelistIpToAgentForHealthCheck: true
+    temporaryWhitelistIpToKeyVault: true
+    productionSlotTemporaryWhitelistIpToAgentForHealthCheck: true
+    bypassApigeeXApiChangeDetection: ${{ parameters.bypassApigeeXApiChangeDetection }}

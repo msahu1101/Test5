@@ -1,0 +1,377 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"application": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the application or service"
+			}
+		},
+		"functionAppName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the function app that you wish to create."
+			}
+		},
+		"functionMainClass": {
+			"type": "string",
+			"metadata": {
+				"description": "Entry point class for the application"
+			}
+		},
+		"appInsightsName": {
+			"type": "string",
+			"metadata": {
+				"description": "The created name of the app insight."
+			}
+		},
+		"appServicePlanName": {
+			"type": "string",
+			"metadata": {
+				"description": "The created name of the app service plan."
+			}
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "[resourceGroup().location]",
+			"metadata": {
+				"description": "Location of the resource group."
+			}
+		},
+		"storageAccountName": {
+			"type": "string",
+			"metadata": {
+				"description": "Created name of the storage account."
+			}
+		},
+		"functionWorkerRuntime": {
+			"type": "string",
+			"metadata": {
+				"description": "The language worker runtime to load in the function app."
+			}
+		},
+		"sku": {
+			"type": "string",
+			"metadata": {
+				"description": "The SKU of App Service Plan"
+			}
+		},
+		"vnetResourceGroupName": {
+			"type": "string",
+			"metadata": {
+				"description": "Resource Group of the vnet which gets asociated with Storage"
+			}
+		},
+		"vnetName": {
+			"type": "string",
+			"metadata": {
+				"description": "vnet Name which gets asociated with Storage"
+			}
+		},
+		"subnetName": {
+			"type": "string",
+			"metadata": {
+				"description": "Storage Network Access Control List"
+			}
+		},
+		"appRegistrationObjectId": {
+			"type": "securestring",
+			"defaultValue": "***********ClientId*********",
+			"metadata": {
+				"description": "Specifies the created app Registration Object Id."
+			}
+		},
+		"appServiceResourceGroupName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the App Service Group"
+			}
+		},
+		"runtimeEnvironment": {
+			"type": "string",
+			"metadata": {
+				"description": "Specify the application environment"
+			}
+		},
+		"environment": {
+			"type": "string",
+			"metadata": {
+				"description": "Application Environment"
+			}
+		},
+		"vaultName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the keyvault that contains the secret."
+			}
+		},
+		"cosmosDbAccessKey": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the secret holding cosmos db access key"
+			}
+		},
+		"vaultResourceGroupName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the resource group that contains the keyvault."
+			}
+		}
+	},
+	"variables": {
+		
+	},
+	"resources": [
+		{
+			"apiVersion": "2018-05-01",
+			"name": "dynamicSecret",
+			"type": "Microsoft.Resources/deployments",
+			"properties": {
+				"mode": "Incremental",
+				"expressionEvaluationOptions": {
+					"scope": "inner"
+				},
+				"template": {
+					"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+					"contentVersion": "1.0.0.0",
+					"parameters": {
+						"application": {
+							"type": "string"
+						},
+						"functionAppName": {
+							"type": "string"
+						},
+						"functionMainClass": {
+							"type": "string"
+						},
+						"appInsightsName": {
+							"type": "string"
+						},
+						"appServicePlanName": {
+							"type": "string"
+						},
+						"location": {
+							"type": "string",
+							"defaultValue": "[resourceGroup().location]"
+						},
+						"storageAccountName": {
+							"type": "string"
+						},
+						"functionWorkerRuntime": {
+							"type": "string"
+						},
+						"sku": {
+							"type": "string"
+						},
+						"vnetResourceGroupName": {
+							"type": "string"
+						},
+						"vnetName": {
+							"type": "string"
+						},
+						"subnetName": {
+							"type": "string"
+						},
+						"appRegistrationObjectId": {
+							"type": "securestring",
+							"defaultValue": "***********ClientId*********"
+						},
+						"appServiceResourceGroupName": {
+							"type": "string"
+						},
+						"runtimeEnvironment": {
+							"type": "string"
+						},
+						"environment": {
+							"type": "string"
+						},
+						"cosmosDbAccessKey": {
+							"type": "securestring",
+							"metadata": {
+								"description": "Cosmos DB access key constructed from Key vault"
+							}
+						}
+					},
+					"variables": {
+						"storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+						"subnetId": "[resourceId(parameters('vnetResourceGroupName') ,'Microsoft.Network/virtualNetworks/subnets',parameters('vnetName'),parameters('subnetName'))]",
+						"appServicePlanId": "[resourceId(parameters('appServiceResourceGroupName') ,'Microsoft.Web/serverfarms',parameters('appServicePlanName'))]"
+					},
+					"resources": [
+						{
+							"apiVersion": "2015-05-01",
+							"name": "[parameters('appInsightsName')]",
+							"type": "Microsoft.Insights/components",
+							"location": "[parameters('location')]",
+							"properties": {
+								"ApplicationId": "[parameters('appInsightsName')]"
+							},
+							"tags": {
+								"creator": "Booking Team",
+								"application": "[parameters('application')]",
+								"businessSponsor": "Kemen Penev",
+								"businessCostCenter": "516-800-80182 Digital Engineering",
+								"environment": "[parameters('environment')]"
+							}
+						},
+						{
+							"type": "Microsoft.Web/sites",
+							"apiVersion": "2016-08-01",
+							"name": "[parameters('functionAppName')]",
+							"location": "[parameters('location')]",
+							"kind": "functionapp",
+							"identity": {
+								"type": "SystemAssigned"
+							},
+							"sku": {
+								"Name": "[parameters('sku')]",
+								"capacity": 2
+							},
+							"tags": {
+								"creator": "Booking Team",
+								"application": "[parameters('application')]",
+								"businessSponsor": "Kemen Penev",
+								"businessCostCenter": "516-800-80182 Digital Engineering",
+								"environment": "[parameters('environment')]"
+							},
+							"properties": {
+								"httpsOnly": true,
+								"serverFarmId": "[variables('appServicePlanId')]",
+								"siteConfig": {
+									"alwaysOn": true,
+									"remoteDebuggingEnabled": false,
+									"netFrameworkVersion": "v4.7",
+									"requestTracingEnabled": true,
+									"httpLoggingEnabled": true,
+									"detailedErrorLoggingEnabled": true,
+									"siteAuthEnabled": false,
+									"siteAuthSettings": {
+										"clientId": "[parameters('appRegistrationObjectId')]"
+									},
+									"minTlsVersion": 1.2,
+									"webSocketsEnabled": false,
+									"appSettings": [
+										{
+											"name": "AzureWebJobsStorage",
+											"value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+										},
+										{
+											"name": "FUNCTIONS_EXTENSION_VERSION",
+											"value": "~4"
+										},
+										{
+											"name": "WEBSITE_NODE_DEFAULT_VERSION",
+											"value": "10.14.1"
+										},
+										{
+											"name": "WEBSITE_RUN_FROM_PACKAGE",
+											"value": "1"
+										},
+										{
+											"name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+											"value": "[reference(concat('microsoft.insights/components/', parameters('appInsightsName'))).InstrumentationKey]"
+										},
+										{
+											"name": "runtime.environment",
+											"value": "[parameters('runtimeEnvironment')]"
+										},
+										{
+											"name": "FUNCTIONS_WORKER_RUNTIME",
+											"value": "[parameters('functionWorkerRuntime')]"
+										},
+										{
+											"name": "MAIN_CLASS",
+											"value": "[parameters('functionMainClass')]"
+										},
+										{
+											"name": "SPRING_PROFILES_ACTIVE",
+											"value": "[parameters('runtimeEnvironment')]"
+										},
+										{
+											"name": "cosmosDbAccessKey",
+											"value": "[parameters('cosmosDbAccessKey')]"
+										}
+									]
+								}
+							},
+							"resources": [
+								{
+									"type": "config",
+									"apiVersion": "2018-02-01",
+									"name": "virtualNetwork",
+									"location": "[parameters('location')]",
+									"dependsOn": [
+										"[concat('Microsoft.Web/sites/', parameters('functionAppName'))]"
+									],
+									"properties": {
+										"subnetResourceId": "[variables('subnetId')]",
+										"swiftSupported": true
+									}
+								}
+							]
+						}
+					]
+				},
+				"parameters": {
+					"location": {
+						"value": "[parameters('location')]"
+					},
+					"application": {
+						"value": "[parameters('application')]"
+					},
+					"functionAppName": {
+						"value": "[parameters('functionAppName')]"
+					},
+					"functionMainClass": {
+						"value": "[parameters('functionMainClass')]"
+					},
+					"appInsightsName": {
+						"value": "[parameters('appInsightsName')]"
+					},
+					"appServicePlanName": {
+						"value": "[parameters('appServicePlanName')]"
+					},
+					"storageAccountName": {
+						"value": "[parameters('storageAccountName')]"
+					},
+					"functionWorkerRuntime": {
+						"value": "[parameters('functionWorkerRuntime')]"
+					},
+					"sku": {
+						"value": "[parameters('sku')]"
+					},
+					"vnetResourceGroupName": {
+						"value": "[parameters('vnetResourceGroupName')]"
+					},
+					"vnetName": {
+						"value": "[parameters('vnetName')]"
+					},
+					"subnetName": {
+						"value": "[parameters('subnetName')]"
+					},
+					"appRegistrationObjectId": {
+						"value": "[parameters('appRegistrationObjectId')]"
+					},
+					"appServiceResourceGroupName": {
+						"value": "[parameters('appServiceResourceGroupName')]"
+					},
+					"runtimeEnvironment": {
+						"value": "[parameters('runtimeEnvironment')]"
+					},
+					"environment": {
+						"value": "[parameters('environment')]"
+					},
+					"cosmosDbAccessKey": {
+						"reference": {
+							"keyVault": {
+								"id": "[resourceId(subscription().subscriptionId, parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+							},
+							"secretName": "[parameters('cosmosDbAccessKey')]"
+						}
+					}
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,67 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"application": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the application or service"
+			}
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "[resourceGroup().location]",
+			"metadata": {
+				"description": "Location of the resource group."
+			}
+		},
+		"storageAccountName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the storage that you wish to create."
+			}
+		},
+		"accountType": {
+			"type": "string",
+			"metadata": {
+				"description": "Storage Account type"
+			}
+		},
+		"kind": {
+			"type": "string",
+			"metadata": {
+				"description": "Storage Account kind"
+			}
+		},
+		"environment": {
+			"type": "string",
+			"metadata": {
+				"description": "Application Environment"
+			}
+		}
+	},
+	"variables": {
+	},
+	"resources": [
+		{
+			"type": "Microsoft.Storage/storageAccounts",
+			"name": "[parameters('storageAccountName')]",
+			"apiVersion": "2019-04-01",
+			"location": "[parameters('location')]",
+			"sku": {
+				"name": "[parameters('accountType')]"
+			},
+			"tags": {
+				"creator": "Booking Team",
+				"application": "[parameters('application')]",
+				"businessSponsor": "Kemen Penev",
+				"businessCostCenter": "516-800-80182 Digital Engineering",
+				"environment": "[parameters('environment')]"
+			},
+			"kind": "[parameters('kind')]",	
+			"properties": {
+				"supportsHttpsTrafficOnly": true
+			}
+		}
+	]
+}

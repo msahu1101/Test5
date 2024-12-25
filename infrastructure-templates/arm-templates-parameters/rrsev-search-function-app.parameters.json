@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"application": {
+            "type": "string",
+            "value": "room-reservation-search"			
+		},
+		"functionAppName": {
+            "type": "string",
+            "value": "roomresvsearch-uw-fa-$(Environment)"			
+		},
+		"functionMainClass": {
+            "type": "string",
+            "value": "com.mgmresorts.booking.room.reservation.search.SearchApplication"			
+		},
+		"appInsightsName": {
+			"type": "string",
+			"value": "roomresvsearch-uw-ai-$(Environment)"		
+		},
+		"appServicePlanName": {
+			"type": "string",
+			"value": "booking-uw-asp-$(Environment)"
+		},
+		"storageAccountName": {
+			"type": "string",
+			"value": "roomresvresourcesuwsa$(Environment)"		
+		},
+		"functionWorkerRuntime": {
+			"type": "string",
+			"value": "java"		
+		},
+		"sku": {
+			"type": "string",
+			"value": "P2V2"		
+		},
+		"vnetResourceGroupName": {
+			"type": "string",
+			"value": "bookingvnets-uw-rg-$(Environment)"
+		},
+		"vnetName": {
+			"type": "string",
+			"value": "booking-uw-vnet-$(Environment)"
+		},
+		"subnetName": {
+			"type": "string",
+			"value": "appserviceenvprivate-uw-sn-$(Environment)"
+		},
+		"appRegistrationObjectId": {
+			"type": "securestring",			
+			"value": "1b587d13-66bf-48d7-98a5-c07a6768d059"
+		},
+		"appServiceResourceGroupName": {
+			"type": "string",
+			"value": "SharedAspbooking-uw-rg-$(Environment)"
+		},
+		"runtimeEnvironment": {
+			"type": "string",
+			"value": "$(runtimeEnvironment)"
+		},
+		"environment": {
+			"type": "string",
+			"value": "$(TagEnvironment)"
+		},
+		"vaultName": {
+			"type": "string",
+			"value": "Bookingpub-uw-kv-$(Environment)"
+		},
+		"cosmosDbAccessKey": {
+			"type": "string",
+			"value": "rresv-cosmos-key-$(Environment)"
+		},
+		"vaultResourceGroupName": {
+			"type": "string",
+			"value": "bookingKeyVault-uw-rg-$(Environment)"
+		}
+	}
+}

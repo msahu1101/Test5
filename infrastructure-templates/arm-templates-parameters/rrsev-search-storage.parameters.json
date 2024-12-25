@@ -1,0 +1,26 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {	
+		"application": {
+            "type": "string",
+            "value": "room-reservation-search"			
+		},	
+		"storageAccountName": {
+			"type": "string",
+			"value": "roomresvresourcesuwsa$(Environment)"
+		},
+		"accountType": {
+			"type": "string",
+			"value": "Standard_RAGRS"
+		},
+		"kind": {
+			"type": "string",
+			"value": "StorageV2"
+		},
+		"environment": {
+			"type": "string",
+			"value": "$(TagEnvironment)"
+		}
+	}
+}

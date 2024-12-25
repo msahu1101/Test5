@@ -1,0 +1,5 @@
+variables:
+  apigeeXEnvironment: prod-4
+  stagingSlotPostmanCollectionPath: $(Pipeline.Workspace)/$(ciPipelineName)/drop/postman/sanity-tests-stagingslot-apigee.postman_collection.json
+  stagingSlotTestUploadResultsToXray: true
+  productionSlotTestUploadResultsToXray: true

@@ -1,0 +1,399 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"application": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the application or service"
+			}
+		},
+		"functionAppName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the function app that you wish to create."
+			}
+		},
+		"functionMainClass": {
+			"type": "string",
+			"metadata": {
+				"description": "Entry point class for the application"
+			}
+		},
+		"appInsightsName": {
+			"type": "string",
+			"metadata": {
+				"description": "The created name of the app insight."
+			}
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "[resourceGroup().location]",
+			"metadata": {
+				"description": "Location of the resource group."
+			}
+		},
+		"storageAccountName": {
+			"type": "string",
+			"metadata": {
+				"description": "Created name of the storage account."
+			}
+		},
+		"functionWorkerRuntime": {
+			"type": "string",
+			"metadata": {
+				"description": "The language worker runtime to load in the function app."
+			}
+		},
+		"runtimeEnvironment": {
+			"type": "string",
+			"metadata": {
+				"description": "Specify the application environment"
+			}
+		},
+		"environment": {
+			"type": "string",
+			"metadata": {
+				"description": "Application Environment"
+			}
+		},
+		"appProfile": {
+			"type": "string",
+			"metadata": {
+				"description": "Application profile to use to load different env configs"
+			}
+		},
+		"vaultName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the keyvault that contains the secret."
+			}
+		},
+		"cosmosDbAccessKey": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the secret holding cosmos db access key"
+			}
+		},
+		"livesiteEhSecretName": {
+			"type": "string",
+			"defaultValue": "livesite-eh-conn-string",
+			"metadata": {
+				"description": "The name of the secret holding livesite event hub connection string"
+			}
+		},
+		"vaultResourceGroupName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the resource group that contains the keyvault."
+			}
+		},
+		"operaDbUserNameSecretName": {
+			"type": "securestring",
+			"metadata": {
+				"description": "The name of the secret holding Opera DB user name"
+			}
+		},
+		"operaDbUserPwdSecretName": {
+			"type": "securestring",
+			"metadata": {
+				"description": "The name of the secret holding Opera user password"
+			}
+		},
+		"operaDbUrlSecretName": {
+			"type": "securestring",
+			"metadata": {
+				"description": "The name of the secret holding Opera jdbc connection string"
+			}
+		}
+	},
+	"variables": {
+		
+	},
+	"resources": [
+		{
+			"apiVersion": "2018-05-01",
+			"name": "dynamicSecret",
+			"type": "Microsoft.Resources/deployments",
+			"properties": {
+				"mode": "Incremental",
+				"expressionEvaluationOptions": {
+					"scope": "inner"
+				},
+				"template": {
+					"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+					"contentVersion": "1.0.0.0",
+					"parameters": {
+						"functionAppName": {
+							"type": "string"
+						},
+						"functionMainClass": {
+							"type": "string"
+						},
+						"appInsightsName": {
+							"type": "string"
+						},
+						"location": {
+							"type": "string",
+							"defaultValue": "[resourceGroup().location]"
+						},
+						"storageAccountName": {
+							"type": "string"
+						},
+						"functionWorkerRuntime": {
+							"type": "string"
+						},
+						"runtimeEnvironment": {
+							"type": "string"
+						},
+						"environment": {
+							"type": "string"
+						},
+						"appProfile": {
+							"type": "string"
+						},
+						"cosmosDbAccessKey": {
+							"type": "securestring",
+							"metadata": {
+								"description": "Cosmos DB access key constructed from Key vault"
+							}
+						},
+						"livesiteEhConnString": {
+							"type": "securestring",
+							"metadata": {
+								"description": "IP whitelist password constructed from Key vault"
+							}
+						},
+						"operaDbUserName": {
+							"type": "securestring",
+							"metadata": {
+								"description": "Opera db user name constructed from Key vault"
+							}
+						},
+						"operaDbUserPwd": {
+							"type": "securestring",
+							"metadata": {
+								"description": "Opera db password constructed from Key vault"
+							}
+						},
+						"operaDbUrl": {
+							"type": "securestring",
+							"metadata": {
+								"description": "Opera db connection string constructed from Key vault"
+							}
+						}
+					},
+					"variables": {
+						"storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+					},
+					"resources": [
+						{
+							"type": "Microsoft.Web/sites/slots",
+							"apiVersion": "2018-02-01",
+							"name": "[concat(parameters('functionAppName'), '/staging')]",
+							"location": "[parameters('location')]",
+							"kind": "functionapp",
+							"properties": {
+								"siteConfig": {
+									"scmIpSecurityRestrictionsUseMain": "false",
+								    "use32BitWorkerProcess": "false",
+									"appSettings": [
+										{
+											"name": "AzureWebJobsStorage",
+											"value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+										},
+										{
+											"name": "FUNCTIONS_EXTENSION_VERSION",
+											"value": "~4"
+										},
+										{
+											"name": "WEBSITE_NODE_DEFAULT_VERSION",
+											"value": "10.14.1"
+										},
+										{
+											"name": "WEBSITE_RUN_FROM_PACKAGE",
+											"value": "1"
+										},
+										{
+											"name": "WEBSITE_CONTENTOVERVNET",
+											"value": "1"
+										},
+										{
+											"name": "WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG",
+											"value": "1"
+										},
+										{
+											"name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+											"value": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsightsName')), '2015-05-01').InstrumentationKey]"
+										},
+										{
+											"name": "runtime.environment",
+											"value": "[parameters('runtimeEnvironment')]"
+										},
+										{
+											"name": "FUNCTIONS_WORKER_RUNTIME",
+											"value": "[parameters('functionWorkerRuntime')]"
+										},
+										{
+											"name": "MAIN_CLASS",
+											"value": "[parameters('functionMainClass')]"
+										},
+										{
+											"name": "appProfile",
+											"value": "[parameters('appProfile')]"
+										},
+										{
+											"name": "cosmosDbAccessKey",
+											"value": "[parameters('cosmosDbAccessKey')]"
+										},
+										{
+											"name": "livesiteEventsEventhubConnection",
+											"value": "[parameters('livesiteEhConnString')]"
+										},
+										{
+											"name": "domain",
+											"value": "room-resv-search"
+										},
+										{
+											"name": "source",
+											"value": "opera-cloud-store"
+										},
+										{
+											"name": "maxItemCount",
+											"value": "200"
+										},
+										{
+											"name": "continuationTokenLimitInKb",
+											"value": "2"
+										},
+										{
+											"name": "operaDbUserName",
+											"value": "[parameters('operaDbUserName')]"
+										},
+										{
+											"name": "operaDbUserPassword",
+											"value": "[parameters('operaDbUserPwd')]"
+										},
+										{
+											"name": "operaDbUrl",
+											"value": "[parameters('operaDbUrl')]"
+										},
+										{
+											"name": "logResponse",
+											"value": "true"
+										},
+										{
+											"name": "propertyDateRollShiftFromMidnightInMinutes",
+											"value": "001|180,005|180,016|240,021|150,180|180,190|180,275|120,280|180,285|180,290|150,304|240,306|240,307|180,930|150,938|150"
+										},
+										{
+											"name": "propertyTimezones",
+											"value": "001|America/Los_Angeles,005|America/Los_Angeles,016|America/Detroit,021|America/Los_Angeles,180|America/Chicago,190|America/Los_Angeles,275|America/Los_Angeles,280|America/Los_Angeles,285|America/Los_Angeles,290|America/Los_Angeles,304|America/New_York,306|America/New_York,307|America/New_York,930|America/Los_Angeles,938|America/Los_Angeles"
+										},
+										{
+											"name": "searchDisableDates",
+											"value": "160|2022-12-18T14:00:00,345|2023-02-14T14:00:00"
+										},
+										{
+											"name": "searchByConfNumberRestrictMgmRole",
+											"value": "true"
+										},
+										{
+											"name": "blockProfileIdSettings",
+											"value": "{\"blockedProfileIds\":\"82492537\",\"allowedTokens\":\"service,employee\",\"blockedReservationStatuses\":\"RESERVED\"}"
+										},
+										{
+											"name": "blockPartnerAccountSettings",
+											"value": "{\"shouldBlockPartnerAccount\":true,\"blockedProgramCodes\":[\"GP\"],\"allowedTokens\":[\"service\",\"employee\"],\"blockedReservationStatuses\":[\"RESERVED\"],\"blockedHotelCodes\":[\"280\",\"285\"]}"
+										},
+										{
+											"name": "possibleCellphoneTypes",
+											"value": "MOBILE,OTHER,HOME"
+										},
+										{
+											"name": "kioskClientId",
+											"value": "kiosk_app_service"
+										},
+										{
+											"name": "tcolvChannelWhitelist",
+											"value": "unknown,ice,web,roomresortfeewaiver"
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				"parameters": {
+					"location": {
+						"value": "[parameters('location')]"
+					},
+					"functionAppName": {
+						"value": "[parameters('functionAppName')]"
+					},
+					"functionMainClass": {
+						"value": "[parameters('functionMainClass')]"
+					},
+					"appInsightsName": {
+						"value": "[parameters('appInsightsName')]"
+					},
+					"storageAccountName": {
+						"value": "[parameters('storageAccountName')]"
+					},
+					"functionWorkerRuntime": {
+						"value": "[parameters('functionWorkerRuntime')]"
+					},
+					"runtimeEnvironment": {
+						"value": "[parameters('runtimeEnvironment')]"
+					},
+					"environment": {
+						"value": "[parameters('environment')]"
+					},
+					"appProfile": {
+						"value": "[parameters('appProfile')]"
+					},
+					"cosmosDbAccessKey": {
+						"reference": {
+							"keyVault": {
+								"id": "[resourceId(subscription().subscriptionId, parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+							},
+							"secretName": "[parameters('cosmosDbAccessKey')]"
+						}
+					},
+					"livesiteEhConnString": {
+						"reference": {
+							"keyVault": {
+								"id": "[resourceId(subscription().subscriptionId, parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+							},
+							"secretName": "[parameters('livesiteEhSecretName')]"
+						}
+					},
+					"operaDbUserName": {
+						"reference": {
+							"keyVault": {
+								"id": "[resourceId(subscription().subscriptionId, parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+							},
+							"secretName": "[parameters('operaDbUserNameSecretName')]"
+						}
+					},
+					"operaDbUserPwd": {
+						"reference": {
+							"keyVault": {
+								"id": "[resourceId(subscription().subscriptionId, parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+							},
+							"secretName": "[parameters('operaDbUserPwdSecretName')]"
+						}
+					},
+					"operaDbUrl": {
+						"reference": {
+							"keyVault": {
+								"id": "[resourceId(subscription().subscriptionId, parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+							},
+							"secretName": "[parameters('operaDbUrlSecretName')]"
+						}
+					}
+				}
+			}
+		}
+	]
+}
