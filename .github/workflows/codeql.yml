@@ -90,4 +90,5 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-        queries: ./github/workflows/token.ql
+        #queries: ./github/workflows/token.ql
+        queries: ./github/workflows/inputs.ql
